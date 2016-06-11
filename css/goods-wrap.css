@@ -1,0 +1,39 @@
+/*容器边框*/
+.goods-wrap{
+    width:47%;
+    float:left;
+    height: 200px;
+    margin: 2% 0% 0% 2%;
+    display: inline-block;
+}
+.goods-wrap .goods-image-wrap img{
+    width: 100%;
+    height: 139px;
+}
+.goods-wrap .goods-title{
+    padding-top: 8px;
+    text-align: left;
+}
+.goods-wrap .goods-price{
+    text-align: left;
+}
+.goods-wrap .price-main{
+    padding-right: 2px;
+    font-weight: 600;
+    color: red;
+}
+
+/*购物车*/
+.item-add {
+    float: right;
+    position: relative;
+    bottom: 25px;
+    height: 0px;
+    padding-right: 2px;
+}
+.item-add .-plus {
+    padding: 0px 5px;
+    border: 1px solid #a29d9d;
+    border-radius: 50%;
+    color: red;
+}
