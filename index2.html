@@ -87,9 +87,9 @@
           <img class="banner" src="http://img01.bqstatic.com//upload/activity/2016060813471954.jpg@90Q.jpg"/>
           <div class="goods-list" style="background-color:#EFEFEF;display:inline-block;">
             <div class="goods">
-              <a href="XXX">
+                <a data-toggle="modal" data-target="#detailModelContainer">
                   <img src="http://img01.bqstatic.com/upload/goods/201/605/2409/20160524095244_729759.jpg@200w_200h_90Q"/>
-              </a>
+                </a>
               <div style="padding-top:10px;text-align:left">
                 <p>飘香卤鱼豆腐(微辣)</p>
                 <p>500g/盒</p>
@@ -141,6 +141,7 @@
               </div>
             </div>
           </div>
+        </div>
     </div>
     <div class="container-outter">
         <div class="inner">
@@ -205,6 +206,7 @@
               </div>
             </div>
           </div>
+        </div>
     </div>
     <div class="container-outter">
         <div class="inner">
@@ -269,70 +271,7 @@
               </div>
             </div>
           </div>
-    </div>
-    <div class="container-outter">
-        <div class="inner">
-          <div class="desc" style="border-color:#B59C4B;">
-            <span style="float:left;color:#B59C4B">优选水果</span>
-            <a href="" style="float:right;">更多>></a>
-          </div>
-          <img class="banner" src="http://img01.bqstatic.com//upload/activity/2016060813471954.jpg@90Q.jpg"/>
-          <div class="goods-list" style="background-color:#EFEFEF;display:inline-block;">
-            <div class="goods">
-              <a href="XXX">
-                  <img src="http://img01.bqstatic.com/upload/goods/201/605/2409/20160524095244_729759.jpg@200w_200h_90Q"/>
-              </a>
-              <div style="padding-top:10px;text-align:left">
-                <p>飘香卤鱼豆腐(微辣)</p>
-                <p>500g/盒</p>
-                <p>
-                  <span class="price">￥26.9</span>
-                  <span><del>￥28.3</del></span>
-                </p>
-              </div>
-              <div class="item-add">
-                <div class="btn -plus">
-                  <i class="icon-plus"></i>
-                </div>
-              </div>
-            </div>
-            <div class="goods">
-              <a href="XXX">
-                  <img src="http://img01.bqstatic.com/upload/goods/201/605/2409/20160524095244_729759.jpg@200w_200h_90Q"/>
-              </a>
-              <div style="padding-top:10px;text-align:left">
-                <p>飘香卤鱼豆腐(微辣)</p>
-                <p>500g/盒</p>
-                <p>
-                  <span class="price">￥26.9</span>
-                  <span><del>￥28.3</del></span>
-                </p>
-              </div>
-              <div class="item-add">
-                <div class="btn -plus">
-                  <i class="icon-plus"></i>
-                </div>
-              </div>
-            </div>
-            <div class="goods">
-              <a href="XXX">
-                  <img src="http://img01.bqstatic.com/upload/goods/201/605/2409/20160524095244_729759.jpg@200w_200h_90Q"/>
-              </a>
-              <div style="padding-top:10px;text-align:left">
-                <p>飘香卤鱼豆腐(微辣)</p>
-                <p>500g/盒</p>
-                <p>
-                  <span class="price">￥26.9</span>
-                  <span><del>￥28.3</del></span>
-                </p>
-              </div>
-              <div class="item-add">
-                <div class="btn -plus">
-                  <i class="icon-plus"></i>
-                </div>
-              </div>
-            </div>
-          </div>
+        </div>
     </div>
 </div>
 
@@ -449,11 +388,12 @@
 </div>
 <!-- 下方导航栏 -->
 <div id="bottom-navbar">
-  <div style="height: 28px;text-align:center">
-    <span><a href="/" style="color: grey;">查看全部商品 >></a></span>
+  <div style="height: 26px;text-align:center;background-color:#EFEFEF;">
+    <span>
+      <a href="/" style="color:grey;">查看全部商品 >></a>
+    </span>
   </div>
-  <div style="height: 36px;">
-  </div>
+  <hr style="height: 18px;background-color:#EFEFEF;"></hr>
   <nav class="navbar navbar-fixed-bottom" style="background-color:white;">
       <ul id="foot-menu" class="nav nav-tabs">
         <li class="active"">
@@ -490,5 +430,57 @@
       </ul>
   </nav>
 </div>
+
+<div class="modal fade modal-goods-detail" id="detailModelContainer" tabindex="-1" role="dialog" aria-labelledby="detailMobal"> 
+  <div class="modal-dialog modal-sm" role="document"> 
+    <div class="modal-content background"> 
+      <div class="title"> 
+        <span class="modal-title" id="detailMobal">通州黄樱桃</span> 
+      </div> 
+      <div class="goods" style="width: 100%;text-align:center;margin-top: 1px;"> 
+        <div class="foreground" style="height: 190px;"> 
+          <img style="width:80%;height:188px;" src="http://img01.bqstatic.com/upload/goods/201/605/2409/20160524095244_729759.jpg@200w_200h_90Q" /> 
+        </div> 
+        <div class="detail">
+          <p> 
+            <span class="goods-name">飘香卤鱼豆腐(微辣)</span>
+            <span class="goods-norms">500g/盒 </span>
+          </p> 
+          <p> 
+            <span class="price">￥26.9</span>
+            <span><del>￥28.3</del></span>
+          </p> 
+          <div class="item-cart" style="bottom: 30px;right: 58px;"> 
+            <div class="btn -purchase"> 
+              <i class="icon-minus"></i> 
+            </div> 
+          </div> 
+          <div class="item-cart" style="bottom: 29px;right: 39px;"> 
+            <i class="count">0</i> 
+          </div> 
+          <div class="item-cart" style="bottom: 30px;right: 8px;"> 
+            <div class="btn -purchase"> 
+              <i class="icon-plus"></i> 
+            </div> 
+          </div>
+        </div>
+        </div> 
+          <div class="desc"> 
+        </div> 
+      </div>
+    </div>
+  </div>
+</div>
 </body>
+
+<script type="text/javascript">
+  // $('#exampleModal').on('show.bs.modal', function (event) {
+  //   var button = $(event.relatedTarget) // Button that triggered the modal
+  //   var recipient = button.data('whatever') // Extract info from data-* attributes
+  //   // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+  //   // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+  //   var modal = $(this)
+  //   modal.find('.modal-title').text('New message to ' + recipient)
+  //   modal.find('.modal-body input').val(recipient)
+</script>
 </html>

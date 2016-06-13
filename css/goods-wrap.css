@@ -1,3 +1,10 @@
+.background {
+    background-color: #EFEFEF;
+}
+.foreground {
+    background-color: #FFFFFF;
+}
+
 /*容器边框*/
 .goods-wrap{
     width:47%;
@@ -36,4 +43,76 @@
     border: 1px solid #a29d9d;
     border-radius: 50%;
     color: red;
+}
+.item-cart {
+    float: right;
+    position: relative;
+    bottom: 25px;
+    height: 0px;
+    padding-right: 2px;
+}
+.item-cart .-purchase {
+    padding: 0px 5px;
+    border: 1px solid #a29d9d;
+    border-radius: 50%;
+    color: red;
+}
+
+/*详情*/
+#detailModelContainer {
+    /*display: block;   弹窗出问题*/
+    position: absolute;
+    top: 10%;
+    left: 8%;
+    width: 256px;
+}
+#detailModelContainer .radius {
+    border-radius: 10px;
+}
+#detailModelContainer .title {
+    padding: 8px 0;
+    width:100%;
+    text-align:center;
+    font-size: 15px;
+    font-weight: 600;
+    color:grey;
+    background-color: white;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+#detailModelContainer .detail {
+    padding-top:10px;
+    text-align:left;
+    display: inline-block;
+    background-color: white;
+    width: 100%;
+    margin-top: 1px;
+    padding-left: 8px;
+}
+#detailModelContainer .goods-name {
+    font-size: 15px;
+    font-weight: 800;
+}
+#detailModelContainer .goods-norms {
+    margin-top: -10px;
+    font-family: -webkit-pictograph;
+    font-style: oblique;
+}
+#detailModelContainer .price {
+    font-weight: 600;
+    color: red;
+    margin-left: -2px;
+    padding-right: 2px;
+}
+#detailModelContainer .count {
+    font-weight: 500;
+    font-size: 15px;
+    font-style: inherit;
+}
+#detailModelContainer .desc {
+    margin-top: 1px;
+    height: 68px;
+    background-color: white;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
