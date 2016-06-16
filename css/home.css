@@ -89,6 +89,7 @@
     margin-right: 1px;
     background-color: white;
     padding-left: 3px;
+    position: relative;
 }
 .shop-class .goods p{
     overflow: hidden;

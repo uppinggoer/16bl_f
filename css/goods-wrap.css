@@ -57,19 +57,24 @@
     border-radius: 50%;
     color: red;
 }
-
-/*详情*/
-#detailModelContainer {
-    /*display: block;   弹窗出问题*/
+.cart-count-flag .item-cart{
     position: absolute;
-    top: 10%;
-    left: 8%;
-    width: 256px;
+    background-color: red;
+    color: white;
+    padding: 2px 7px;
+    border-radius: 50%;
+    height: 20px;
+    top: 0px;
+    right: 0px;
 }
-#detailModelContainer .radius {
+/*详情*/
+.modal-goods-detail {
+    /*display: block;   弹窗出问题 ？？？？*/
+}
+.modal-goods-detail .radius {
     border-radius: 10px;
 }
-#detailModelContainer .title {
+.modal-goods-detail .title {
     padding: 8px 0;
     width:100%;
     text-align:center;
@@ -80,7 +85,7 @@
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
 }
-#detailModelContainer .detail {
+.modal-goods-detail .detail {
     padding-top:10px;
     text-align:left;
     display: inline-block;
@@ -89,30 +94,36 @@
     margin-top: 1px;
     padding-left: 8px;
 }
-#detailModelContainer .goods-name {
+.modal-goods-detail .goods-name {
     font-size: 15px;
     font-weight: 800;
 }
-#detailModelContainer .goods-norms {
+.modal-goods-detail .goods-norms {
     margin-top: -10px;
-    font-family: -webkit-pictograph;
+    font-family: fantasy;
     font-style: oblique;
 }
-#detailModelContainer .price {
+.modal-goods-detail .price {
     font-weight: 600;
     color: red;
     margin-left: -2px;
     padding-right: 2px;
 }
-#detailModelContainer .count {
+.modal-goods-detail .count {
     font-weight: 500;
     font-size: 15px;
     font-style: inherit;
 }
-#detailModelContainer .desc {
+.modal-goods-detail .desc {
     margin-top: 1px;
     height: 68px;
     background-color: white;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
+}
+.modal-goods-detail .detailModelInner {
+    width: 76%;
+    bottom: 10%;
+    left: 8%;
+    position: inherit;
 }
