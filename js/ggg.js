@@ -105,7 +105,7 @@ function flushCart() {
 // 获取购物车storage
 function getCart() {
 	var cartInfo = window.localStorage.getItem("cart");
-	if (null != cartInfo && 0 < cartInfo.length) {
+	if (0 < cartInfo.length) {
 		var cartDetail = JSON.parse(cartInfo);
 	} else {
 		var cartDetail = {"list":[],"map":{},"cost":0,"sub":0,"num":0};

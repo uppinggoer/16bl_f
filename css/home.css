@@ -129,3 +129,16 @@
   font-size: x-small;
   background: rgba(0, 0, 0, 0.02);
 }
+
+#cart-ball{
+    height: 15px;
+    display: block;
+    width: 15px;
+    position: absolute;
+    left: 160px;
+    bottom: 70px;
+    z-index: 10;
+    border-radius: 50%;
+    top: 936px;
+    background-color: red;
+}

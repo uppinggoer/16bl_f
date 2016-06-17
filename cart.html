@@ -1,146 +1,192 @@
-<html>
-<head> 
-  <title>便利</title> 
-  <meta charset="utf-8"> 
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"> 
-  <!-- 新 Bootstrap 核心 CSS 文件 --> 
-  <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css"> 
-  <!-- 可选的Bootstrap主题文件（一般不用引入） --> 
-  <link rel="stylesheet" href="http://cdn.bootcss.com/font-awesome/3.0.2/css/font-awesome.css"> 
-  <!-- jQuery文件。务必在bootstrap.min.js 之前引入 --> 
-  <script src="http://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script> 
-  <!-- 最新的 Bootstrap 核心 JavaScript 文件 --> 
-  <script src="http://cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script> 
-  <script src="http:////cdn.bootcss.com/dot/1.0.3/doT.min.js"></script> 
-  <script src="js/goods-wrap.js"></script> 
-  
-  <link rel="stylesheet" href="css/home.css">
-  <link rel="stylesheet" href="css/goods-wrap.css"> 
-  <link rel="stylesheet" href="css/cart.css"> 
- </head> 
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	
+	<title>便利</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+	<meta charset="utf-8">
+	
+	<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	
+	<link rel="stylesheet" href="http://cdn.bootcss.com/font-awesome/3.0.2/css/font-awesome.css">
+
+	<link rel="stylesheet" href="/static/css/goods-wrap.css">
+	<link rel="stylesheet" href="/static/css/home.css">
+	<link rel="stylesheet" href="/static/css/cart.css"> 
+	
+	
+	<script src="http://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+	
+	<script src="http://cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	<script src="http://cdn.bootcss.com/dot/1.0.3/doT.min.js"></script> 
+</head>
 <body>
-  <div class="cat-title"> 
-    <div class="cat-title-inner"> 
-      <p style="padding-top:8px;"> 
-        <span>购物车</span>
-      </p>
-    </div>
-    <div class="cart" style="position: absolute;top: 18%;right: 8%;"> 
-      <i class="icon-trash" style="font-size: 19px;"></i> 
-    </div>
-  </div>
+	
+	<div class="cat-title"> 
+		<div class="cat-title-inner"> 
+			<p style="padding-top:8px;"> 
+				<span>购物车</span>
+			</p>
+		</div>
+		<div class="cart" style="position: absolute;top: 18%;right: 8%;"> 
+			<i class="icon-trash" style="font-size: 19px;"></i> 
+		</div>
+	</div>
 
-  <!-- <div goods-list> -->
-  <div id="goods-list" class="goods-list cart-goodslist"> </div>
-  <script id="goods-list-tmpl" type="text/x-dot-template">
-    <div class="tip-outter"> 
-      <div class="tip-inner"> 
-        <p style="padding:3px;"> 
-          <span id="cart-tip" style="font-size:10px;font-family:行楷;">{{=it.tips}}</span>
-        </p>
-      </div>
-    </div>
-    {{ for(var goodsId in it["map"]) { }}
-    <!-- <div>{{=goodsId}}{{=it[goodsId]}}</div> -->
-    <div class="goods"> 
-      <div class="checked"> 
-        <i class="icon-ok" aria-hidden="true"></i> 
-      </div> 
-      <div style="width: 25%;display: inline-block;"> 
-        <img src="{{=globalContext[goodsId].Image}}" style="width: 100%;height: 80px;"> 
-      </div>
-      <div class="inner"> 
-        <p> 
-          <span style="font-size: 14px;">{{=globalContext[goodsId].Name}}</span>
-          <span style="font-size: 14px;">{{=globalContext[goodsId].Norms}}</span>
-        </p>
-        <p style="padding-top:16px;"> 
-          <span class="price">￥{{=globalContext[goodsId].Price}}</span>
-          <span><del>￥{{=globalContext[goodsId].Marketprice}}</del></span> 
-        </p>
-      </div> 
-      <div class="item-edit">
-        <div class="item-cart" value="-1" style="bottom: 30px;right: 58px;" goods-id="{{=goodsId}}"> 
-          <div class="btn -purchase"> 
-            <i class="icon-minus"></i> 
-          </div> 
-        </div> 
-        <div class="item-cart" style="bottom: 29px;right: 39px;" goods-id="{{=goodsId}}"> 
-          <i class="count"><span goods-id="2">{{=it['map'][goodsId]['goodsNum']}}</span></i> 
-        </div> 
-        <div class="item-cart" value="1" style="bottom: 30px;right: 8px;" goods-id="{{=goodsId}}"> 
-          <div class="btn -purchase"> 
-            <i class="icon-plus"></i> 
-          </div> 
-        </div>
-      </div>
-    </div> 
-    {{ } }}
-  </script>
-  <!-- </div> -->
-  <div class="goods-list cart-info"> 
-    <div class="goods" style="margin-bottom:0px;"> 
-      <div class="checked"> 
-        <i class="icon-ok" aria-hidden="true"></i> 
-      </div> 
-      <div class="info-inner"> 
-        <p>
-          <span style="font-size: 15px;color: grey;">全选</span>
-          <span style="font-size: 12px;padding-left: 8px;">总计:</span>
-          <span id="cart-cost" style="font-size: 12px;color: red;">￥39.45</span>
-        </p>
-      </div>
-      <div class="info-button">
-        <span style="color: white;font-size: 15px;">结算</span>
-      </div>
-    </div>
-  </div>
+	
+	<div id="goods-list" class="goods-list cart-goodslist"> </div>
+	<script id="goods-list-tmpl" type="text/x-dot-template">
+		<div class="tip-outter"> 
+			<div class="tip-inner"> 
+				<p style="padding:3px;"> 
+					<span id="cart-tip" style="font-size:10px;font-family:行楷;">{%=it.tips%}</span>
+				</p>
+			</div>
+		</div>
+		{% for(var goodsId in it["map"]) { %}
+		<!-- <div>{%=goodsId%}{%=it[goodsId]%}</div> -->
+		<div class="goods"> 
+			<div class="checked"> 
+				<i class="icon-ok" aria-hidden="true"></i> 
+			</div> 
+			<div style="width: 25%;display: inline-block;"> 
+				<img src="{%=globalContext[goodsId].Image%}" style="width: 100%;height: 80px;"> 
+			</div>
+			<div class="inner"> 
+				<p> 
+					<span style="font-size: 14px;">{%=globalContext[goodsId].Name%}</span>
+					<span style="font-size: 14px;">{%=globalContext[goodsId].Norms%}</span>
+				</p>
+				<p style="padding-top:16px;"> 
+					<span class="price">￥{%=globalContext[goodsId].Price%}</span>
+					<span><del>￥{%=globalContext[goodsId].Marketprice%}</del></span> 
+				</p>
+			</div> 
+			<div class="item-edit">
+				<div class="item-cart" value="-1" style="bottom: 30px;right: 58px;" goods-id="{%=goodsId%}"> 
+					<div class="btn -purchase"> 
+						<i class="icon-minus"></i> 
+					</div> 
+				</div> 
+				<div class="item-cart" style="bottom: 29px;right: 39px;" goods-id="{%=goodsId%}"> 
+					<i class="count"><span goods-id="{%=goodsId%}">{%=it['map'][goodsId]['goodsNum']%}</span></i> 
+				</div> 
+				<div class="item-cart" value="1" style="bottom: 30px;right: 8px;" goods-id="{%=goodsId%}"> 
+					<div class="btn -purchase"> 
+						<i class="icon-plus"></i> 
+					</div> 
+				</div>
+			</div>
+		</div> 
+		{% } %}
+	</script>
+	
+	<div class="goods-list cart-info cart-goodslist"> 
+		<div class="goods" style="margin-bottom:0px;"> 
+			<div class="checked"> 
+				<i class="icon-ok" aria-hidden="true"></i> 
+			</div> 
+			<div class="info-inner"> 
+				<p>
+					<span style="font-size: 15px;color: grey;">全选</span>
+					<span style="font-size: 12px;padding-left: 8px;">总计:</span>
+					<span id="cart-cost" style="font-size: 12px;color: red;">￥39.45</span>
+				</p>
+			</div>
+			<div class="info-button">
+				<span style="color: white;font-size: 15px;">结算</span>
+			</div>
+		</div>
+	</div>
 
-  <!-- 下方导航栏 -->
-  <div id="bottom-navbar">
-    <div class="blank"></div>
-    <nav class="navbar navbar-fixed-bottom" style="border:none;background-color:white;">
-      <ul id="foot-menu" class="nav nav-tabs">
-        <li class="active"">
-          <a href="XXX" style="height: 32px;text-align: center;">
-             <i class="icon-home icon-2x" aria-hidden="true"></i>
-             <p>首页</p>
-             <!-- <span class="icon-home icon-2x" aria-hidden="true"></span> -->
-          </a>
-         </li>
-        <li>
-          <a href="XXX">
-            <span class=""></span>
-            <i class="icon-list icon-2x" aria-hidden="true"></i>
-            <p>超市</p>
-            <!-- <span class="icon-list icon-2x" aria-hidden="true"></span> -->
-          </a>
-        </li>
-        <li>
-          <a href="XXX">
-            <span class=""></span>
-            <i class="icon-shopping-cart icon-2x" aria-hidden="true"></i>
-            <p>购物车</p>
-            <!-- <span class="icon-shopping-cart icon-2x" aria-hidden="true"></span> -->
-          </a>
-        </li>
-        <li>
-          <a href="XXX">
-            <span class=""></span>
-            <i class="icon-user icon-2x" aria-hidden="true"></i>
-            <p>我的</p>
-            <!-- <span class="icon-user icon-2x" aria-hidden="true"></span> -->
-          </a>
-        </li>
-      </ul>
-    </nav>
-  </div>
+	
+	
+	<div id="bottom-navbar">
+		<div class="blank"></div>
+		<nav class="navbar navbar-fixed-bottom" style="border:none;background-color:white;">
+			<ul id="foot-menu" class="nav nav-tabs">
+				
+				<li id="home" class="active">
+					
+					<a trigger="" href="www.baidu.com" class="trigger">
+						<i class="icon-home icon-2x" aria-hidden="true"></i>
+						<p>首页</p>
+						
+					</a>
+				</li>
+				
+				<li id="list" >
+					
+					<a trigger="" href="www.baidu.com" class="trigger">
+						<i class="icon-list icon-2x" aria-hidden="true"></i>
+						<p>超市</p>
+						
+					</a>
+				</li>
+				
+				<li id="cart" >
+					
+					<div class="cart-count-flag"> 
+						<div class="item-cart" style="display:none;padding:0px 7px; position: absolute; top: 0px; right: 0px;z-index: 6;"> 
+							<i class="count"><span>0</span></i> 
+						</div>
+					</div>
+					
+					<a trigger="" href="http://127.0.0.1:8880/static/cart.html" class="trigger">
+						<i class="icon-shopping-cart icon-2x" aria-hidden="true"></i>
+						<p>购物车</p>
+						
+					</a>
+				</li>
+				
+				<li id="user" >
+					
+					<a trigger="" href="www.baidu.com" class="trigger">
+						<i class="icon-user icon-2x" aria-hidden="true"></i>
+						<p>我的</p>
+						
+					</a>
+				</li>
+				
+			</ul>
+		</nav>
+	</div>
+
+	<div id="cart-ball"></div>
 </body>
-<script type="text/javascript">
-var globalContext={"1":{"Id":1,"Name":"飘香卤鱼豆腐(微辣)","Norms":"500g/盒","StoreId":1,"StoreName":"A1","Unit":"","MinOrdernum":1,"MaxOrdernum":0,"Marketprice":30,"Price":27,"Costprice":0,"Salenum":0,"MonthSalenum":0,"WeekSalenum":0,"State":1,"Image":"http://img01.bqstatic.com/upload/goods/201/605/2409/20160524095244_729759.jpg@200w_200h_90Q","Desc":"500g/盒","StcId":0,"Sort":1000,"Barcode":"","Storage":10,"Addtime":0},"2":{"Id":2,"Name":"飘香卤鱼豆腐(微辣)","Norms":"500g/盒","StoreId":1,"StoreName":"A1","Unit":"","MinOrdernum":1,"MaxOrdernum":0,"Marketprice":30,"Price":27,"Costprice":0,"Salenum":0,"MonthSalenum":0,"WeekSalenum":0,"State":1,"Image":"http://img01.bqstatic.com/upload/goods/201/605/2409/20160524095244_729759.jpg@200w_200h_90Q","Desc":"500g/盒","StcId":0,"Sort":1000,"Barcode":"","Storage":10,"Addtime":0},"3":{"Id":3,"Name":"飘香卤鱼豆腐(微辣)","Norms":"500g/盒","StoreId":1,"StoreName":"A1","Unit":"","MinOrdernum":1,"MaxOrdernum":0,"Marketprice":30,"Price":27,"Costprice":0,"Salenum":0,"MonthSalenum":0,"WeekSalenum":0,"State":0,"Image":"http://img01.bqstatic.com/upload/goods/201/605/2409/20160524095244_729759.jpg@200w_200h_90Q","Desc":"500g/盒","StcId":0,"Sort":1000,"Barcode":"","Storage":10,"Addtime":0},"4":{"Id":4,"Name":"飘香卤鱼豆腐(微辣)","Norms":"500g/盒","StoreId":1,"StoreName":"A1","Unit":"","MinOrdernum":1,"MaxOrdernum":0,"Marketprice":30,"Price":27,"Costprice":0,"Salenum":0,"MonthSalenum":0,"WeekSalenum":0,"State":1,"Image":"http://img01.bqstatic.com/upload/goods/201/605/2409/20160524095244_729759.jpg@200w_200h_90Q","Desc":"500g/盒","StcId":0,"Sort":1000,"Barcode":"","Storage":10,"Addtime":0},"5":{"Id":5,"Name":"飘香卤鱼豆腐(微辣)","Norms":"500g/盒","StoreId":1,"StoreName":"A1","Unit":"","MinOrdernum":1,"MaxOrdernum":0,"Marketprice":30,"Price":27,"Costprice":0,"Salenum":0,"MonthSalenum":0,"WeekSalenum":0,"State":1,"Image":"http://img01.bqstatic.com/upload/goods/201/605/2409/20160524095244_729759.jpg@200w_200h_90Q","Desc":"500g/盒","StcId":0,"Sort":1000,"Barcode":"","Storage":10,"Addtime":0}};
-  var interText = doT.template($("#goods-list-tmpl").text());
-  var a=getCart();
-  a['tips']="0.0元起送，营业时间: 00:00-23:00";
-  $("#goods-list").html(interText(a));  
-</script>
+	
+	
+	<script src="/static/js/goods-wrap.js"></script>
+	<script src="/static/js/cart.js"></script>
+	<script type="text/javascript">
+		doT.templateSettings = {
+			evaluate:	/\{\%([\s\S]+?)\%\}/g,
+			interpolate:/\{\%=([\s\S]+?)\%\}/g,
+			encode:		/\{\%!([\s\S]+?)\%\}/g,
+			use:		/\{\%#([\s\S]+?)\%\}/g,
+			define:		/\{\%##\s*([\w\.$]+)\s*(\:|=)([\s\S]+?)#\%\}/g,
+			conditional:/\{\%\?(\?)?\s*([\s\S]*?)\s*\%\}/g,
+			iterate:	/\{\%~\s*(?:\}\}|([\s\S]+?)\s*\:\s*([\w$]+)\s*(?:\:\s*([\w$]+))?\s*\%\})/g,
+			varname: 'it',
+			strip: true,
+			append: true,
+			selfcontained: false
+		};
+
+		$("#foot-menu").find(".active").removeClass("active");
+		$("#foot-menu").find("#cart").addClass("active");
+	</script>
+
+	<script type="text/javascript">
+		$(".trigger").click(function(e) {
+			var self = $(this);
+			var trigger = self.attr("trigger");
+			if (undefined != trigger && "" != trigger) {
+				e.preventDefault();
+				eval(trigger)();
+			}
+		});
+		$(".item-cart").click(editCart);
+	</script>
+	<script>var globalContext = {}; var globalCart=getCart()</script>
 </html>

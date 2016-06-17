@@ -41,11 +41,11 @@
 	padding-left: 2%;
 	overflow: hidden;
 }
-.goods-list .goods {
+.cart-goodslist .goods {
 	width: 100%;
 	margin-bottom: 1px;
 }
-.goods-list .goods .inner {
+.cart-goodslist .goods .inner {
 	text-align:left;
 	width: 60%;
 	display: inline-block;
@@ -55,7 +55,7 @@
 	padding-left: 2%;
 	overflow: hidden;"
 }
-.goods-list .goods .checked {
+.cart-goodslist .goods .checked {
 	display: inline-block;
 	margin-left: 2%;
 	border-radius: 50%; 
