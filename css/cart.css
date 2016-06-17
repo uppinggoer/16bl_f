@@ -1,0 +1,87 @@
+.cat-title {
+	display: inline-block;
+	width: 100%;
+	height: 39px;
+	padding-bottom: 6px;
+	position: relative;
+	background-color:#EFEFEF;
+}
+.cat-title-inner {
+	text-align:left;
+	display: inline-block;
+	background-color: white;
+	text-align: center;
+	vertical-align: bottom;
+	width: 100%;
+	height: 100%;
+}
+.cat-title-inner span{
+	font-size: 16px;
+	font-family: &quot;行楷&quot;;
+	vertical-align: text-bottom;
+	/*" 行楷";"=""*/
+}
+
+.cart-goodslist {
+	background-color:#EFEFEF;
+	display: inline-block;
+}
+.goods-list .tip-outter {
+	background-color: white;
+	width: 100%;
+	margin-bottom: 1px;
+}
+.goods-list .tip-outter .tip-inner {
+	text-align:left;
+	display: inline-block;
+	background-color: white;
+	height: 28px;
+	vertical-align: bottom;
+	padding-left: 2%;
+	overflow: hidden;
+}
+.goods-list .goods {
+	width: 100%;
+	margin-bottom: 1px;
+}
+.goods-list .goods .inner {
+	text-align:left;
+	width: 60%;
+	display: inline-block;
+	background-color: white;
+	height: 80px;
+	vertical-align: bottom;
+	padding-left: 2%;
+	overflow: hidden;"
+}
+.goods-list .goods .checked {
+	display: inline-block;
+	margin-left: 2%;
+	border-radius: 50%; 
+	margin-bottom: 10px;
+	background-color: green;
+	padding: 2px;
+	color: white;
+	border: 1px double #a29d9d;
+}
+.cart-info {
+	background-color:#EFEFEF;
+	display: inline-block;
+	width: 100%;
+}
+.cart-info .info-inner{
+	text-align:left;
+	width: 55%;
+	display: inline-block;
+	background-color: white;
+	vertical-align: middle;
+	overflow: hidden;"
+}
+.cart-info .info-button{
+	text-align:left;
+	width: 30%;
+	display: inline-block;
+	background-color: green;
+	text-align: center;
+	padding: 5px;
+}
