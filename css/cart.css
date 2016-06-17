@@ -25,6 +25,7 @@
 .cart-goodslist {
 	background-color:#EFEFEF;
 	display: inline-block;
+	width: 100%;
 }
 .goods-list .tip-outter {
 	background-color: white;

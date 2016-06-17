@@ -72,6 +72,13 @@
     content: " ";
 }
 
+.blank:before{
+    content: "-";
+    color: white;
+    font-weight: bold;
+    padding-bottom: 39px;
+}
+
 /*商品列表*/
 .goods-list .desc{
     display: table;
