@@ -5,6 +5,7 @@ function editCart(e) {
 	// 在购物车中增加商品
 	if (undefined == globalCart['map'][goodsId]) {
 		globalCart['map'][goodsId] = {'goodsNum':0};
+		globalCart['map'][goodsId] = {'selected':1};
 		globalCart['list'].push(goodsId);
 	}
 
@@ -30,11 +31,13 @@ function editCart(e) {
 
 	// 刷新购物车
 	globalCart['map'][goodsId]['goodsNum'] = countValue;
-	globalCart.num = countAllValue;
-	// 刷新页面
-	modifyGoodsCnt(goodsId, countValue, countAllValue);
+	globalCart.num = countAllValue;	
 	// 保存购物车
 	flushCart();
+
+	// 刷新页面
+	renderGoodsCnt(goodsId, countValue, countAllValue);
+	renderCost(globalCart);
 
 	// 无货 或 非加货
 	if (0>countValue || 0>=dis) {
@@ -42,7 +45,7 @@ function editCart(e) {
 		castToCart(self.offset(), $("li .item-cart").offset());
 	}
 };
-function modifyGoodsCnt(goodsId,countValue,countAllValue) {
+function renderGoodsCnt(goodsId,countValue,countAllValue) {
 	var count = $(".count").find("span[goods-id="+goodsId+"]");
 	var countAll = $("#cart").find("span");
 	count.html(countValue);
@@ -55,7 +58,6 @@ function modifyGoodsCnt(goodsId,countValue,countAllValue) {
 			container.css("display","block");
 		} else {
 			container.css("display","none");
-			globalCart['map'][goodsId]['goodsNum'] = 0;
 		}
 	}
 	var container = $('#cart').find(".item-cart");
@@ -67,6 +69,26 @@ function modifyGoodsCnt(goodsId,countValue,countAllValue) {
 		}
 	}
 };
+// 统计汇总信息
+function renderCost(cartInfo) {
+	var cost = 0;
+	var num = 0;
+	for (var goodsId in cartInfo.map) {
+		// 加入 globalContext
+		var goodsNum = cartInfo.map[goodsId].goodsNum;
+		if (1 == cartInfo.map[goodsId].selected) {
+			cost += goodsNum * globalContext[goodsId].Price;
+		}
+		num += parseInt(goodsNum);
+	}
+	// 强校验并修正
+	cartInfo['cost'] = cost;
+	cartInfo['sub']  = 0;
+	cartInfo['num']  = num;
+	flushCart();
+
+	$(".cart-info #cart-cost").html(cost);
+}
 
 function castToCart(lblFrom,lblTo) {
 	// (x-x1)(x-x1)(x-x0)/(x1-x0)
@@ -111,9 +133,15 @@ function getCart() {
 		var cartDetail = {"list":[],"map":{},"cost":0,"sub":0,"num":0};
 	}
 
+	if (0 >= cartDetail.list.length) {
+		return cartDetail;
+	}
 	// 初始化页面
 	cartDetail.list.forEach(function(e){
-		modifyGoodsCnt(e, cartDetail.map[e].goodsNum,cartDetail.num);
+		if (0 > cartDetail.map[e].goodsNum) {
+			cartDetail.map[e].goodsNum = 0;
+		}
+		renderGoodsCnt(e, cartDetail.map[e].goodsNum,cartDetail.num);
 	});
 
 	return cartDetail;

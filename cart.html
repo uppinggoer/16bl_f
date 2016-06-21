@@ -29,7 +29,7 @@
 			</p>
 		</div>
 		<div class="cart" style="position: absolute;top: 18%;right: 8%;"> 
-			<i class="icon-trash" style="font-size: 19px;"></i> 
+			<button class="icon-trash" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#notice"/>
 		</div>
 	</div>
 
@@ -44,9 +44,8 @@
 			</div>
 		</div>
 		{% for(var goodsId in it["map"]) { %}
-		<!-- <div>{%=goodsId%}{%=it[goodsId]%}</div> -->
 		<div class="goods"> 
-			<div class="checked"> 
+			<div class="check" goods-id="{%=goodsId%}" style="background-color:{%? it["map"][goodsId]["selected"] == 0%}white{%??%}green{%?%}"> 
 				<i class="icon-ok" aria-hidden="true"></i> 
 			</div> 
 			<div style="width: 25%;display: inline-block;"> 
@@ -83,18 +82,34 @@
 	
 	<div class="goods-list cart-info cart-goodslist"> 
 		<div class="goods" style="margin-bottom:0px;"> 
-			<div class="checked"> 
+			<div class="check" goods-id="all"> 
 				<i class="icon-ok" aria-hidden="true"></i> 
 			</div> 
 			<div class="info-inner"> 
 				<p>
 					<span style="font-size: 15px;color: grey;">全选</span>
 					<span style="font-size: 12px;padding-left: 8px;">总计:</span>
-					<span id="cart-cost" style="font-size: 12px;color: red;">￥39.45</span>
+					<span id="cart-cost" style="font-size: 12px;color: red;">￥0</span>
 				</p>
 			</div>
 			<div class="info-button">
 				<span style="color: white;font-size: 15px;">结算</span>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade" id="notice" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		<div class="modal-dialog" role="document" style="width: 68%;background-color: white;text-align: center;margin-left: 16%;margin-top: 51%;">
+			<div class="" style="display: inline-block;padding: 9%;">
+				<span class="modal-body">是否删除所有商品</span>
+			</div>
+			<div style="display: inline-block;width: 100%;text-align: center;border-top-style: groove;">
+				<div style="display: inline-block;width: 47%;color: #2281ec;border-right-style: groove;">
+					<div style="margin-top: 8px;margin-bottom: 6px;" data-dismiss="modal">取消</div>
+				</div>
+				<div style="display: inline-block;width: 47%;color: #2281ec;">
+					<div style="margin-top: 8px;margin-bottom: 6px;" class="clear-cart">确定</div>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -175,6 +190,8 @@
 
 		$("#foot-menu").find(".active").removeClass("active");
 		$("#foot-menu").find("#cart").addClass("active");
+		$(".clear-cart").click(cleanCart);
+		registerCart();
 	</script>
 
 	<script type="text/javascript">
