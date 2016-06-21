@@ -1,5 +1,6 @@
+// 向服务器验证购物车
 function registerCart() {
-	var cartInfo=getCart();
+	var cartInfo=getCartOri();
 
 	var cartDetail = [];
 	if (undefined == cartInfo || undefined == cartInfo.map) {
@@ -22,7 +23,9 @@ function registerCart() {
 				alert(data.msg);
 			} else {
 				if (0 < data.data.alert.length) {
-				// alter(data.data.alert);
+					$("#alertModel .alertText").html(data.data.alert);
+					$("#alertModel").modal("show");
+					setTimeout(function(){$("#alertModel").modal("hide")}, 2000);
 				}
 				fillCart(data.data);
 				renderCart(data.data.tips);
@@ -31,32 +34,41 @@ function registerCart() {
 		dataType: "json"
 	});
 }
+
+// -------- data ------------
+// 更新购物车数据
 function fillCart(data) {
 	var cartNow = {};
 	cartNow['list']=[];
 	cartNow['map']={};
 
 	var goodsList = data.goodsList;
-	for (var key in goodsList) {
-		// 加入 globalContext
-		var goodsId = goodsList[key].goodsInfo.Id;
-		globalContext[goodsId] = goodsList[key].goodsInfo;
+	if (0 < goodsList.length) {
+		for (var key in goodsList) {
+			// 加入 globalContext
+			var goodsId = goodsList[key].goodsInfo.Id;
+			globalContext[goodsId] = goodsList[key].goodsInfo;
 
-		// 记入购物车
-		cartNow['map'][goodsId] = {
-			'goodsNum' : goodsList[key].goodsNum,
-			'selected' : goodsList[key].selected,
-		};
-		cartNow['list'].push(goodsId);
+			// 记入购物车
+			cartNow['map'][goodsId] = {
+				'goodsNum' : goodsList[key].goodsNum,
+				'selected' : goodsList[key].selected,
+			};
+			cartNow['list'].push(goodsId);
+		}
 	}
-
+	if (0 < cartNow.list.length) {
+		cartNow =  verifyCart(cartNow);
+	}
 	// 更新购物车
 	globalCart = cartNow;
 	flushCart();
 }
+
+// --------- view -------------------
 function renderCart(tips) {
 	// 先刷总信息
-	renderCost(globalCart);
+	renderCost();
 
 	// 购物车
 	cartNow = globalCart;
@@ -98,6 +110,7 @@ function renderCart(tips) {
 	}
 }
 
+// ---------- controller ---------------
 function selectGoods(e) {
 	var self = $(this);
 	var goodsId = self.attr("goods-id");
@@ -126,11 +139,12 @@ function selectGoods(e) {
 			globalCart.map[goodsId].selected = 1;
 		}
 	}
+	globalCart = verifyCart(globalCart);
 	flushCart();
 
 	renderCart($("#cart-tip").text());
 }
-
+// -------- controller -------------
 function cleanCart() {
 	globalCart = {};
 	flushCart();

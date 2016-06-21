@@ -1,3 +1,6 @@
+// MVC 化处理
+
+// ----------- controller -----------
 function editCart(e) {
 	var self = $(this);
 	var goodsId = self.attr("goods-id");
@@ -9,6 +12,9 @@ function editCart(e) {
 		globalCart['list'].push(goodsId);
 	}
 
+	if (undefined == globalCart.map[goodsId].goodsNum) {
+		globalCart.map[goodsId].goodsNum = 0;
+	}
 	var oldCountValue = parseInt(globalCart.map[goodsId].goodsNum);
 	var countValue = oldCountValue;
 	if (0 < self.find(".icon-plus").length) {
@@ -17,39 +23,40 @@ function editCart(e) {
 	if (0 < self.find(".icon-minus").length) {
 		countValue -= 1;
 	}
-	
 	if (countValue >= globalContext[goodsId].Storage) {
 		countValue = globalContext[goodsId].Storage;
 		// 显示提示
 	}
-	if (0 > countValue) {
-		countValue = 0;
-	}
-
-	var dis = countValue - oldCountValue;
-	var countAllValue = parseInt(globalCart.num) + dis;
-
-	// 刷新购物车
-	globalCart['map'][goodsId]['goodsNum'] = countValue;
-	globalCart.num = countAllValue;	
-	// 保存购物车
+	globalCart.map[goodsId].goodsNum = countValue;
+	// 校验购物车
+	globalCart =  verifyCart(globalCart);
 	flushCart();
 
 	// 刷新页面
-	renderGoodsCnt(goodsId, countValue, countAllValue);
-	renderCost(globalCart);
+	renderGoodsCnt(goodsId);
+	renderCost();
 
+	var dis = countValue - oldCountValue;
 	// 无货 或 非加货
 	if (0>countValue || 0>=dis) {
 	} else {
+		// 抛小球
 		castToCart(self.offset(), $("li .item-cart").offset());
 	}
 };
-function renderGoodsCnt(goodsId,countValue,countAllValue) {
+
+// --------- view --------
+// 显示商品数量
+function renderGoodsCnt(goodsId) {
 	var count = $(".count").find("span[goods-id="+goodsId+"]");
 	var countAll = $("#cart").find("span");
-	count.html(countValue);
-	countAll.html(countAllValue);
+
+	var countValue = globalCart.map[goodsId].goodsNum;
+	var countAllValue = globalCart.num;
+	if (undefined != globalCart.map[goodsId]) {
+		count.html(countValue);
+		countAll.html(countAllValue);
+	}
 
 	// 判断是否显示 右上方商品数量
 	var container = $(".cart-count-flag").find("div[goods-id="+goodsId+"]");
@@ -69,27 +76,22 @@ function renderGoodsCnt(goodsId,countValue,countAllValue) {
 		}
 	}
 };
-// 统计汇总信息
-function renderCost(cartInfo) {
-	var cost = 0;
-	var num = 0;
-	for (var goodsId in cartInfo.map) {
-		// 加入 globalContext
-		var goodsNum = cartInfo.map[goodsId].goodsNum;
-		if (1 == cartInfo.map[goodsId].selected) {
-			cost += goodsNum * globalContext[goodsId].Price;
-		}
-		num += parseInt(goodsNum);
+// 显示订单总价
+function renderCost() {
+	if (undefined == globalCart['cost']) {
+		globalCart['cost'] = 0;
 	}
-	// 强校验并修正
-	cartInfo['cost'] = cost;
-	cartInfo['sub']  = 0;
-	cartInfo['num']  = num;
-	flushCart();
-
-	$(".cart-info #cart-cost").html(cost);
+	$(".cart-info #cart-cost").html(globalCart['cost']);
 }
 
+// 初始化购物车
+function initCart() {
+	renderCost();
+	globalCart.list.forEach(function(goodsId){
+		renderGoodsCnt(goodsId);
+	});
+};
+// 抛小球
 function castToCart(lblFrom,lblTo) {
 	// (x-x1)(x-x1)(x-x0)/(x1-x0)
 	var x0 = lblFrom.left;
@@ -101,11 +103,13 @@ function castToCart(lblFrom,lblTo) {
 	var step = parseInt(disX/10);
 	var i = x0;
 
+	$("#cart-ball").css("display","block");
 	var drawTime = setInterval(function(){
 		i -= step;
 		if (((0 > disX) && (i >=x1)) || ((0 < disX) && (i <=x1))) {
 			i = x1;
 			clearInterval(drawTime);
+			$("#cart-ball").css("display","none");
 		}
 
 		var a = (i-x0)/(x1-x0);
@@ -120,29 +124,65 @@ function castToCart(lblFrom,lblTo) {
 	}
 };
 
+
+//------------- model ---------
 // 更新购物车storage
 function flushCart() {
 	window.localStorage.setItem("cart", JSON.stringify(globalCart));
 };
 // 获取购物车storage
-function getCart() {
+function getCartOri() {
 	var cartInfo = window.localStorage.getItem("cart");
+	var cartDetail = {};
 	if (null != cartInfo && 0 < cartInfo.length) {
 		var cartDetail = JSON.parse(cartInfo);
-	} else {
-		var cartDetail = {"list":[],"map":{},"cost":0,"sub":0,"num":0};
 	}
-
-	if (0 >= cartDetail.list.length) {
-		return cartDetail;
-	}
-	// 初始化页面
-	cartDetail.list.forEach(function(e){
-		if (0 > cartDetail.map[e].goodsNum) {
-			cartDetail.map[e].goodsNum = 0;
-		}
-		renderGoodsCnt(e, cartDetail.map[e].goodsNum,cartDetail.num);
-	});
-
 	return cartDetail;
 };
+// 获取购物车storage
+function getCart() {
+	cartDetail = getCartOri();
+	cartDetail =  verifyCart(cartDetail);
+
+	window.localStorage.setItem("cart", JSON.stringify(cartDetail));
+	return cartDetail;
+};
+// 强校验购物车
+function verifyCart(cartDetail) {
+	var list= [];
+	var map = {};
+	var cost= 0;
+	var num = 0;
+
+	if (undefined != cartDetail.list && 0 < cartDetail.list.length) {
+		// 强校验并修正， globalContext无此商品直接过滤掉
+		cartDetail.list.forEach(function(goodsId){
+			if ("undefined" == typeof globalContext || undefined == globalContext[goodsId]) {
+				return;
+			}
+			goodsNum = cartDetail.map[goodsId].goodsNum;
+			if (0 > goodsNum) {
+				goodsNum = 0;
+			}
+			if (1 == cartDetail.map[goodsId].selected) {
+				cost += goodsNum * globalContext[goodsId].Price;
+			}
+			list.push(goodsId);
+			map[goodsId] = {
+				'goodsNum' : goodsNum,
+				'selected' : cartDetail.map[goodsId].selected,
+			};
+			num += parseInt(goodsNum);
+		});
+	}
+
+
+	// 强校验并修正
+	cartDetail['list'] = list;
+	cartDetail['map']  = map;
+	cartDetail['cost'] = cost;
+	cartDetail['sub']  = 0;
+	cartDetail['num']  = num;
+
+	return cartDetail;
+}
