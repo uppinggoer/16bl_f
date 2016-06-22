@@ -104,7 +104,7 @@ function renderCart(tips) {
 		}
 	}
 	if (allSelected) {
-		$(".cart-info .check").css("background-color", "green");
+		$(".cart-info .check").css("background-color", "#40bb91");
 	} else {
 		$(".cart-info .check").css("background-color", "white");
 	}
@@ -150,3 +150,9 @@ function cleanCart() {
 	flushCart();
 	renderCart("");
 }
+// // 点击事件刷新购物车
+// function clickRefreshCart(e) {
+// 	// 点击事件
+// 	editCart(e);
+// 	renderCart($("#cart-tip").text());
+// }

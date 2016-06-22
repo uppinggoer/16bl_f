@@ -15,6 +15,7 @@ function editCart(e) {
 	if (undefined == globalCart.map[goodsId].goodsNum) {
 		globalCart.map[goodsId].goodsNum = 0;
 	}
+	globalCart.map[goodsId].selected = 1;
 	var oldCountValue = parseInt(globalCart.map[goodsId].goodsNum);
 	var countValue = oldCountValue;
 	if (0 < self.find(".icon-plus").length) {
@@ -81,7 +82,7 @@ function renderCost() {
 	if (undefined == globalCart['cost']) {
 		globalCart['cost'] = 0;
 	}
-	$(".cart-info #cart-cost").html(globalCart['cost']);
+	$(".cart-info #cart-cost").html("￥"+globalCart['cost']);
 }
 
 // 初始化购物车

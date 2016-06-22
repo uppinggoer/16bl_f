@@ -1,209 +1,119 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html>
 <head>
-  
-  <title>便利</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-  <meta charset="utf-8">
-  
-  <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
-  
-  <link rel="stylesheet" href="http://cdn.bootcss.com/font-awesome/3.0.2/css/font-awesome.css">
-
-  <link rel="stylesheet" href="/static/css/goods-wrap.css">
-  <link rel="stylesheet" href="/static/css/home.css">
-  <link rel="stylesheet" href="/static/css/cart.css"> 
-  
-  
-  <script src="http://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
-  
-  <script src="http://cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-  <script src="http://cdn.bootcss.com/dot/1.0.3/doT.min.js"></script> 
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>确认订单-奋斗猫--</title>
+    <link rel="stylesheet" type="text/css" href="/Public/Wap/libs/jQueryMoblie/jquery.mobile.custom.structure.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/Public/Wap/libs/jQueryMoblie/jquery.mobile.custom.theme.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/Public/Wap/css/reset-jqmobile.css"/>
+    <link rel="stylesheet" type="text/css" href="/Public/Wap/css/fastshop.css"/>
+    <link rel="stylesheet" type="text/css" href="/Public/Wap/libs/mobiscorll/mobiscroll.core-2.5.2.css"/>
+    <link rel="stylesheet" type="text/css" href="/Public/Wap/libs/mobiscorll/mobiscroll.animation-2.5.2.css"/>
+    <link rel="stylesheet" type="text/css" href="/Public/Wap/libs/mobiscorll/mobiscroll.android-ics-2.5.2.css"/>
 </head>
 <body>
-  <a class="close" data-dismiss="alert" href="#">&times;</a>
-  <div class="cat-title"> 
-    <div class="cat-title-inner"> 
-      <p style="padding-top:8px;"> 
-        <span>购物车</span>
-      </p>
+<div data-role="page" data-theme="c">
+    <div data-role="header" data-theme="c" class="header">
+        <span class="header-back-ico">
+          <a href="javascript:history.go(-1);"><img src="/Public/Wap/Image/ico/carat-l-white.png"/></a>
+        </span>
+        <span class="header-page-title">确认订单</span>
+        <span class="header-index-ico">
+        </span>
     </div>
-    <div class="cart" style="position: absolute;top: 18%;right: 8%;"> 
-      <button class="icon-trash" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#notice"/>
-    </div>
-  </div>
-
-  
-  <div id="goods-list" class="goods-list cart-goodslist"> </div>
-  <script id="goods-list-tmpl" type="text/x-dot-template">
-    <div class="tip-outter"> 
-      <div class="tip-inner"> 
-        <p style="padding:3px;"> 
-          <span id="cart-tip" style="font-size:10px;font-family:行楷;">{%=it.tips%}</span>
-        </p>
-      </div>
-    </div>
-    {% for(var goodsId in it["map"]) { %}
-    <div class="goods"> 
-      <div class="check" goods-id="{%=goodsId%}" style="background-color:{%? it["map"][goodsId]["selected"] == 0%}white{%??%}green{%?%}"> 
-        <i class="icon-ok" aria-hidden="true"></i> 
-      </div> 
-      <div style="width: 25%;display: inline-block;"> 
-        <img src="{%=globalContext[goodsId].Image%}" style="width: 100%;height: 80px;"> 
-      </div>
-      <div class="inner"> 
-        <p> 
-          <span style="font-size: 14px;">{%=globalContext[goodsId].Name%}</span>
-          <span style="font-size: 14px;">{%=globalContext[goodsId].Norms%}</span>
-        </p>
-        <p style="padding-top:16px;"> 
-          <span class="price">￥{%=globalContext[goodsId].Price%}</span>
-          <span><del>￥{%=globalContext[goodsId].Marketprice%}</del></span> 
-        </p>
-      </div> 
-      <div class="item-edit">
-        <div class="item-cart" value="-1" style="bottom: 30px;right: 58px;" goods-id="{%=goodsId%}"> 
-          <div class="btn -purchase"> 
-            <i class="icon-minus"></i> 
-          </div> 
-        </div> 
-        <div class="item-cart" style="bottom: 29px;right: 39px;" goods-id="{%=goodsId%}"> 
-          <i class="count"><span goods-id="{%=goodsId%}">{%=it['map'][goodsId]['goodsNum']%}</span></i> 
-        </div> 
-        <div class="item-cart" value="1" style="bottom: 30px;right: 8px;" goods-id="{%=goodsId%}"> 
-          <div class="btn -purchase"> 
-            <i class="icon-plus"></i> 
-          </div> 
-        </div>
-      </div>
-    </div> 
-    {% } %}
-  </script>
-  
-  <div class="goods-list cart-info cart-goodslist"> 
-    <div class="goods" style="margin-bottom:0px;"> 
-      <div class="check" goods-id="all"> 
-        <i class="icon-ok" aria-hidden="true"></i> 
-      </div> 
-      <div class="info-inner"> 
-        <p>
-          <span style="font-size: 15px;color: grey;">全选</span>
-          <span style="font-size: 12px;padding-left: 8px;">总计:</span>
-          <span id="cart-cost" style="font-size: 12px;color: red;">￥0</span>
-        </p>
-      </div>
-      <div class="info-button">
-        <span style="color: white;font-size: 15px;">结算</span>
-      </div>
-    </div>
-  </div>
-
-  <div class="modal fade" id="notice" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog" role="document" style="width: 68%;background-color: white;text-align: center;margin-left: 16%;margin-top: 51%;">
-      <div class="" style="display: inline-block;padding: 9%;">
-        <span class="modal-body">是否删除所有商品</span>
-      </div>
-      <div style="display: inline-block;width: 100%;text-align: center;border-top: 1px solid #8a8686;">
-        <div style="display: inline-block;width: 47%;color: #2281ec;border-right: 1px solid #8a8686;">
-          <div style="margin-top: 8px;margin-bottom: 6px;" class="clear-cart" data-dismiss="modal">确定</div>
-        </div>
-        <div style="display: inline-block;width: 47%;color: #2281ec;">
-          <div style="margin-top: 8px;margin-bottom: 6px;" data-dismiss="modal">取消</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  
-  
-  <div id="bottom-navbar">
-    <div class="blank"></div>
-    <nav class="navbar navbar-fixed-bottom" style="border:none;background-color:white;">
-      <ul id="foot-menu" class="nav nav-tabs">
-        
-        <li id="home" class="active">
-          
-          <a trigger="" href="www.baidu.com" class="trigger">
-            <i class="icon-home icon-2x" aria-hidden="true"></i>
-            <p>首页</p>
-            
-          </a>
-        </li>
-        
-        <li id="list" >
-          
-          <a trigger="" href="www.baidu.com" class="trigger">
-            <i class="icon-list icon-2x" aria-hidden="true"></i>
-            <p>超市</p>
-            
-          </a>
-        </li>
-        
-        <li id="cart" >
-          
-          <div class="cart-count-flag"> 
-            <div class="item-cart" style="display:none;padding:0px 7px; position: absolute; top: 0px; right: 0px;z-index: 6;"> 
-              <i class="count"><span>0</span></i> 
+    <div data-role="main" class="fastshop">
+        <form class="receipt_address" action="/Order/buy.html" method="post" name="addressform">
+            <div class="demo-part">
+                <li><input type="text" name="name"  value="" placeholder="收货人"/></li>
+                <li><input type="text" name="phone"  value="" placeholder="联系电话"/></li>
+                <li><input type="text" name=""  value="北里王社区" placeholder="收货地址"/></li>
+                <li><input type="text" name="num"  value="" placeholder="楼号门牌（例如:3栋2108）"/></li>
             </div>
-          </div>
-          
-          <a trigger="" href="http://127.0.0.1:8880/static/cart.html" class="trigger">
-            <i class="icon-shopping-cart icon-2x" aria-hidden="true"></i>
-            <p>购物车</p>
-            
-          </a>
-        </li>
-        
-        <li id="user" >
-          
-          <a trigger="" href="www.baidu.com" class="trigger">
-            <i class="icon-user icon-2x" aria-hidden="true"></i>
-            <p>我的</p>
-            
-          </a>
-        </li>
-        
-      </ul>
-    </nav>
-  </div>
-
-  <div id="cart-ball"></div>
+            <div class="demo-part list-menu list-menu-r-ico">
+                <ul>
+                    <li>送货时间:<input type="text" name="time" id="appDateTime" readonly="" class="">
+                    </li>
+                </ul>
+            </div>
+            <div class="demo-part list-menu">
+                <ul>
+                    <li>备注：<input name="remark" type="text" /></li>
+                </ul>
+            </div>
+            <div class="demo-part list-menu">
+                <ul>
+                    <li>商品总价:<label class="right">&#165;23</label></li>
+                    <li>运费:<label class="right">&#165;0.00</label></li>
+                </ul>
+            </div>
+            <div class="subOrder" style="bottom: 0;">
+                <label class="orange">实际支付:<label class="big">&#165;23</label></label>
+                <label><input type="submit" name="" class="ui-btn-orange" value="确认下单" /></label>
+            </div>
+        </form>
+    </div>
+</div>
 </body>
-  
-  
-  <script src="/static/js/goods-wrap.js"></script>
-  <script src="/static/js/cart.js"></script>
-  <script>var globalContext = {}; var globalCart={};</script>
-  <script type="text/javascript">
-    doT.templateSettings = {
-      evaluate: /\{\%([\s\S]+?)\%\}/g,
-      interpolate:/\{\%=([\s\S]+?)\%\}/g,
-      encode:   /\{\%!([\s\S]+?)\%\}/g,
-      use:    /\{\%#([\s\S]+?)\%\}/g,
-      define:   /\{\%##\s*([\w\.$]+)\s*(\:|=)([\s\S]+?)#\%\}/g,
-      conditional:/\{\%\?(\?)?\s*([\s\S]*?)\s*\%\}/g,
-      iterate:  /\{\%~\s*(?:\}\}|([\s\S]+?)\s*\:\s*([\w$]+)\s*(?:\:\s*([\w$]+))?\s*\%\})/g,
-      varname: 'it',
-      strip: true,
-      append: true,
-      selfcontained: false
-    };
-
-    $("#foot-menu").find(".active").removeClass("active");
-    $("#foot-menu").find("#cart").addClass("active");
-    $(".clear-cart").click(cleanCart);
-    registerCart();
-  </script>
-
-  <script type="text/javascript">
-    $(".trigger").click(function(e) {
-      var self = $(this);
-      var trigger = self.attr("trigger");
-      if (undefined != trigger && "" != trigger) {
-        e.preventDefault();
-        eval(trigger)();
-      }
+<script src="/Public/Wap/libs/jQuery/jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+    $(document).bind("mobileinit", function() {
+        // disable ajax nav
+        $.mobile.ajaxEnabled=false
     });
-    $(".item-cart").click(editCart);
-  </script>
+</script>
+<script src="/Public/Wap/libs/mobiscorll/mobiscroll.core-2.5.2.js" type="text/javascript" charset="utf-8"></script>
+<script src="/Public/Wap/libs/mobiscorll/mobiscroll.core-2.5.2-zh.js" type="text/javascript" charset="utf-8"></script>
+<script src="/Public/Wap/libs/mobiscorll/mobiscroll.datetime-2.5.1.js" type="text/javascript" charset="utf-8"></script>
+<script src="/Public/Wap/libs/mobiscorll/mobiscroll.datetime-2.5.1-zh.js" type="text/javascript" charset="utf-8"></script>
+<script src="/Public/Wap/libs/mobiscorll/mobiscroll.android-ics-2.5.2.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+    $(function(){
+        var currYear = (new Date()).getFullYear();
+        var opt={};
+        //opt.datetime = { preset : 'datetime', minDate: new Date(2012,3,10,9,22), maxDate: new Date(2014,7,30,15,44), stepMinute: 5  };
+        opt.datetime = {preset : 'datetime'};
+        opt.default = {
+            theme: 'android-ics light', //皮肤样式
+            display: 'modal', //显示方式
+            mode: 'scroller', //日期选择模式
+            lang:'zh',
+            startYear:currYear - 10, //开始年份
+            endYear:currYear + 10 //结束年份
+        };
+
+        var optDateTime = $.extend(opt['datetime'], opt['default']);
+        $("#appDateTime").mobiscroll(optDateTime).datetime(optDateTime);
+
+        //下面注释部分是上面的参数可以替换改变它的样式
+        //希望一起研究插件的朋友加我个人QQ也可以，本人也建个群 291464597 欢迎进群交流。哈哈。这个不能算广告。
+        // 直接写参数方法
+        //$("#scroller").mobiscroll(opt).date();
+        // Shorthand for: $("#scroller").mobiscroll({ preset: 'date' });
+        //具体参数定义如下
+        //{
+        //preset: 'date', //日期类型--datatime --time,
+        //theme: 'ios', //皮肤其他参数【android-ics light】【android-ics】【ios】【jqm】【sense-ui】【sense-ui】【sense-ui】
+        //【wp light】【wp】
+        //mode: "scroller",//操作方式【scroller】【clickpick】【mixed】
+        //display: 'bubble', //显示方【modal】【inline】【bubble】【top】【bottom】
+        //dateFormat: 'yyyy-mm-dd', // 日期格式
+        //setText: '确定', //确认按钮名称
+        //cancelText: '清空',//取消按钮名籍我
+        //dateOrder: 'yymmdd', //面板中日期排列格
+        //dayText: '日',
+        //monthText: '月',
+        //yearText: '年', //面板中年月日文字
+        //startYear: (new Date()).getFullYear(), //开始年份
+        //endYear: (new Date()).getFullYear() + 9, //结束年份
+        //showNow: true,
+        //nowText: "明天",  //
+        //showOnFocus: false,
+        //height: 45,
+        //width: 90,
+        //rows: 3}
+    })
+</script>
+<script src="/Public/Wap/libs/jQueryMoblie/jquery.mobile.custom.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="/Public/Wap/js/common.js" type="text/javascript" charset="utf-8"></script>
 </html>
