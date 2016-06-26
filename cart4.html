@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html><head>
+    <title>订单详情</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta charset="utf-8">
+    
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    
+    <link rel="stylesheet" href="http://cdn.bootcss.com/font-awesome/3.0.2/css/font-awesome.css">
+
+    <link rel="stylesheet" href="/static/css/goods-wrap.css">
+    <link rel="stylesheet" href="/static/css/home.css">
+    <link rel="stylesheet" href="/static/css/cart.css"> 
+    
+    
+    <script src="http://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="http://cdn.bootcss.com/dot/1.0.3/doT.min.js"></script> 
+</head>
+<body class="background">
+    <div class="container-outter foreground" style="margin-top: 10px;">
+        <div class="inner">
+            <div class="process-info" style="display: inline-block;text-align: center;width: 100%;padding: 2px 2px 0px 9px;">
+                <div style="border: 2px solid #f1ba3e;border-radius: 50%;background-color: white;padding: 9px;display: inline-block;width: 13%;float: left;margin: 19px;">
+                    <i class="icon-credit-card icon-2x" aria-hidden="true" style="color: #f1ba3e;font-size: 16px;"></i>
+                </div>
+                <div style="float: left;">
+                    <div style="float: left;text-align: left;">
+                    <div style="font-size: 19px;margin-top: 19px;">支付成功</div>
+                    <p style="font-size: 10px;">等待商家确认</p>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-outter foreground" style="margin-top: 10px;">
+        <div class="inner">
+            <div class="process-info" style="display: inline-block;text-align: left;width: 100%;padding: 2px 2px 0px 9px;">
+                <div style="display: inline-block;width: 13%;">
+                    <label style="border-bottom: 2px solid #f7f5f5;border-radius: 50%;background-color: #f1ba3e;padding: 9px;">
+                        <i class="icon-credit-card icon-2x" aria-hidden="true" style="color: white;font-size: 16px;"></i>
+                    </label>
+                    <p style="font-size: 12px;">待支付</p>
+                </div>
+                <span style="display: inline-block;margin-left: 12%;"></span>
+                <div style="display: inline-block;width: 13%;">
+                    <label style="border-bottom: 2px solid #f7f5f5;border-radius: 50%;background-color: #f1ba3e;padding: 8px 11px;">
+                        <i class="icon-phone icon-2x" aria-hidden="true" style="color: white;font-size: 20px;"></i>
+                    </label>
+                    <p style="font-size: 12px;">待确认</p>
+                </div>
+                <span style="display: inline-block;margin-left: 12%;"></span>
+                <div style="display: inline-block;width: 13%;">
+                    <label style="border-bottom: 2px solid #f7f5f5;border-radius: 50%;background-color: #f1ba3e;padding:9px 11px 6px 11px;">
+                        <i class="icon-plane icon-2x" aria-hidden="true" style="color: white;font-size: 20px;"></i>
+                    </label>
+                    <p style="font-size: 12px;">配送中</p>
+                </div>
+                <span style="display: inline-block;margin-left: 12%;"></span>
+                <div style="display: inline-block;width: 13%;">
+                    <label style="border-bottom: 2px solid #f7f5f5;border-radius: 50%;background-color: #f1ba3e;padding: 9px 9px 7px;">
+                        <i class="icon-ok icon-2x" aria-hidden="true" style="color: white;font-size: 20px;"></i>
+                    </label>
+                    <p style="font-size: 12px;">已送达</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-outter foreground" style="margin-top: 10px;">
+        <div class="inner">
+            <div class="oreder-info">
+                <div style="border-bottom: 2px solid #f7f5f5;display: inline-block;width: 100%;padding: 0px 8px;">
+                    <label style="float: left;">配送费</label>
+                    <label style="float: right;">￥0.0</label>
+                </div>
+                <div style="display: inline-block;width: 100%;padding: 0px 8px;">
+                    <label style="float: left;">桃子</label>
+                    <label style="float: right;">￥0.0</label>
+                </div>
+                <div style="display: inline-block;width: 100%;padding: 0px 8px;">
+                    <label style="float: left;">西瓜</label>
+                    <label style="float: right;">￥0.0</label>
+                </div>
+                <div style="display: inline-block;width: 100%;padding: 0px 8px;">
+                    <label style="float:left;">西红柿</label>
+                    <label style="float:right;">￥0.0</label>
+                    <label style="float:right;padding-right:10%;font-weight:300;">x2</label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-outter foreground" style="margin-top: 8px;">
+        <div class="inner">
+            <div class="new-address-info" style="padding: 0px 8px;border-bottom: 2px solid #f7f5f5;">
+                <div style="width: 100%;display: inline-block;text-align: left;padding: 6px 0px;">
+                    <label style="width: 26%;margin-bottom: 0px;">
+                        联系方式
+                    </label>
+                    <label style="width: 68%;margin-bottom: 0px;">
+                        杨宏志 18511280986
+                    </label>
+                </div>
+                <div style="width: 100%;display: inline-block;text-align: left;padding: 6px 0px;">
+                    <label style="width: 26%;margin-bottom: 0px;">
+                        送货地址
+                    </label>
+                    <label style="width: 68%;margin-bottom: 0px;">
+                        西工大 星天苑F楼 632
+                    </label>
+                </div>
+            </div>
+            <div class="new-address-info" style="padding: 8px 8px;">
+                <div style="width: 100%;display: inline-block;text-align: left;padding-bottom: 6px;">
+                    <label style="width: 26%;margin-bottom: 0px;">
+                        订单编号
+                    </label>
+                    <label style="width: 68%;margin-bottom: 0px;">
+                        6000000000000101
+                    </label>
+                </div>
+                <div style="width: 100%;display: inline-block;text-align: left;padding-bottom: 6px;">
+                    <label style="width: 26%;margin-bottom: 0px;">
+                        下单时间
+                    </label>
+                    <label style="width: 68%;margin-bottom: 0px;">
+                        2016-06-26 13:14:00
+                    </label>
+                </div>
+                <div style="width: 100%;display: inline-block;text-align: left;padding-bottom: 6px;">
+                    <label style="width: 26%;margin-bottom: 0px;">
+                        期望时间
+                    </label>
+                    <label style="width: 68%;margin-bottom: 0px;">
+                        2016-06-26 13:14:00
+                    </label>
+                </div>
+                <div style="width: 100%;display: inline-block;text-align: left;padding-bottom: 6px;">
+                    <label style="width: 26%;margin-bottom: 0px;">
+                        收货时间
+                    </label>
+                    <label style="width: 68%;margin-bottom: 0px;">
+                        2016-06-26 13:14:00
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="bottom-navbar">
+        <div class="blank"></div>
+        <nav class="navbar navbar-fixed-bottom" style="border:none;background-color:white;width: 100%;">
+            <div class="info-button" style="width: 110px;display: inline-block;background-color: #f1ba3e;float: right;text-align: center;padding: 5%;">
+                <span style="color: white;font-size: 15px;">取消订单</span>
+            </div>
+        </nav>
+    </div>
+</body>
+</html>

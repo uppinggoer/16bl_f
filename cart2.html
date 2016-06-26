@@ -1,119 +1,129 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-    <title>确认订单-奋斗猫--</title>
-    <link rel="stylesheet" type="text/css" href="/Public/Wap/libs/jQueryMoblie/jquery.mobile.custom.structure.min.css"/>
-    <link rel="stylesheet" type="text/css" href="/Public/Wap/libs/jQueryMoblie/jquery.mobile.custom.theme.min.css"/>
-    <link rel="stylesheet" type="text/css" href="/Public/Wap/css/reset-jqmobile.css"/>
-    <link rel="stylesheet" type="text/css" href="/Public/Wap/css/fastshop.css"/>
-    <link rel="stylesheet" type="text/css" href="/Public/Wap/libs/mobiscorll/mobiscroll.core-2.5.2.css"/>
-    <link rel="stylesheet" type="text/css" href="/Public/Wap/libs/mobiscorll/mobiscroll.animation-2.5.2.css"/>
-    <link rel="stylesheet" type="text/css" href="/Public/Wap/libs/mobiscorll/mobiscroll.android-ics-2.5.2.css"/>
+<html><head>
+    <title>确认信息</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta charset="utf-8">
+    
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    
+    <link rel="stylesheet" href="http://cdn.bootcss.com/font-awesome/3.0.2/css/font-awesome.css">
+
+    <link rel="stylesheet" href="/static/css/goods-wrap.css">
+    <link rel="stylesheet" href="/static/css/home.css">
+    <link rel="stylesheet" href="/static/css/cart.css"> 
+    
+    
+    <script src="http://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+    
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="http://cdn.bootcss.com/dot/1.0.3/doT.min.js"></script> 
 </head>
-<body>
-<div data-role="page" data-theme="c">
-    <div data-role="header" data-theme="c" class="header">
-        <span class="header-back-ico">
-          <a href="javascript:history.go(-1);"><img src="/Public/Wap/Image/ico/carat-l-white.png"/></a>
-        </span>
-        <span class="header-page-title">确认订单</span>
-        <span class="header-index-ico">
-        </span>
+<body class="background">
+    <div class="container-outter foreground" style="display:none;margin-top: 8px;">
+        <div class="inner" style="border-top: 3px #decf5b double;border-bottom: 3px #decf5b double;padding-top: 0px;">
+            <div class="new-address-info" style="padding: 0px 8px;border-top: 3px #decf5b dashed;border-bottom: 3px #decf5b dashed;">
+                <div style="width: 100%;display: inline-block;text-align: left;padding-bottom: 6px;">
+                    <label style="width: 18%;margin-bottom: 0px;">
+                        收货人
+                    </label>
+                    <input type="text" placeholder="杨宏志" name="true_name" id="true_name" style="padding: 5px 0px 0px;border: none;border-bottom: 1px #868484 solid;border-radius: 0px;">
+                </div>
+                <div style="width: 100%;display: inline-block;text-align: left;padding-bottom: 6px;">
+                    <label style="width: 18%;margin-bottom: 0px;">
+                        手机号
+                    </label>
+                    <input type="tel" name="mob_phone" style="padding: 5px 0px 0px;border: none;border-bottom: 1px #868484 solid;border-radius: 0px;" placeholder="请填写您的收货电话" >
+                </div>
+                <div style="width: 100%;display: inline-block;text-align: left;padding-bottom: 6px;">
+                    <label style="width: 18%;margin-bottom: 0px;">
+                        位置
+                    </label>
+                    <input name="live_area" placeholder="西工大" style="padding: 5px 0px 0px;border: none;border-bottom: 1px #868484 solid;border-radius: 0px;">
+                </div>
+                <div style="width: 100%;display: inline-block;text-align: left;padding-bottom: 6px;">
+                    <label style="width: 18%;margin-bottom: 0px;">
+                        地址
+                    </label>
+                    <input name="building_info" placeholder="星F" style="padding: 5px 0px 0px;border: none;border-bottom: 1px #868484 solid;border-radius: 0px;">
+                </div>
+            </div>
+        </div>
     </div>
-    <div data-role="main" class="fastshop">
-        <form class="receipt_address" action="/Order/buy.html" method="post" name="addressform">
-            <div class="demo-part">
-                <li><input type="text" name="name"  value="" placeholder="收货人"/></li>
-                <li><input type="text" name="phone"  value="" placeholder="联系电话"/></li>
-                <li><input type="text" name=""  value="北里王社区" placeholder="收货地址"/></li>
-                <li><input type="text" name="num"  value="" placeholder="楼号门牌（例如:3栋2108）"/></li>
+    <div class="container-outter foreground" style="margin-top: 8px;">
+        <div class="inner" style="border-top: 3px #decf5b double;border-bottom: 3px #decf5b double;padding-top: 0px;">
+            <div class="new-address-info" style="padding: 10px 8px;border-top: 3px #decf5b dashed;border-bottom: 3px #decf5b dashed;">
+                <div style="width: 100%;display: inline-block;text-align: left;padding: 6px 0px;">
+                    <label style="width: 18%;margin-bottom: 0px;">
+                        杨宏志
+                    </label>
+                    <label style="width: 18%;margin-bottom: 0px;">
+                        18511280986
+                    </label>
+                </div>
+                <div style="width: 100%;display: inline-block;text-align: left;padding: 6px 0px;">
+                    <label style="width: 18%;margin-bottom: 0px;">
+                        西工大
+                    </label>
+                    <label style="width: 68%;margin-bottom: 0px;">
+                        星天苑F楼 632
+                    </label>
+                </div>
             </div>
-            <div class="demo-part list-menu list-menu-r-ico">
-                <ul>
-                    <li>送货时间:<input type="text" name="time" id="appDateTime" readonly="" class="">
-                    </li>
-                </ul>
-            </div>
-            <div class="demo-part list-menu">
-                <ul>
-                    <li>备注：<input name="remark" type="text" /></li>
-                </ul>
-            </div>
-            <div class="demo-part list-menu">
-                <ul>
-                    <li>商品总价:<label class="right">&#165;23</label></li>
-                    <li>运费:<label class="right">&#165;0.00</label></li>
-                </ul>
-            </div>
-            <div class="subOrder" style="bottom: 0;">
-                <label class="orange">实际支付:<label class="big">&#165;23</label></label>
-                <label><input type="submit" name="" class="ui-btn-orange" value="确认下单" /></label>
-            </div>
-        </form>
+        </div>
     </div>
-</div>
+    <div class="container-outter foreground" style="margin-top: 8px;">
+        <div class="inner">
+            <div class="delivery-info">
+                <div style="display: inline-block;width: 100%;border-bottom: 2px solid #f7f5f5;padding: 0px 8px;">
+                    <label style="float: left;">配送时间</label>
+                    <label style="float: right;">￥0.0</label>
+                </div>
+                <div style="width: 100%;display: inline-block;text-align: left;padding:0px 8px 8px;">
+                    <label style="width: 18%;margin-bottom: 0px;">
+                        备注
+                    </label>
+                    <input type="text" placeholder="杨宏志" name="true_name" id="true_name" style="padding: 5px 0px 0px;border: none;border-bottom: 1px #868484 solid;border-radius: 0px;">
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container-outter foreground" style="margin-top: 10px;">
+        <div class="inner">
+            <div class="oreder-info">
+                <div style="border-bottom: 2px solid #f7f5f5;display: inline-block;width: 100%;padding: 0px 8px;">
+                    <label style="float: left;">配送费</label>
+                    <label style="float: right;">￥0.0</label>
+                </div>
+                <div style="display: inline-block;width: 100%;padding: 0px 8px;">
+                    <label style="float: left;">桃子</label>
+                    <label style="float: right;">￥0.0</label>
+                </div>
+                <div style="display: inline-block;width: 100%;padding: 0px 8px;">
+                    <label style="float: left;">西瓜</label>
+                    <label style="float: right;">￥0.0</label>
+                </div>
+                <div style="display: inline-block;width: 100%;padding: 0px 8px;">
+                    <label style="float:left;">西红柿</label>
+                    <label style="float:right;">￥0.0</label>
+                    <label style="float:right;padding-right:10%;font-weight:300;">x2</label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="bottom-navbar">
+        <div class="blank"></div>
+        <nav class="navbar navbar-fixed-bottom" style="border:none;background-color:white;width: 100%;">
+            <div style="display: inline-block;width:110px;padding-top:5%;">
+                <label style="font-size: 18px;margin-left: 8px;">合计:</label>
+                <label style="color: red;font-size: 16px;font-style: oblique;font-weight: 400;font-family: STKaiti;">
+                    ￥10.0
+                </label>
+            </div>
+            <div class="info-button" style="width: 110px;display: inline-block;background-color: #decf5b;float: right;text-align: center;padding: 5%;">
+                <span style="color: white;font-size: 15px;">结算</span>
+            </div>
+        </nav>
+    </div>
 </body>
-<script src="/Public/Wap/libs/jQuery/jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
-<script type="text/javascript">
-    $(document).bind("mobileinit", function() {
-        // disable ajax nav
-        $.mobile.ajaxEnabled=false
-    });
-</script>
-<script src="/Public/Wap/libs/mobiscorll/mobiscroll.core-2.5.2.js" type="text/javascript" charset="utf-8"></script>
-<script src="/Public/Wap/libs/mobiscorll/mobiscroll.core-2.5.2-zh.js" type="text/javascript" charset="utf-8"></script>
-<script src="/Public/Wap/libs/mobiscorll/mobiscroll.datetime-2.5.1.js" type="text/javascript" charset="utf-8"></script>
-<script src="/Public/Wap/libs/mobiscorll/mobiscroll.datetime-2.5.1-zh.js" type="text/javascript" charset="utf-8"></script>
-<script src="/Public/Wap/libs/mobiscorll/mobiscroll.android-ics-2.5.2.js" type="text/javascript" charset="utf-8"></script>
-<script type="text/javascript">
-    $(function(){
-        var currYear = (new Date()).getFullYear();
-        var opt={};
-        //opt.datetime = { preset : 'datetime', minDate: new Date(2012,3,10,9,22), maxDate: new Date(2014,7,30,15,44), stepMinute: 5  };
-        opt.datetime = {preset : 'datetime'};
-        opt.default = {
-            theme: 'android-ics light', //皮肤样式
-            display: 'modal', //显示方式
-            mode: 'scroller', //日期选择模式
-            lang:'zh',
-            startYear:currYear - 10, //开始年份
-            endYear:currYear + 10 //结束年份
-        };
-
-        var optDateTime = $.extend(opt['datetime'], opt['default']);
-        $("#appDateTime").mobiscroll(optDateTime).datetime(optDateTime);
-
-        //下面注释部分是上面的参数可以替换改变它的样式
-        //希望一起研究插件的朋友加我个人QQ也可以，本人也建个群 291464597 欢迎进群交流。哈哈。这个不能算广告。
-        // 直接写参数方法
-        //$("#scroller").mobiscroll(opt).date();
-        // Shorthand for: $("#scroller").mobiscroll({ preset: 'date' });
-        //具体参数定义如下
-        //{
-        //preset: 'date', //日期类型--datatime --time,
-        //theme: 'ios', //皮肤其他参数【android-ics light】【android-ics】【ios】【jqm】【sense-ui】【sense-ui】【sense-ui】
-        //【wp light】【wp】
-        //mode: "scroller",//操作方式【scroller】【clickpick】【mixed】
-        //display: 'bubble', //显示方【modal】【inline】【bubble】【top】【bottom】
-        //dateFormat: 'yyyy-mm-dd', // 日期格式
-        //setText: '确定', //确认按钮名称
-        //cancelText: '清空',//取消按钮名籍我
-        //dateOrder: 'yymmdd', //面板中日期排列格
-        //dayText: '日',
-        //monthText: '月',
-        //yearText: '年', //面板中年月日文字
-        //startYear: (new Date()).getFullYear(), //开始年份
-        //endYear: (new Date()).getFullYear() + 9, //结束年份
-        //showNow: true,
-        //nowText: "明天",  //
-        //showOnFocus: false,
-        //height: 45,
-        //width: 90,
-        //rows: 3}
-    })
-</script>
-<script src="/Public/Wap/libs/jQueryMoblie/jquery.mobile.custom.min.js" type="text/javascript" charset="utf-8"></script>
-<script src="/Public/Wap/js/common.js" type="text/javascript" charset="utf-8"></script>
 </html>

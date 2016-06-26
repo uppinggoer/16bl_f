@@ -3,7 +3,7 @@
 	width: 100%;
 	padding-bottom: 6px;
 	position: relative;
-	background-color:#EFEFEF;
+	background-color:#f9f9f9;
 }
 .cat-title-inner {
 	text-align:left;
@@ -22,7 +22,7 @@
 }
 
 .cart-goodslist {
-	background-color:#EFEFEF;
+	background-color:#f9f9f9;
 	display: inline-block;
 	width: 100%;
 }
@@ -61,13 +61,12 @@
 	margin-left: 2%;
 	border-radius: 50%; 
 	margin-bottom: 10px;
-	background-color: #40bb91;
 	padding: 2px 4px;
 	color: white;
-	border: 1px double #a29d9d;
+	border: 1px double #e0d9d9;
 }
 .cart-info {
-	background-color:#EFEFEF;
+	background-color:#f9f9f9;
 	display: inline-block;
 	width: 100%;
 }
@@ -83,7 +82,7 @@
 	text-align:left;
 	width: 30%;
 	display: inline-block;
-	background-color: #40bb91;
+	background-color: #decf5b;
 	text-align: center;
 	padding: 5px;
 }
