@@ -4,11 +4,34 @@
 .foreground {
     background-color: #FFFFFF;
 }
+.appcolor {
+    color: #f1ba3e;
+}
+.appground {
+    background-color: #f1ba3e;
+}
+.appgoundborder {
+    border-color: #f7f5f5;
+    border-style: solid;
+    border-width: 0px;
+}
+.appborder {
+    border-color: #f1ba3e;
+    border-style: solid;
+    border-width: 0px;
+}
+.main-font {
+    font: 16px/1.5 "Myriad Set Pro","Lucida Grande","Helvetica Neue",Helvetica,Arial,Verdana,sans-serif,'Microsoft Yahei',Simsun;
+}
+.container-inner {
+    width: 100%;
+    display: inline-block;
+}
 /*容器边框*/
 .container-outter {
-    text-align: center;
     width: 100%;
-    display: inline-block; /*可以把所有实体收入div*/      
+    display: inline-block;
+    text-align: center;    
     margin-bottom: 2px;
 }
 /*容器内*/
@@ -81,6 +104,10 @@
     font-weight: bold;
     padding-bottom: 39px;
 }
+.blanklow:before{
+    padding-bottom: 17px;
+}
+
 
 /*商品列表*/
 .goods-list .desc{
@@ -118,16 +145,16 @@
 }
 
 /*下方导航*/
-.nav li {
+#bottom-navbar li {
     text-align: center;
     width: 25%;
     float: left;
     position: relative;
 }
-.nav li a{
+#bottom-navbar li a{
   color: #7A8188
 }
-.nav li p{
+#bottom-navbar li p{
   margin: 0 0 -8px;
   font-size: x-small;
   background: rgba(0, 0, 0, 0.02);

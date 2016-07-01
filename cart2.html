@@ -52,15 +52,15 @@
     <div class="container-outter foreground" style="margin-top: 8px;">
         <div class="inner" style="border-top: 3px #decf5b double;border-bottom: 3px #decf5b double;padding-top: 0px;">
             <div class="new-address-info" style="padding: 10px 8px;border-top: 3px #decf5b dashed;border-bottom: 3px #decf5b dashed;">
-                <div style="width: 100%;display: inline-block;text-align: left;padding: 6px 0px;">
+                <div class="container-inner" style="text-align: left;padding: 6px 0px;">
                     <label style="width: 18%;margin-bottom: 0px;">
                         杨宏志
                     </label>
-                    <label style="width: 18%;margin-bottom: 0px;">
+                    <label style="width: 68%;margin-bottom: 0px;">
                         18511280986
                     </label>
                 </div>
-                <div style="width: 100%;display: inline-block;text-align: left;padding: 6px 0px;">
+                <div class="container-inner" style="text-align: left;padding: 6px 0px;">
                     <label style="width: 18%;margin-bottom: 0px;">
                         西工大
                     </label>
@@ -74,11 +74,15 @@
     <div class="container-outter foreground" style="margin-top: 8px;">
         <div class="inner">
             <div class="delivery-info">
-                <div style="display: inline-block;width: 100%;border-bottom: 2px solid #f7f5f5;padding: 0px 8px;">
+                <div class="container-inner" style="border-bottom: 2px solid #f7f5f5;padding: 0px 8px;">
                     <label style="float: left;">配送时间</label>
-                    <label style="float: right;">￥0.0</label>
+                    <label style="float: right;">></label>
+                    <select style="float: right;-webkit-appearance: none;outline: 0;width: 22%;border: none;background-color: white;">
+                        <option value="立即配送">立即配送</option>
+                        <option value="广西">广西</option>    
+                    </select>
                 </div>
-                <div style="width: 100%;display: inline-block;text-align: left;padding:0px 8px 8px;">
+                <div class="container-inner" style="text-align: left;padding:0px 8px 8px;">
                     <label style="width: 18%;margin-bottom: 0px;">
                         备注
                     </label>
@@ -91,19 +95,19 @@
     <div class="container-outter foreground" style="margin-top: 10px;">
         <div class="inner">
             <div class="oreder-info">
-                <div style="border-bottom: 2px solid #f7f5f5;display: inline-block;width: 100%;padding: 0px 8px;">
+                <div class="container-inner" style="border-bottom: 2px solid #f7f5f5;padding: 0px 8px;">
                     <label style="float: left;">配送费</label>
                     <label style="float: right;">￥0.0</label>
                 </div>
-                <div style="display: inline-block;width: 100%;padding: 0px 8px;">
+                <div class="container-inner" style="padding: 0px 8px;">
                     <label style="float: left;">桃子</label>
                     <label style="float: right;">￥0.0</label>
                 </div>
-                <div style="display: inline-block;width: 100%;padding: 0px 8px;">
+                <div div class="container-inner" style="padding: 0px 8px;">
                     <label style="float: left;">西瓜</label>
                     <label style="float: right;">￥0.0</label>
                 </div>
-                <div style="display: inline-block;width: 100%;padding: 0px 8px;">
+                <div div class="container-inner" style="padding: 0px 8px;">
                     <label style="float:left;">西红柿</label>
                     <label style="float:right;">￥0.0</label>
                     <label style="float:right;padding-right:10%;font-weight:300;">x2</label>
@@ -112,15 +116,15 @@
         </div>
     </div>
     <div id="bottom-navbar">
-        <div class="blank"></div>
-        <nav class="navbar navbar-fixed-bottom" style="border:none;background-color:white;width: 100%;">
-            <div style="display: inline-block;width:110px;padding-top:5%;">
+        <div class="blank blanklow"></div>
+        <nav class="navbar navbar-fixed-bottom foreground" style="border:none;width: 100%;min-height: 35px;margin-bottom: -1%;">
+            <div class="container-outter" style="width:110px;padding-top:3%;">
                 <label style="font-size: 18px;margin-left: 8px;">合计:</label>
                 <label style="color: red;font-size: 16px;font-style: oblique;font-weight: 400;font-family: STKaiti;">
                     ￥10.0
                 </label>
             </div>
-            <div class="info-button" style="width: 110px;display: inline-block;background-color: #decf5b;float: right;text-align: center;padding: 5%;">
+            <div class="container-outter appground" style="width: 110px;float: right;padding: 3%;">
                 <a style="color: white;font-size: 15px;" href="/static/cart4.html">结算</a>
             </div>
         </nav>
