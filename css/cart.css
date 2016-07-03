@@ -18,6 +18,7 @@
 	font-size: 16px;
 	font-family: &quot;行楷&quot;;
 	vertical-align: text-bottom;
+	/*" 行楷";"=""*/
 }
 
 .cart-goodslist {
@@ -69,11 +70,19 @@
 	display: inline-block;
 	width: 100%;
 }
-/*.cart-info .info-inner{
+.cart-info .info-inner{
 	text-align:left;
 	width: 55%;
 	display: inline-block;
 	background-color: white;
 	vertical-align: middle;
 	overflow: hidden;"
-}*/
+}
+.cart-info .info-button{
+	text-align:left;
+	width: 30%;
+	display: inline-block;
+	background-color: #decf5b;
+	text-align: center;
+	padding: 5px;
+}
