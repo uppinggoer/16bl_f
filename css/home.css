@@ -7,6 +7,9 @@
 .appcolor {
     color: #f1ba3e;
 }
+.nocolor {
+    color: white;
+}
 .appground {
     background-color: #f1ba3e;
 }

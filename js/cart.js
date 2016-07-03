@@ -104,9 +104,9 @@ function renderCart(tips) {
 		}
 	}
 	if (allSelected) {
-		$(".cart-info .check").css("background-color", "#decf5b");
+		$(".cart-info .check").addClass("appground");
 	} else {
-		$(".cart-info .check").css("background-color", "white");
+		$(".cart-info .check").removeClass("appground");
 	}
 }
 

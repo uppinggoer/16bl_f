@@ -1,941 +1,487 @@
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>商品列表</title>
 
+<html><head>
+    <title>购物车</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta charset="utf-8">
+    
     <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <link rel="stylesheet" href="http://cdn.bootcss.com/font-awesome/3.0.2/css/font-awesome.css">   
+    <link rel="stylesheet" href="http://cdn.bootcss.com/font-awesome/3.0.2/css/font-awesome.css">
+
+
     <link rel="stylesheet" href="/static/css/goods-wrap.css">
     <link rel="stylesheet" href="/static/css/home.css">
     <link rel="stylesheet" href="/static/css/cart.css"> 
-
+    
+    
     <script src="http://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
     <script src="http://cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-
-</style>
+    <script src="http://cdn.bootcss.com/dot/1.0.3/doT.min.js"></script> 
 </head>
-<body data-spy="scroll" class="main-font" data-target="#blMenu">
-    <div class="appground container-inner" style="padding: 15px;color: #ffffff;position: fixed;z-index: 3;">
-        <p style="font-size: 36px;margin: 10px 0px;">
-            <span>回归</span>
-            <span style="font-style: italic;font-weight: bold;">十六度</span>
-            <span>暖暖的味道</span>
-        </p>
-    </div>
-    <div class="container-inner">
-        <div style="width: 96%;">
-            <div class="col-xs-3" style="width: 28%;margin-left: -2%;display: inline-block;" id="blMenu">
-                <ul class="nav nav-tabs nav-stacked" data-spy="affix" data-offset-top="125" style="position: fixed;text-align: center;background-color: #f9f9f9;width: 26%;top: 108px;">
-                    <li class="" style="font-size: 28px;border-bottom: 2px solid #dedddd;">
-                        <a style="padding: 28px;font-size: 36px;color:black;" href="#section-1">
+<body data-spy="scroll" data-target="#myScrollspy">
+    <div class="main-font" style="font-size: 10px;">
+        <div class="appground container-inner" style="top: 0;color: #ffffff;position: fixed;z-index: 3;">
+            <p style="margin: 6px 6px;">
+                <span>回归</span>
+                <span style="font-style: italic;font-weight: bold;">十六度</span>
+                <span>暖暖的味道</span>
+            </p>
+        </div>
+        <div class="row" style="margin-top: 30px;">
+            <div class="col-xs-3" id="myScrollspy" style="font-size: 12px;width: 27%;">
+                <ul class="nav nav-tabs nav-stacked background affix-top" data-spy="affix" data-offset-top="125" style="position: fixed;text-align: center;">
+                    <li class="active">
+                        <a style="color:black;border: none;" href="#section-1">
                             个人洗护
                         </a>
                     </li>
-                    <li class="" style="font-size: 28px;border-bottom: 2px solid #dedddd;">
-                        <a style="padding: 28px;font-size: 36px;color:black;" href="#section-2">
+                    <li>
+                        <a style="color:black;border: none;" href="#section-2">
                             个人洗护
                         </a>
                     </li>
-                    <li class="" style="font-size: 28px;border-bottom: 2px solid #dedddd;">
-                        <a style="padding: 28px;font-size: 36px;color:black;" href="#section-3">
+                    <li>
+                        <a style="color:black;border: none;" href="#section-3">
                             个人洗护
                         </a>
                     </li>
-                    <li class="" style="font-size: 28px;border-bottom: 2px solid #dedddd;">
-                        <a style="padding: 28px;font-size: 36px;color:black;" href="#section-4">
+                    <li>
+                        <a style="color:black;border: none;" href="#section-4">
                             个人洗护
                         </a>
                     </li>
-                    <li class="" style="font-size: 28px;border-bottom: 2px solid #dedddd;">
-                        <a style="padding: 28px;font-size: 36px;color:black;" href="#section-5">
+                    <li>
+                        <a style="color:black;border: none;" href="#section-5">
                             个人洗护
                         </a>
                     </li>
                 </ul>
             </div>
-            <div class="col-xs-9" style="width: 70%;padding-left: 2%;border-left: 2px solid #afabab;margin-top: 108px;">
-            <div id="section-1">
-                <div style="width: 114%;padding: 6px 18px;" class="background">
-                    <span style="font-size: 17px;color: black;font-weight: 300;font-size: 34px;font-weight: 300;color: black;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">
-                        个人洗护
-                    </span>
-                </div>
-                <div class="goods" style="width: 116%;padding: 7% 0px;border-bottom: 2px solid #f7f5f5;"> 
-                    <div style="width: 38%;display: inline-block;vertical-align: top;margin-right: 3%;"> 
-                        <img src="http://ishequ360.qiniudn.com/160520/8e6e92f22486b2106300b5c55b2aeda1.jpg" style="width: 100%;height: 239px;padding: 0% 13%;">
+            <div class="col-xs-9" style="width: 73%;padding-left: 2%;border-left: 1px solid #afabab;">
+                <div id="section-1">
+                    <div style="width: 100%;padding: 6px 0px 3px 10px;" class="background">
+                        <span style="  17px;color: black;font-weight: 300;  34px;font-weight: 300;color: black;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">
+                                个人洗护
+                        </span>
                     </div>
-                    <div class="inner" style="display: inline-block;width: 50%;vertical-align: top;position: relative;height: 241px;">
-                        <p style="font-size: 34px;font-weight: 300;color: black;">飘香卤鱼豆腐(微辣)</p>
-                        <p style="font-size: 30px;position: absolute;bottom: 16%;font-weight: 500;color: #999;">500g/盒</p>
-                        <p style="position: absolute;bottom: -6%;">
-                            <span class="price" style="color: red;margin-right: 13px;font-size: 30px;">
-                                ￥27
-                            </span>
-                            <span style="font-size: 28px;font-weight: 500;color: #999;">
-                                <del>￥30</del>
-                            </span>
-                        </p>
-                        <div class="item-edit" style="position: absolute;right: -10%;bottom: 16%;">
-                            <div class="item-cart item-cart-click" value="-1" style="right: 100%;" goods-id="2"> 
-                                <div class="btn -purchase" style="padding: 8px 10px;"> 
-                                    <i class="icon-minus" style="font-size: 36px;"></i>
+                    <div class="goods" style="width: 100%;padding:7% 0px 3%;border-bottom: 2px solid #f7f5f5;"> 
+                        <div style="width: 38%;display: inline-block;vertical-align: top;margin-right: 3%;"> 
+                            <img src="http://ishequ360.qiniudn.com/160520/8e6e92f22486b2106300b5c55b2aeda1.jpg" style="width: 100%;height: 82px;padding: 0% 13%;">
+                        </div>
+                        <div class="inner" style="display: inline-block;width: 50%;vertical-align: top;position: relative;height: 90px;">
+                            <p style="  34px;font-weight: 300;color: black;">飘香卤鱼豆腐(微辣)</p>
+                            <p style="  30px;position: absolute;bottom: 16%;font-weight: 500;color: #999;">500g/盒</p>
+                            <p style="position: absolute;bottom: -6%;">
+                                <span class="price" style="color: red;margin-right: 5px;  30px">
+                                    ￥27
+                                </span>
+                                <span style="  28px;font-weight: 500;color: #999;">
+                                    <del>￥30</del>
+                                </span>
+                            </p>
+                            <div class="item-edit" style="position: absolute;right: -10%;bottom: 0%;">
+                                <div class="item-cart item-cart-click" value="-1" style="right: 80%;display: none;" goods-id="2"> 
+                                    <div class="btn -purchase"> 
+                                        <i class="icon-minus"></i>
+                                    </div>
+                                </div>
+                                <div class="item-cart" style="right: 55%;display: none;" goods-id="2"> 
+                                    <i class="count">
+                                        <span goods-id="2">1</span>
+                                    </i>
+                                </div>
+                                <div class="item-cart item-cart-click" value="1" style="" goods-id="2">
+                                    <div class="btn -purchase">
+                                        <i class="icon-plus"></i>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="item-cart" style="right: 60%;" goods-id="2"> 
-                                <i class="count" style="font-size: 36px;">
-                                    <span goods-id="2" style="font-size: 28px;">1</span>
-                                </i>
+                        </div>
+                    </div>
+                    <div class="goods" style="width: 100%;padding:7% 0px 3%;border-bottom: 2px solid #f7f5f5;"> 
+                        <div style="width: 38%;display: inline-block;vertical-align: top;margin-right: 3%;"> 
+                            <img src="http://ishequ360.qiniudn.com/160520/8e6e92f22486b2106300b5c55b2aeda1.jpg" style="width: 100%;height: 82px;padding: 0% 13%;">
+                        </div>
+                        <div class="inner" style="display: inline-block;width: 50%;vertical-align: top;position: relative;height: 90px;">
+                            <p style="  34px;font-weight: 300;color: black;">飘香卤鱼豆腐(微辣)</p>
+                            <p style="  30px;position: absolute;bottom: 16%;font-weight: 500;color: #999;">500g/盒</p>
+                            <p style="position: absolute;bottom: -6%;">
+                                <span class="price" style="color: red;margin-right: 5px;  30px">
+                                    ￥27
+                                </span>
+                                <span style="  28px;font-weight: 500;color: #999;">
+                                    <del>￥30</del>
+                                </span>
+                            </p>
+                            <div class="item-edit" style="position: absolute;right: -10%;bottom: 0%;">
+                                <div class="item-cart item-cart-click" value="-1" style="right: 80%;display: none;" goods-id="2"> 
+                                    <div class="btn -purchase"> 
+                                        <i class="icon-minus"></i>
+                                    </div>
+                                </div>
+                                <div class="item-cart" style="right: 55%;display: none;" goods-id="2"> 
+                                    <i class="count">
+                                        <span goods-id="2">1</span>
+                                    </i>
+                                </div>
+                                <div class="item-cart item-cart-click" value="1" style="" goods-id="2">
+                                    <div class="btn -purchase">
+                                        <i class="icon-plus"></i>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="item-cart item-cart-click" value="1" style="" goods-id="2">
-                                <div class="btn -purchase" style="padding: 8px 12px;">
-                                    <i class="icon-plus" style="font-size: 36px;"></i>
+                        </div>
+                    </div>
+                    <div class="goods" style="width: 100%;padding:7% 0px 3%;border-bottom: 2px solid #f7f5f5;"> 
+                        <div style="width: 38%;display: inline-block;vertical-align: top;margin-right: 3%;"> 
+                            <img src="http://ishequ360.qiniudn.com/160520/8e6e92f22486b2106300b5c55b2aeda1.jpg" style="width: 100%;height: 82px;padding: 0% 13%;">
+                        </div>
+                        <div class="inner" style="display: inline-block;width: 50%;vertical-align: top;position: relative;height: 90px;">
+                            <p style="  34px;font-weight: 300;color: black;">飘香卤鱼豆腐(微辣)</p>
+                            <p style="  30px;position: absolute;bottom: 16%;font-weight: 500;color: #999;">500g/盒</p>
+                            <p style="position: absolute;bottom: -6%;">
+                                <span class="price" style="color: red;margin-right: 5px;  30px">
+                                    ￥27
+                                </span>
+                                <span style="  28px;font-weight: 500;color: #999;">
+                                    <del>￥30</del>
+                                </span>
+                            </p>
+                            <div class="item-edit" style="position: absolute;right: -10%;bottom: 0%;">
+                                <div class="item-cart item-cart-click" value="-1" style="right: 80%;display: none;" goods-id="2"> 
+                                    <div class="btn -purchase"> 
+                                        <i class="icon-minus"></i>
+                                    </div>
+                                </div>
+                                <div class="item-cart" style="right: 55%;display: none;" goods-id="2"> 
+                                    <i class="count">
+                                        <span goods-id="2">1</span>
+                                    </i>
+                                </div>
+                                <div class="item-cart item-cart-click" value="1" style="" goods-id="2">
+                                    <div class="btn -purchase">
+                                        <i class="icon-plus"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="goods" style="width: 100%;padding:7% 0px 3%;border-bottom: 2px solid #f7f5f5;"> 
+                        <div style="width: 38%;display: inline-block;vertical-align: top;margin-right: 3%;"> 
+                            <img src="http://ishequ360.qiniudn.com/160520/8e6e92f22486b2106300b5c55b2aeda1.jpg" style="width: 100%;height: 82px;padding: 0% 13%;">
+                        </div>
+                        <div class="inner" style="display: inline-block;width: 50%;vertical-align: top;position: relative;height: 90px;">
+                            <p style="  34px;font-weight: 300;color: black;">飘香卤鱼豆腐(微辣)</p>
+                            <p style="  30px;position: absolute;bottom: 16%;font-weight: 500;color: #999;">500g/盒</p>
+                            <p style="position: absolute;bottom: -6%;">
+                                <span class="price" style="color: red;margin-right: 5px;  30px">
+                                    ￥27
+                                </span>
+                                <span style="  28px;font-weight: 500;color: #999;">
+                                    <del>￥30</del>
+                                </span>
+                            </p>
+                            <div class="item-edit" style="position: absolute;right: -10%;bottom: 0%;">
+                                <div class="item-cart item-cart-click" value="-1" style="right: 80%;display: none;" goods-id="2"> 
+                                    <div class="btn -purchase"> 
+                                        <i class="icon-minus"></i>
+                                    </div>
+                                </div>
+                                <div class="item-cart" style="right: 55%;display: none;" goods-id="2"> 
+                                    <i class="count">
+                                        <span goods-id="2">1</span>
+                                    </i>
+                                </div>
+                                <div class="item-cart item-cart-click" value="1" style="" goods-id="2">
+                                    <div class="btn -purchase">
+                                        <i class="icon-plus"></i>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div id="section-2">
-                <div style="width: 114%;padding: 6px 18px;" class="background">
-                    <span style="font-size: 17px;color: black;font-weight: 300;font-size: 34px;font-weight: 300;color: black;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">
-                        个人洗护
-                    </span>
-                </div>
-                <div class="goods" style="width: 114%;padding: 7% 0px;border-bottom: 2px solid #f7f5f5;"> 
-                    <div style="width: 38%;display: inline-block;vertical-align: top;margin-right: 3%;"> 
-                        <img src="http://ishequ360.qiniudn.com/160520/8e6e92f22486b2106300b5c55b2aeda1.jpg" style="width: 100%;height: 239px;padding: 0% 13%;">
+                <div id="section-2">
+                    <div style="width: 100%;padding: 6px 0px 3px 10px;" class="background">
+                        <span style="  17px;color: black;font-weight: 300;  34px;font-weight: 300;color: black;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">
+                                个人洗护
+                        </span>
                     </div>
-                    <div class="inner" style="display: inline-block;width: 50%;vertical-align: top;position: relative;height: 241px;">
-                        <p style="font-size: 34px;font-weight: 300;color: black;text-overflow: ellipsis;overflow: hidden;position: absolute;" myriad="" set="" pro","lucida="" grande","helvetica="" neue",helvetica,arial,verdana,sans-serif,'microsoft="" yahei',simsun;"="">飘香卤鱼豆腐(微辣)</p>
-                        <p style="font-size: 30px;position: absolute;bottom: 16%;font-weight: 500;color: #999;">500g/盒</p>
-                        <p style="position: absolute;bottom: -6%;">
-                            <span class="price" style="color: red;margin-right: 13px;font-size: 30px;">
-                                ￥27
-                            </span>
-                            <span style="font-size: 28px;font-weight: 500;color: #999;">
-                                <del>￥30</del>
-                            </span>
-                        </p>
-                        <div class="item-edit" style="position: absolute;right: -10%;bottom: 0;display: inline-block;">
-                            <div class="item-cart item-cart-click" value="-1" style="right: 100%;" goods-id="2"> 
-                                <div class="btn -purchase"> 
-                                    <i class="icon-minus" style="font-size: 36px;"></i>
+                    <div class="goods" style="width: 100%;padding:7% 0px 3%;border-bottom: 2px solid #f7f5f5;"> 
+                        <div style="width: 38%;display: inline-block;vertical-align: top;margin-right: 3%;"> 
+                            <img src="http://ishequ360.qiniudn.com/160520/8e6e92f22486b2106300b5c55b2aeda1.jpg" style="width: 100%;height: 82px;padding: 0% 13%;">
+                        </div>
+                        <div class="inner" style="display: inline-block;width: 50%;vertical-align: top;position: relative;height: 90px;">
+                            <p style="  34px;font-weight: 300;color: black;">飘香卤鱼豆腐(微辣)</p>
+                            <p style="  30px;position: absolute;bottom: 16%;font-weight: 500;color: #999;">500g/盒</p>
+                            <p style="position: absolute;bottom: -6%;">
+                                <span class="price" style="color: red;margin-right: 5px;  30px">
+                                    ￥27
+                                </span>
+                                <span style="  28px;font-weight: 500;color: #999;">
+                                    <del>￥30</del>
+                                </span>
+                            </p>
+                            <div class="item-edit" style="position: absolute;right: -10%;bottom: 0%;">
+                                <div class="item-cart item-cart-click" value="-1" style="right: 80%;display: none;" goods-id="2"> 
+                                    <div class="btn -purchase"> 
+                                        <i class="icon-minus"></i>
+                                    </div>
+                                </div>
+                                <div class="item-cart" style="right: 55%;display: none;" goods-id="2"> 
+                                    <i class="count">
+                                        <span goods-id="2">1</span>
+                                    </i>
+                                </div>
+                                <div class="item-cart item-cart-click" value="1" style="" goods-id="2">
+                                    <div class="btn -purchase">
+                                        <i class="icon-plus"></i>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="item-cart" style="right: 60%;" goods-id="2"> 
-                                <i class="count">
-                                    <span goods-id="2" style="font-size: 28px;">1</span>
-                                </i>
+                        </div>
+                    </div>
+                    <div class="goods" style="width: 100%;padding:7% 0px 3%;border-bottom: 2px solid #f7f5f5;"> 
+                        <div style="width: 38%;display: inline-block;vertical-align: top;margin-right: 3%;"> 
+                            <img src="http://ishequ360.qiniudn.com/160520/8e6e92f22486b2106300b5c55b2aeda1.jpg" style="width: 100%;height: 82px;padding: 0% 13%;">
+                        </div>
+                        <div class="inner" style="display: inline-block;width: 50%;vertical-align: top;position: relative;height: 90px;">
+                            <p style="  34px;font-weight: 300;color: black;">飘香卤鱼豆腐(微辣)</p>
+                            <p style="  30px;position: absolute;bottom: 16%;font-weight: 500;color: #999;">500g/盒</p>
+                            <p style="position: absolute;bottom: -6%;">
+                                <span class="price" style="color: red;margin-right: 5px;  30px">
+                                    ￥27
+                                </span>
+                                <span style="  28px;font-weight: 500;color: #999;">
+                                    <del>￥30</del>
+                                </span>
+                            </p>
+                            <div class="item-edit" style="position: absolute;right: -10%;bottom: 0%;">
+                                <div class="item-cart item-cart-click" value="-1" style="right: 80%;display: none;" goods-id="2"> 
+                                    <div class="btn -purchase"> 
+                                        <i class="icon-minus"></i>
+                                    </div>
+                                </div>
+                                <div class="item-cart" style="right: 55%;display: none;" goods-id="2"> 
+                                    <i class="count">
+                                        <span goods-id="2">1</span>
+                                    </i>
+                                </div>
+                                <div class="item-cart item-cart-click" value="1" style="" goods-id="2">
+                                    <div class="btn -purchase">
+                                        <i class="icon-plus"></i>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="item-cart item-cart-click" value="1" style="right: -10%;" goods-id="2">
-                                <div class="btn -purchase">
-                                    <i class="icon-plus" style="font-size: 36px;"></i>
+                        </div>
+                    </div>
+                    <div class="goods" style="width: 100%;padding:7% 0px 3%;border-bottom: 2px solid #f7f5f5;"> 
+                        <div style="width: 38%;display: inline-block;vertical-align: top;margin-right: 3%;"> 
+                            <img src="http://ishequ360.qiniudn.com/160520/8e6e92f22486b2106300b5c55b2aeda1.jpg" style="width: 100%;height: 82px;padding: 0% 13%;">
+                        </div>
+                        <div class="inner" style="display: inline-block;width: 50%;vertical-align: top;position: relative;height: 90px;">
+                            <p style="  34px;font-weight: 300;color: black;">飘香卤鱼豆腐(微辣)</p>
+                            <p style="  30px;position: absolute;bottom: 16%;font-weight: 500;color: #999;">500g/盒</p>
+                            <p style="position: absolute;bottom: -6%;">
+                                <span class="price" style="color: red;margin-right: 5px;  30px">
+                                    ￥27
+                                </span>
+                                <span style="  28px;font-weight: 500;color: #999;">
+                                    <del>￥30</del>
+                                </span>
+                            </p>
+                            <div class="item-edit" style="position: absolute;right: -10%;bottom: 0%;">
+                                <div class="item-cart item-cart-click" value="-1" style="right: 80%;display: none;" goods-id="2"> 
+                                    <div class="btn -purchase"> 
+                                        <i class="icon-minus"></i>
+                                    </div>
+                                </div>
+                                <div class="item-cart" style="right: 55%;display: none;" goods-id="2"> 
+                                    <i class="count">
+                                        <span goods-id="2">1</span>
+                                    </i>
+                                </div>
+                                <div class="item-cart item-cart-click" value="1" style="" goods-id="2">
+                                    <div class="btn -purchase">
+                                        <i class="icon-plus"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="goods" style="width: 100%;padding:7% 0px 3%;border-bottom: 2px solid #f7f5f5;"> 
+                        <div style="width: 38%;display: inline-block;vertical-align: top;margin-right: 3%;"> 
+                            <img src="http://ishequ360.qiniudn.com/160520/8e6e92f22486b2106300b5c55b2aeda1.jpg" style="width: 100%;height: 82px;padding: 0% 13%;">
+                        </div>
+                        <div class="inner" style="display: inline-block;width: 50%;vertical-align: top;position: relative;height: 90px;">
+                            <p style="  34px;font-weight: 300;color: black;">飘香卤鱼豆腐(微辣)</p>
+                            <p style="  30px;position: absolute;bottom: 16%;font-weight: 500;color: #999;">500g/盒</p>
+                            <p style="position: absolute;bottom: -6%;">
+                                <span class="price" style="color: red;margin-right: 5px;  30px">
+                                    ￥27
+                                </span>
+                                <span style="  28px;font-weight: 500;color: #999;">
+                                    <del>￥30</del>
+                                </span>
+                            </p>
+                            <div class="item-edit" style="position: absolute;right: -10%;bottom: 0%;">
+                                <div class="item-cart item-cart-click" value="-1" style="right: 80%;display: none;" goods-id="2"> 
+                                    <div class="btn -purchase"> 
+                                        <i class="icon-minus"></i>
+                                    </div>
+                                </div>
+                                <div class="item-cart" style="right: 55%;display: none;" goods-id="2"> 
+                                    <i class="count">
+                                        <span goods-id="2">1</span>
+                                    </i>
+                                </div>
+                                <div class="item-cart item-cart-click" value="1" style="" goods-id="2">
+                                    <div class="btn -purchase">
+                                        <i class="icon-plus"></i>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="goods" style="width: 114%;padding: 7% 0px;border-bottom: 2px solid #f7f5f5;"> 
-                    <div style="width: 38%;display: inline-block;vertical-align: top;margin-right: 3%;"> 
-                        <img src="http://ishequ360.qiniudn.com/160520/8e6e92f22486b2106300b5c55b2aeda1.jpg" style="width: 100%;height: 239px;padding: 0% 13%;">
+                <div id="section-3">
+                    <div style="width: 100%;padding: 6px 0px 3px 10px;" class="background">
+                        <span style="  17px;color: black;font-weight: 300;  34px;font-weight: 300;color: black;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">
+                                个人洗护
+                        </span>
                     </div>
-                    <div class="inner" style="display: inline-block;width: 50%;vertical-align: top;position: relative;height: 241px;">
-                        <p style="font-size: 34px;font-weight: 300;color: black;text-overflow: ellipsis;overflow: hidden;position: absolute;" myriad="" set="" pro","lucida="" grande","helvetica="" neue",helvetica,arial,verdana,sans-serif,'microsoft="" yahei',simsun;"="">飘香卤鱼豆腐(微辣)</p>
-                        <p style="font-size: 30px;position: absolute;bottom: 16%;font-weight: 500;color: #999;">500g/盒</p>
-                        <p style="position: absolute;bottom: -6%;">
-                            <span class="price" style="color: red;margin-right: 13px;font-size: 30px;">
-                                ￥27
-                            </span>
-                            <span style="font-size: 28px;font-weight: 500;color: #999;">
-                                <del>￥30</del>
-                            </span>
-                        </p>
-                        <div class="item-edit" style="position: absolute;right: -10%;bottom: 0;display: inline-block;">
-                            <div class="item-cart item-cart-click" value="-1" style="right: 100%;" goods-id="2"> 
-                                <div class="btn -purchase"> 
-                                    <i class="icon-minus" style="font-size: 36px;"></i>
+                    <div class="goods" style="width: 100%;padding:7% 0px 3%;border-bottom: 2px solid #f7f5f5;"> 
+                        <div style="width: 38%;display: inline-block;vertical-align: top;margin-right: 3%;"> 
+                            <img src="http://ishequ360.qiniudn.com/160520/8e6e92f22486b2106300b5c55b2aeda1.jpg" style="width: 100%;height: 82px;padding: 0% 13%;">
+                        </div>
+                        <div class="inner" style="display: inline-block;width: 50%;vertical-align: top;position: relative;height: 90px;">
+                            <p style="  34px;font-weight: 300;color: black;">飘香卤鱼豆腐(微辣)</p>
+                            <p style="  30px;position: absolute;bottom: 16%;font-weight: 500;color: #999;">500g/盒</p>
+                            <p style="position: absolute;bottom: -6%;">
+                                <span class="price" style="color: red;margin-right: 5px;  30px">
+                                    ￥27
+                                </span>
+                                <span style="  28px;font-weight: 500;color: #999;">
+                                    <del>￥30</del>
+                                </span>
+                            </p>
+                            <div class="item-edit" style="position: absolute;right: -10%;bottom: 0%;">
+                                <div class="item-cart item-cart-click" value="-1" style="right: 80%;display: none;" goods-id="2"> 
+                                    <div class="btn -purchase"> 
+                                        <i class="icon-minus"></i>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="item-cart" style="right: 60%;" goods-id="2"> 
-                                <i class="count">
-                                    <span goods-id="2" style="font-size: 28px;">1</span>
-                                </i>
-                            </div>
-                            <div class="item-cart item-cart-click" value="1" style="right: -10%;" goods-id="2">
-                                <div class="btn -purchase">
-                                    <i class="icon-plus" style="font-size: 36px;"></i>
+                                <div class="item-cart" style="right: 55%;display: none;" goods-id="2"> 
+                                    <i class="count">
+                                        <span goods-id="2">1</span>
+                                    </i>
+                                </div>
+                                <div class="item-cart item-cart-click" value="1" style="" goods-id="2">
+                                    <div class="btn -purchase">
+                                        <i class="icon-plus"></i>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="goods" style="width: 114%;padding: 7% 0px;border-bottom: 2px solid #f7f5f5;"> 
-                    <div style="width: 38%;display: inline-block;vertical-align: top;margin-right: 3%;"> 
-                        <img src="http://ishequ360.qiniudn.com/160520/8e6e92f22486b2106300b5c55b2aeda1.jpg" style="width: 100%;height: 239px;padding: 0% 13%;">
-                    </div>
-                    <div class="inner" style="display: inline-block;width: 50%;vertical-align: top;position: relative;height: 241px;">
-                        <p style="font-size: 34px;font-weight: 300;color: black;text-overflow: ellipsis;overflow: hidden;position: absolute;" myriad="" set="" pro","lucida="" grande","helvetica="" neue",helvetica,arial,verdana,sans-serif,'microsoft="" yahei',simsun;"="">飘香卤鱼豆腐(微辣)</p>
-                        <p style="font-size: 30px;position: absolute;bottom: 16%;font-weight: 500;color: #999;">500g/盒</p>
-                        <p style="position: absolute;bottom: -6%;">
-                            <span class="price" style="color: red;margin-right: 13px;font-size: 30px;">
-                                ￥27
-                            </span>
-                            <span style="font-size: 28px;font-weight: 500;color: #999;">
-                                <del>￥30</del>
-                            </span>
-                        </p>
-                        <div class="item-edit" style="position: absolute;right: -10%;bottom: 0;display: inline-block;">
-                            <div class="item-cart item-cart-click" value="-1" style="right: 100%;" goods-id="2"> 
-                                <div class="btn -purchase"> 
-                                    <i class="icon-minus" style="font-size: 36px;"></i>
+                    <div class="goods" style="width: 100%;padding:7% 0px 3%;border-bottom: 2px solid #f7f5f5;"> 
+                        <div style="width: 38%;display: inline-block;vertical-align: top;margin-right: 3%;"> 
+                            <img src="http://ishequ360.qiniudn.com/160520/8e6e92f22486b2106300b5c55b2aeda1.jpg" style="width: 100%;height: 82px;padding: 0% 13%;">
+                        </div>
+                        <div class="inner" style="display: inline-block;width: 50%;vertical-align: top;position: relative;height: 90px;">
+                            <p style="  34px;font-weight: 300;color: black;">飘香卤鱼豆腐(微辣)</p>
+                            <p style="  30px;position: absolute;bottom: 16%;font-weight: 500;color: #999;">500g/盒</p>
+                            <p style="position: absolute;bottom: -6%;">
+                                <span class="price" style="color: red;margin-right: 5px;  30px">
+                                    ￥27
+                                </span>
+                                <span style="  28px;font-weight: 500;color: #999;">
+                                    <del>￥30</del>
+                                </span>
+                            </p>
+                            <div class="item-edit" style="position: absolute;right: -10%;bottom: 0%;">
+                                <div class="item-cart item-cart-click" value="-1" style="right: 80%;display: none;" goods-id="2"> 
+                                    <div class="btn -purchase"> 
+                                        <i class="icon-minus"></i>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="item-cart" style="right: 60%;" goods-id="2"> 
-                                <i class="count">
-                                    <span goods-id="2" style="font-size: 28px;">1</span>
-                                </i>
-                            </div>
-                            <div class="item-cart item-cart-click" value="1" style="right: -10%;" goods-id="2">
-                                <div class="btn -purchase">
-                                    <i class="icon-plus" style="font-size: 36px;"></i>
+                                <div class="item-cart" style="right: 55%;display: none;" goods-id="2"> 
+                                    <i class="count">
+                                        <span goods-id="2">1</span>
+                                    </i>
+                                </div>
+                                <div class="item-cart item-cart-click" value="1" style="" goods-id="2">
+                                    <div class="btn -purchase">
+                                        <i class="icon-plus"></i>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="goods" style="width: 114%;padding: 7% 0px;border-bottom: 2px solid #f7f5f5;"> 
-                    <div style="width: 38%;display: inline-block;vertical-align: top;margin-right: 3%;"> 
-                        <img src="http://ishequ360.qiniudn.com/160520/8e6e92f22486b2106300b5c55b2aeda1.jpg" style="width: 100%;height: 239px;padding: 0% 13%;">
-                    </div>
-                    <div class="inner" style="display: inline-block;width: 50%;vertical-align: top;position: relative;height: 241px;">
-                        <p style="font-size: 34px;font-weight: 300;color: black;text-overflow: ellipsis;overflow: hidden;position: absolute;" myriad="" set="" pro","lucida="" grande","helvetica="" neue",helvetica,arial,verdana,sans-serif,'microsoft="" yahei',simsun;"="">飘香卤鱼豆腐(微辣)</p>
-                        <p style="font-size: 30px;position: absolute;bottom: 16%;font-weight: 500;color: #999;">500g/盒</p>
-                        <p style="position: absolute;bottom: -6%;">
-                            <span class="price" style="color: red;margin-right: 13px;font-size: 30px;">
-                                ￥27
-                            </span>
-                            <span style="font-size: 28px;font-weight: 500;color: #999;">
-                                <del>￥30</del>
-                            </span>
-                        </p>
-                        <div class="item-edit" style="position: absolute;right: -10%;bottom: 0;display: inline-block;">
-                            <div class="item-cart item-cart-click" value="-1" style="right: 100%;" goods-id="2"> 
-                                <div class="btn -purchase"> 
-                                    <i class="icon-minus" style="font-size: 36px;"></i>
+                    <div class="goods" style="width: 100%;padding:7% 0px 3%;border-bottom: 2px solid #f7f5f5;"> 
+                        <div style="width: 38%;display: inline-block;vertical-align: top;margin-right: 3%;"> 
+                            <img src="http://ishequ360.qiniudn.com/160520/8e6e92f22486b2106300b5c55b2aeda1.jpg" style="width: 100%;height: 82px;padding: 0% 13%;">
+                        </div>
+                        <div class="inner" style="display: inline-block;width: 50%;vertical-align: top;position: relative;height: 90px;">
+                            <p style="  34px;font-weight: 300;color: black;">飘香卤鱼豆腐(微辣)</p>
+                            <p style="  30px;position: absolute;bottom: 16%;font-weight: 500;color: #999;">500g/盒</p>
+                            <p style="position: absolute;bottom: -6%;">
+                                <span class="price" style="color: red;margin-right: 5px;  30px">
+                                    ￥27
+                                </span>
+                                <span style="  28px;font-weight: 500;color: #999;">
+                                    <del>￥30</del>
+                                </span>
+                            </p>
+                            <div class="item-edit" style="position: absolute;right: -10%;bottom: 0%;">
+                                <div class="item-cart item-cart-click" value="-1" style="right: 80%;display: none;" goods-id="2"> 
+                                    <div class="btn -purchase"> 
+                                        <i class="icon-minus"></i>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="item-cart" style="right: 60%;" goods-id="2"> 
-                                <i class="count">
-                                    <span goods-id="2" style="font-size: 28px;">1</span>
-                                </i>
-                            </div>
-                            <div class="item-cart item-cart-click" value="1" style="right: -10%;" goods-id="2">
-                                <div class="btn -purchase">
-                                    <i class="icon-plus" style="font-size: 36px;"></i>
+                                <div class="item-cart" style="right: 55%;display: none;" goods-id="2"> 
+                                    <i class="count">
+                                        <span goods-id="2">1</span>
+                                    </i>
+                                </div>
+                                <div class="item-cart item-cart-click" value="1" style="" goods-id="2">
+                                    <div class="btn -purchase">
+                                        <i class="icon-plus"></i>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="goods" style="width: 114%;padding: 7% 0px;border-bottom: 2px solid #f7f5f5;"> 
-                    <div style="width: 38%;display: inline-block;vertical-align: top;margin-right: 3%;"> 
-                        <img src="http://ishequ360.qiniudn.com/160520/8e6e92f22486b2106300b5c55b2aeda1.jpg" style="width: 100%;height: 239px;padding: 0% 13%;">
-                    </div>
-                    <div class="inner" style="display: inline-block;width: 50%;vertical-align: top;position: relative;height: 241px;">
-                        <p style="font-size: 34px;font-weight: 300;color: black;text-overflow: ellipsis;overflow: hidden;position: absolute;" myriad="" set="" pro","lucida="" grande","helvetica="" neue",helvetica,arial,verdana,sans-serif,'microsoft="" yahei',simsun;"="">飘香卤鱼豆腐(微辣)</p>
-                        <p style="font-size: 30px;position: absolute;bottom: 16%;font-weight: 500;color: #999;">500g/盒</p>
-                        <p style="position: absolute;bottom: -6%;">
-                            <span class="price" style="color: red;margin-right: 13px;font-size: 30px;">
-                                ￥27
-                            </span>
-                            <span style="font-size: 28px;font-weight: 500;color: #999;">
-                                <del>￥30</del>
-                            </span>
-                        </p>
-                        <div class="item-edit" style="position: absolute;right: -10%;bottom: 0;display: inline-block;">
-                            <div class="item-cart item-cart-click" value="-1" style="right: 100%;" goods-id="2"> 
-                                <div class="btn -purchase"> 
-                                    <i class="icon-minus" style="font-size: 36px;"></i>
-                                </div>
-                            </div>
-                            <div class="item-cart" style="right: 60%;" goods-id="2"> 
-                                <i class="count">
-                                    <span goods-id="2" style="font-size: 28px;">1</span>
-                                </i>
-                            </div>
-                            <div class="item-cart item-cart-click" value="1" style="right: -10%;" goods-id="2">
-                                <div class="btn -purchase">
-                                    <i class="icon-plus" style="font-size: 36px;"></i>
-                                </div>
-                            </div>
+                    <div class="goods" style="width: 100%;padding:7% 0px 3%;border-bottom: 2px solid #f7f5f5;"> 
+                        <div style="width: 38%;display: inline-block;vertical-align: top;margin-right: 3%;"> 
+                            <img src="http://ishequ360.qiniudn.com/160520/8e6e92f22486b2106300b5c55b2aeda1.jpg" style="width: 100%;height: 82px;padding: 0% 13%;">
                         </div>
-                    </div>
-                </div>
-                <div class="goods" style="width: 114%;padding: 7% 0px;border-bottom: 2px solid #f7f5f5;"> 
-                    <div style="width: 38%;display: inline-block;vertical-align: top;margin-right: 3%;"> 
-                        <img src="http://ishequ360.qiniudn.com/160520/8e6e92f22486b2106300b5c55b2aeda1.jpg" style="width: 100%;height: 239px;padding: 0% 13%;">
-                    </div>
-                    <div class="inner" style="display: inline-block;width: 50%;vertical-align: top;position: relative;height: 241px;">
-                        <p style="font-size: 34px;font-weight: 300;color: black;text-overflow: ellipsis;overflow: hidden;position: absolute;" myriad="" set="" pro","lucida="" grande","helvetica="" neue",helvetica,arial,verdana,sans-serif,'microsoft="" yahei',simsun;"="">飘香卤鱼豆腐(微辣)</p>
-                        <p style="font-size: 30px;position: absolute;bottom: 16%;font-weight: 500;color: #999;">500g/盒</p>
-                        <p style="position: absolute;bottom: -6%;">
-                            <span class="price" style="color: red;margin-right: 13px;font-size: 30px;">
-                                ￥27
-                            </span>
-                            <span style="font-size: 28px;font-weight: 500;color: #999;">
-                                <del>￥30</del>
-                            </span>
-                        </p>
-                        <div class="item-edit" style="position: absolute;right: -10%;bottom: 0;display: inline-block;">
-                            <div class="item-cart item-cart-click" value="-1" style="right: 100%;" goods-id="2"> 
-                                <div class="btn -purchase"> 
-                                    <i class="icon-minus" style="font-size: 36px;"></i>
+                        <div class="inner" style="display: inline-block;width: 50%;vertical-align: top;position: relative;height: 90px;">
+                            <p style="  34px;font-weight: 300;color: black;">飘香卤鱼豆腐(微辣)</p>
+                            <p style="  30px;position: absolute;bottom: 16%;font-weight: 500;color: #999;">500g/盒</p>
+                            <p style="position: absolute;bottom: -6%;">
+                                <span class="price" style="color: red;margin-right: 5px;  30px">
+                                    ￥27
+                                </span>
+                                <span style="  28px;font-weight: 500;color: #999;">
+                                    <del>￥30</del>
+                                </span>
+                            </p>
+                            <div class="item-edit" style="position: absolute;right: -10%;bottom: 0%;">
+                                <div class="item-cart item-cart-click" value="-1" style="right: 80%;display: none;" goods-id="2"> 
+                                    <div class="btn -purchase"> 
+                                        <i class="icon-minus"></i>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="item-cart" style="right: 60%;" goods-id="2"> 
-                                <i class="count">
-                                    <span goods-id="2" style="font-size: 28px;">1</span>
-                                </i>
-                            </div>
-                            <div class="item-cart item-cart-click" value="1" style="right: -10%;" goods-id="2">
-                                <div class="btn -purchase">
-                                    <i class="icon-plus" style="font-size: 36px;"></i>
+                                <div class="item-cart" style="right: 55%;display: none;" goods-id="2"> 
+                                    <i class="count">
+                                        <span goods-id="2">1</span>
+                                    </i>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div id="section-3">
-                <div style="width: 114%;padding: 6px 18px;" class="background">
-                    <span style="font-size: 17px;color: black;font-weight: 300;font-size: 34px;font-weight: 300;color: black;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">
-                        个人洗护
-                    </span>
-                </div>
-                <div class="goods" style="width: 114%;padding: 7% 0px;border-bottom: 2px solid #f7f5f5;"> 
-                    <div style="width: 38%;display: inline-block;vertical-align: top;margin-right: 3%;"> 
-                        <img src="http://ishequ360.qiniudn.com/160520/8e6e92f22486b2106300b5c55b2aeda1.jpg" style="width: 100%;height: 239px;padding: 0% 13%;">
-                    </div>
-                    <div class="inner" style="display: inline-block;width: 50%;vertical-align: top;position: relative;height: 241px;">
-                        <p style="font-size: 34px;font-weight: 300;color: black;text-overflow: ellipsis;overflow: hidden;position: absolute;" myriad="" set="" pro","lucida="" grande","helvetica="" neue",helvetica,arial,verdana,sans-serif,'microsoft="" yahei',simsun;"="">飘香卤鱼豆腐(微辣)</p>
-                        <p style="font-size: 30px;position: absolute;bottom: 16%;font-weight: 500;color: #999;">500g/盒</p>
-                        <p style="position: absolute;bottom: -6%;">
-                            <span class="price" style="color: red;margin-right: 13px;font-size: 30px;">
-                                ￥27
-                            </span>
-                            <span style="font-size: 28px;font-weight: 500;color: #999;">
-                                <del>￥30</del>
-                            </span>
-                        </p>
-                        <div class="item-edit" style="position: absolute;right: -10%;bottom: 0;display: inline-block;">
-                            <div class="item-cart item-cart-click" value="-1" style="right: 100%;" goods-id="2"> 
-                                <div class="btn -purchase"> 
-                                    <i class="icon-minus" style="font-size: 36px;"></i>
-                                </div>
-                            </div>
-                            <div class="item-cart" style="right: 60%;" goods-id="2"> 
-                                <i class="count">
-                                    <span goods-id="2" style="font-size: 28px;">1</span>
-                                </i>
-                            </div>
-                            <div class="item-cart item-cart-click" value="1" style="right: -10%;" goods-id="2">
-                                <div class="btn -purchase">
-                                    <i class="icon-plus" style="font-size: 36px;"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="goods" style="width: 114%;padding: 7% 0px;border-bottom: 2px solid #f7f5f5;"> 
-                    <div style="width: 38%;display: inline-block;vertical-align: top;margin-right: 3%;"> 
-                        <img src="http://ishequ360.qiniudn.com/160520/8e6e92f22486b2106300b5c55b2aeda1.jpg" style="width: 100%;height: 239px;padding: 0% 13%;">
-                    </div>
-                    <div class="inner" style="display: inline-block;width: 50%;vertical-align: top;position: relative;height: 241px;">
-                        <p style="font-size: 34px;font-weight: 300;color: black;text-overflow: ellipsis;overflow: hidden;position: absolute;" myriad="" set="" pro","lucida="" grande","helvetica="" neue",helvetica,arial,verdana,sans-serif,'microsoft="" yahei',simsun;"="">飘香卤鱼豆腐(微辣)</p>
-                        <p style="font-size: 30px;position: absolute;bottom: 16%;font-weight: 500;color: #999;">500g/盒</p>
-                        <p style="position: absolute;bottom: -6%;">
-                            <span class="price" style="color: red;margin-right: 13px;font-size: 30px;">
-                                ￥27
-                            </span>
-                            <span style="font-size: 28px;font-weight: 500;color: #999;">
-                                <del>￥30</del>
-                            </span>
-                        </p>
-                        <div class="item-edit" style="position: absolute;right: -10%;bottom: 0;display: inline-block;">
-                            <div class="item-cart item-cart-click" value="-1" style="right: 100%;" goods-id="2"> 
-                                <div class="btn -purchase"> 
-                                    <i class="icon-minus" style="font-size: 36px;"></i>
-                                </div>
-                            </div>
-                            <div class="item-cart" style="right: 60%;" goods-id="2"> 
-                                <i class="count">
-                                    <span goods-id="2" style="font-size: 28px;">1</span>
-                                </i>
-                            </div>
-                            <div class="item-cart item-cart-click" value="1" style="right: -10%;" goods-id="2">
-                                <div class="btn -purchase">
-                                    <i class="icon-plus" style="font-size: 36px;"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="goods" style="width: 114%;padding: 7% 0px;border-bottom: 2px solid #f7f5f5;"> 
-                    <div style="width: 38%;display: inline-block;vertical-align: top;margin-right: 3%;"> 
-                        <img src="http://ishequ360.qiniudn.com/160520/8e6e92f22486b2106300b5c55b2aeda1.jpg" style="width: 100%;height: 239px;padding: 0% 13%;">
-                    </div>
-                    <div class="inner" style="display: inline-block;width: 50%;vertical-align: top;position: relative;height: 241px;">
-                        <p style="font-size: 34px;font-weight: 300;color: black;text-overflow: ellipsis;overflow: hidden;position: absolute;" myriad="" set="" pro","lucida="" grande","helvetica="" neue",helvetica,arial,verdana,sans-serif,'microsoft="" yahei',simsun;"="">飘香卤鱼豆腐(微辣)</p>
-                        <p style="font-size: 30px;position: absolute;bottom: 16%;font-weight: 500;color: #999;">500g/盒</p>
-                        <p style="position: absolute;bottom: -6%;">
-                            <span class="price" style="color: red;margin-right: 13px;font-size: 30px;">
-                                ￥27
-                            </span>
-                            <span style="font-size: 28px;font-weight: 500;color: #999;">
-                                <del>￥30</del>
-                            </span>
-                        </p>
-                        <div class="item-edit" style="position: absolute;right: -10%;bottom: 0;display: inline-block;">
-                            <div class="item-cart item-cart-click" value="-1" style="right: 100%;" goods-id="2"> 
-                                <div class="btn -purchase"> 
-                                    <i class="icon-minus" style="font-size: 36px;"></i>
-                                </div>
-                            </div>
-                            <div class="item-cart" style="right: 60%;" goods-id="2"> 
-                                <i class="count">
-                                    <span goods-id="2" style="font-size: 28px;">1</span>
-                                </i>
-                            </div>
-                            <div class="item-cart item-cart-click" value="1" style="right: -10%;" goods-id="2">
-                                <div class="btn -purchase">
-                                    <i class="icon-plus" style="font-size: 36px;"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="goods" style="width: 114%;padding: 7% 0px;border-bottom: 2px solid #f7f5f5;"> 
-                    <div style="width: 38%;display: inline-block;vertical-align: top;margin-right: 3%;"> 
-                        <img src="http://ishequ360.qiniudn.com/160520/8e6e92f22486b2106300b5c55b2aeda1.jpg" style="width: 100%;height: 239px;padding: 0% 13%;">
-                    </div>
-                    <div class="inner" style="display: inline-block;width: 50%;vertical-align: top;position: relative;height: 241px;">
-                        <p style="font-size: 34px;font-weight: 300;color: black;text-overflow: ellipsis;overflow: hidden;position: absolute;" myriad="" set="" pro","lucida="" grande","helvetica="" neue",helvetica,arial,verdana,sans-serif,'microsoft="" yahei',simsun;"="">飘香卤鱼豆腐(微辣)</p>
-                        <p style="font-size: 30px;position: absolute;bottom: 16%;font-weight: 500;color: #999;">500g/盒</p>
-                        <p style="position: absolute;bottom: -6%;">
-                            <span class="price" style="color: red;margin-right: 13px;font-size: 30px;">
-                                ￥27
-                            </span>
-                            <span style="font-size: 28px;font-weight: 500;color: #999;">
-                                <del>￥30</del>
-                            </span>
-                        </p>
-                        <div class="item-edit" style="position: absolute;right: -10%;bottom: 0;display: inline-block;">
-                            <div class="item-cart item-cart-click" value="-1" style="right: 100%;" goods-id="2"> 
-                                <div class="btn -purchase"> 
-                                    <i class="icon-minus" style="font-size: 36px;"></i>
-                                </div>
-                            </div>
-                            <div class="item-cart" style="right: 60%;" goods-id="2"> 
-                                <i class="count">
-                                    <span goods-id="2" style="font-size: 28px;">1</span>
-                                </i>
-                            </div>
-                            <div class="item-cart item-cart-click" value="1" style="right: -10%;" goods-id="2">
-                                <div class="btn -purchase">
-                                    <i class="icon-plus" style="font-size: 36px;"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="goods" style="width: 114%;padding: 7% 0px;border-bottom: 2px solid #f7f5f5;"> 
-                    <div style="width: 38%;display: inline-block;vertical-align: top;margin-right: 3%;"> 
-                        <img src="http://ishequ360.qiniudn.com/160520/8e6e92f22486b2106300b5c55b2aeda1.jpg" style="width: 100%;height: 239px;padding: 0% 13%;">
-                    </div>
-                    <div class="inner" style="display: inline-block;width: 50%;vertical-align: top;position: relative;height: 241px;">
-                        <p style="font-size: 34px;font-weight: 300;color: black;text-overflow: ellipsis;overflow: hidden;position: absolute;" myriad="" set="" pro","lucida="" grande","helvetica="" neue",helvetica,arial,verdana,sans-serif,'microsoft="" yahei',simsun;"="">飘香卤鱼豆腐(微辣)</p>
-                        <p style="font-size: 30px;position: absolute;bottom: 16%;font-weight: 500;color: #999;">500g/盒</p>
-                        <p style="position: absolute;bottom: -6%;">
-                            <span class="price" style="color: red;margin-right: 13px;font-size: 30px;">
-                                ￥27
-                            </span>
-                            <span style="font-size: 28px;font-weight: 500;color: #999;">
-                                <del>￥30</del>
-                            </span>
-                        </p>
-                        <div class="item-edit" style="position: absolute;right: -10%;bottom: 0;display: inline-block;">
-                            <div class="item-cart item-cart-click" value="-1" style="right: 100%;" goods-id="2"> 
-                                <div class="btn -purchase"> 
-                                    <i class="icon-minus" style="font-size: 36px;"></i>
-                                </div>
-                            </div>
-                            <div class="item-cart" style="right: 60%;" goods-id="2"> 
-                                <i class="count">
-                                    <span goods-id="2" style="font-size: 28px;">1</span>
-                                </i>
-                            </div>
-                            <div class="item-cart item-cart-click" value="1" style="right: -10%;" goods-id="2">
-                                <div class="btn -purchase">
-                                    <i class="icon-plus" style="font-size: 36px;"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="goods" style="width: 114%;padding: 7% 0px;border-bottom: 2px solid #f7f5f5;"> 
-                    <div style="width: 38%;display: inline-block;vertical-align: top;margin-right: 3%;"> 
-                        <img src="http://ishequ360.qiniudn.com/160520/8e6e92f22486b2106300b5c55b2aeda1.jpg" style="width: 100%;height: 239px;padding: 0% 13%;">
-                    </div>
-                    <div class="inner" style="display: inline-block;width: 50%;vertical-align: top;position: relative;height: 241px;">
-                        <p style="font-size: 34px;font-weight: 300;color: black;text-overflow: ellipsis;overflow: hidden;position: absolute;" myriad="" set="" pro","lucida="" grande","helvetica="" neue",helvetica,arial,verdana,sans-serif,'microsoft="" yahei',simsun;"="">飘香卤鱼豆腐(微辣)</p>
-                        <p style="font-size: 30px;position: absolute;bottom: 16%;font-weight: 500;color: #999;">500g/盒</p>
-                        <p style="position: absolute;bottom: -6%;">
-                            <span class="price" style="color: red;margin-right: 13px;font-size: 30px;">
-                                ￥27
-                            </span>
-                            <span style="font-size: 28px;font-weight: 500;color: #999;">
-                                <del>￥30</del>
-                            </span>
-                        </p>
-                        <div class="item-edit" style="position: absolute;right: -10%;bottom: 0;display: inline-block;">
-                            <div class="item-cart item-cart-click" value="-1" style="right: 100%;" goods-id="2"> 
-                                <div class="btn -purchase"> 
-                                    <i class="icon-minus" style="font-size: 36px;"></i>
-                                </div>
-                            </div>
-                            <div class="item-cart" style="right: 60%;" goods-id="2"> 
-                                <i class="count">
-                                    <span goods-id="2" style="font-size: 28px;">1</span>
-                                </i>
-                            </div>
-                            <div class="item-cart item-cart-click" value="1" style="right: -10%;" goods-id="2">
-                                <div class="btn -purchase">
-                                    <i class="icon-plus" style="font-size: 36px;"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div id="section-4">
-                <div style="width: 114%;padding: 6px 18px;" class="background">
-                    <span style="font-size: 17px;color: black;font-weight: 300;font-size: 34px;font-weight: 300;color: black;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">
-                        个人洗护
-                    </span>
-                </div>
-                <div class="goods" style="width: 114%;padding: 7% 0px;border-bottom: 2px solid #f7f5f5;"> 
-                    <div style="width: 38%;display: inline-block;vertical-align: top;margin-right: 3%;"> 
-                        <img src="http://ishequ360.qiniudn.com/160520/8e6e92f22486b2106300b5c55b2aeda1.jpg" style="width: 100%;height: 239px;padding: 0% 13%;">
-                    </div>
-                    <div class="inner" style="display: inline-block;width: 50%;vertical-align: top;position: relative;height: 241px;">
-                        <p style="font-size: 34px;font-weight: 300;color: black;text-overflow: ellipsis;overflow: hidden;position: absolute;" myriad="" set="" pro","lucida="" grande","helvetica="" neue",helvetica,arial,verdana,sans-serif,'microsoft="" yahei',simsun;"="">飘香卤鱼豆腐(微辣)</p>
-                        <p style="font-size: 30px;position: absolute;bottom: 16%;font-weight: 500;color: #999;">500g/盒</p>
-                        <p style="position: absolute;bottom: -6%;">
-                            <span class="price" style="color: red;margin-right: 13px;font-size: 30px;">
-                                ￥27
-                            </span>
-                            <span style="font-size: 28px;font-weight: 500;color: #999;">
-                                <del>￥30</del>
-                            </span>
-                        </p>
-                        <div class="item-edit" style="position: absolute;right: -10%;bottom: 0;display: inline-block;">
-                            <div class="item-cart item-cart-click" value="-1" style="right: 100%;" goods-id="2"> 
-                                <div class="btn -purchase"> 
-                                    <i class="icon-minus" style="font-size: 36px;"></i>
-                                </div>
-                            </div>
-                            <div class="item-cart" style="right: 60%;" goods-id="2"> 
-                                <i class="count">
-                                    <span goods-id="2" style="font-size: 28px;">1</span>
-                                </i>
-                            </div>
-                            <div class="item-cart item-cart-click" value="1" style="right: -10%;" goods-id="2">
-                                <div class="btn -purchase">
-                                    <i class="icon-plus" style="font-size: 36px;"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="goods" style="width: 114%;padding: 7% 0px;border-bottom: 2px solid #f7f5f5;"> 
-                    <div style="width: 38%;display: inline-block;vertical-align: top;margin-right: 3%;"> 
-                        <img src="http://ishequ360.qiniudn.com/160520/8e6e92f22486b2106300b5c55b2aeda1.jpg" style="width: 100%;height: 239px;padding: 0% 13%;">
-                    </div>
-                    <div class="inner" style="display: inline-block;width: 50%;vertical-align: top;position: relative;height: 241px;">
-                        <p style="font-size: 34px;font-weight: 300;color: black;text-overflow: ellipsis;overflow: hidden;position: absolute;" myriad="" set="" pro","lucida="" grande","helvetica="" neue",helvetica,arial,verdana,sans-serif,'microsoft="" yahei',simsun;"="">飘香卤鱼豆腐(微辣)</p>
-                        <p style="font-size: 30px;position: absolute;bottom: 16%;font-weight: 500;color: #999;">500g/盒</p>
-                        <p style="position: absolute;bottom: -6%;">
-                            <span class="price" style="color: red;margin-right: 13px;font-size: 30px;">
-                                ￥27
-                            </span>
-                            <span style="font-size: 28px;font-weight: 500;color: #999;">
-                                <del>￥30</del>
-                            </span>
-                        </p>
-                        <div class="item-edit" style="position: absolute;right: -10%;bottom: 0;display: inline-block;">
-                            <div class="item-cart item-cart-click" value="-1" style="right: 100%;" goods-id="2"> 
-                                <div class="btn -purchase"> 
-                                    <i class="icon-minus" style="font-size: 36px;"></i>
-                                </div>
-                            </div>
-                            <div class="item-cart" style="right: 60%;" goods-id="2"> 
-                                <i class="count">
-                                    <span goods-id="2" style="font-size: 28px;">1</span>
-                                </i>
-                            </div>
-                            <div class="item-cart item-cart-click" value="1" style="right: -10%;" goods-id="2">
-                                <div class="btn -purchase">
-                                    <i class="icon-plus" style="font-size: 36px;"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="goods" style="width: 114%;padding: 7% 0px;border-bottom: 2px solid #f7f5f5;"> 
-                    <div style="width: 38%;display: inline-block;vertical-align: top;margin-right: 3%;"> 
-                        <img src="http://ishequ360.qiniudn.com/160520/8e6e92f22486b2106300b5c55b2aeda1.jpg" style="width: 100%;height: 239px;padding: 0% 13%;">
-                    </div>
-                    <div class="inner" style="display: inline-block;width: 50%;vertical-align: top;position: relative;height: 241px;">
-                        <p style="font-size: 34px;font-weight: 300;color: black;text-overflow: ellipsis;overflow: hidden;position: absolute;" myriad="" set="" pro","lucida="" grande","helvetica="" neue",helvetica,arial,verdana,sans-serif,'microsoft="" yahei',simsun;"="">飘香卤鱼豆腐(微辣)</p>
-                        <p style="font-size: 30px;position: absolute;bottom: 16%;font-weight: 500;color: #999;">500g/盒</p>
-                        <p style="position: absolute;bottom: -6%;">
-                            <span class="price" style="color: red;margin-right: 13px;font-size: 30px;">
-                                ￥27
-                            </span>
-                            <span style="font-size: 28px;font-weight: 500;color: #999;">
-                                <del>￥30</del>
-                            </span>
-                        </p>
-                        <div class="item-edit" style="position: absolute;right: -10%;bottom: 0;display: inline-block;">
-                            <div class="item-cart item-cart-click" value="-1" style="right: 100%;" goods-id="2"> 
-                                <div class="btn -purchase"> 
-                                    <i class="icon-minus" style="font-size: 36px;"></i>
-                                </div>
-                            </div>
-                            <div class="item-cart" style="right: 60%;" goods-id="2"> 
-                                <i class="count">
-                                    <span goods-id="2" style="font-size: 28px;">1</span>
-                                </i>
-                            </div>
-                            <div class="item-cart item-cart-click" value="1" style="right: -10%;" goods-id="2">
-                                <div class="btn -purchase">
-                                    <i class="icon-plus" style="font-size: 36px;"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="goods" style="width: 114%;padding: 7% 0px;border-bottom: 2px solid #f7f5f5;"> 
-                    <div style="width: 38%;display: inline-block;vertical-align: top;margin-right: 3%;"> 
-                        <img src="http://ishequ360.qiniudn.com/160520/8e6e92f22486b2106300b5c55b2aeda1.jpg" style="width: 100%;height: 239px;padding: 0% 13%;">
-                    </div>
-                    <div class="inner" style="display: inline-block;width: 50%;vertical-align: top;position: relative;height: 241px;">
-                        <p style="font-size: 34px;font-weight: 300;color: black;text-overflow: ellipsis;overflow: hidden;position: absolute;" myriad="" set="" pro","lucida="" grande","helvetica="" neue",helvetica,arial,verdana,sans-serif,'microsoft="" yahei',simsun;"="">飘香卤鱼豆腐(微辣)</p>
-                        <p style="font-size: 30px;position: absolute;bottom: 16%;font-weight: 500;color: #999;">500g/盒</p>
-                        <p style="position: absolute;bottom: -6%;">
-                            <span class="price" style="color: red;margin-right: 13px;font-size: 30px;">
-                                ￥27
-                            </span>
-                            <span style="font-size: 28px;font-weight: 500;color: #999;">
-                                <del>￥30</del>
-                            </span>
-                        </p>
-                        <div class="item-edit" style="position: absolute;right: -10%;bottom: 0;display: inline-block;">
-                            <div class="item-cart item-cart-click" value="-1" style="right: 100%;" goods-id="2"> 
-                                <div class="btn -purchase"> 
-                                    <i class="icon-minus" style="font-size: 36px;"></i>
-                                </div>
-                            </div>
-                            <div class="item-cart" style="right: 60%;" goods-id="2"> 
-                                <i class="count">
-                                    <span goods-id="2" style="font-size: 28px;">1</span>
-                                </i>
-                            </div>
-                            <div class="item-cart item-cart-click" value="1" style="right: -10%;" goods-id="2">
-                                <div class="btn -purchase">
-                                    <i class="icon-plus" style="font-size: 36px;"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="goods" style="width: 114%;padding: 7% 0px;border-bottom: 2px solid #f7f5f5;"> 
-                    <div style="width: 38%;display: inline-block;vertical-align: top;margin-right: 3%;"> 
-                        <img src="http://ishequ360.qiniudn.com/160520/8e6e92f22486b2106300b5c55b2aeda1.jpg" style="width: 100%;height: 239px;padding: 0% 13%;">
-                    </div>
-                    <div class="inner" style="display: inline-block;width: 50%;vertical-align: top;position: relative;height: 241px;">
-                        <p style="font-size: 34px;font-weight: 300;color: black;text-overflow: ellipsis;overflow: hidden;position: absolute;" myriad="" set="" pro","lucida="" grande","helvetica="" neue",helvetica,arial,verdana,sans-serif,'microsoft="" yahei',simsun;"="">飘香卤鱼豆腐(微辣)</p>
-                        <p style="font-size: 30px;position: absolute;bottom: 16%;font-weight: 500;color: #999;">500g/盒</p>
-                        <p style="position: absolute;bottom: -6%;">
-                            <span class="price" style="color: red;margin-right: 13px;font-size: 30px;">
-                                ￥27
-                            </span>
-                            <span style="font-size: 28px;font-weight: 500;color: #999;">
-                                <del>￥30</del>
-                            </span>
-                        </p>
-                        <div class="item-edit" style="position: absolute;right: -10%;bottom: 0;display: inline-block;">
-                            <div class="item-cart item-cart-click" value="-1" style="right: 100%;" goods-id="2"> 
-                                <div class="btn -purchase"> 
-                                    <i class="icon-minus" style="font-size: 36px;"></i>
-                                </div>
-                            </div>
-                            <div class="item-cart" style="right: 60%;" goods-id="2"> 
-                                <i class="count">
-                                    <span goods-id="2" style="font-size: 28px;">1</span>
-                                </i>
-                            </div>
-                            <div class="item-cart item-cart-click" value="1" style="right: -10%;" goods-id="2">
-                                <div class="btn -purchase">
-                                    <i class="icon-plus" style="font-size: 36px;"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="goods" style="width: 114%;padding: 7% 0px;border-bottom: 2px solid #f7f5f5;"> 
-                    <div style="width: 38%;display: inline-block;vertical-align: top;margin-right: 3%;"> 
-                        <img src="http://ishequ360.qiniudn.com/160520/8e6e92f22486b2106300b5c55b2aeda1.jpg" style="width: 100%;height: 239px;padding: 0% 13%;">
-                    </div>
-                    <div class="inner" style="display: inline-block;width: 50%;vertical-align: top;position: relative;height: 241px;">
-                        <p style="font-size: 34px;font-weight: 300;color: black;text-overflow: ellipsis;overflow: hidden;position: absolute;" myriad="" set="" pro","lucida="" grande","helvetica="" neue",helvetica,arial,verdana,sans-serif,'microsoft="" yahei',simsun;"="">飘香卤鱼豆腐(微辣)</p>
-                        <p style="font-size: 30px;position: absolute;bottom: 16%;font-weight: 500;color: #999;">500g/盒</p>
-                        <p style="position: absolute;bottom: -6%;">
-                            <span class="price" style="color: red;margin-right: 13px;font-size: 30px;">
-                                ￥27
-                            </span>
-                            <span style="font-size: 28px;font-weight: 500;color: #999;">
-                                <del>￥30</del>
-                            </span>
-                        </p>
-                        <div class="item-edit" style="position: absolute;right: -10%;bottom: 0;display: inline-block;">
-                            <div class="item-cart item-cart-click" value="-1" style="right: 100%;" goods-id="2"> 
-                                <div class="btn -purchase"> 
-                                    <i class="icon-minus" style="font-size: 36px;"></i>
-                                </div>
-                            </div>
-                            <div class="item-cart" style="right: 60%;" goods-id="2"> 
-                                <i class="count">
-                                    <span goods-id="2" style="font-size: 28px;">1</span>
-                                </i>
-                            </div>
-                            <div class="item-cart item-cart-click" value="1" style="right: -10%;" goods-id="2">
-                                <div class="btn -purchase">
-                                    <i class="icon-plus" style="font-size: 36px;"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div id="section-5">
-                <div style="width: 114%;padding: 6px 18px;" class="background">
-                    <span style="font-size: 17px;color: black;font-weight: 300;font-size: 34px;font-weight: 300;color: black;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">
-                        个人洗护
-                    </span>
-                </div>
-                <div class="goods" style="width: 114%;padding: 7% 0px;border-bottom: 2px solid #f7f5f5;"> 
-                    <div style="width: 38%;display: inline-block;vertical-align: top;margin-right: 3%;"> 
-                        <img src="http://ishequ360.qiniudn.com/160520/8e6e92f22486b2106300b5c55b2aeda1.jpg" style="width: 100%;height: 239px;padding: 0% 13%;">
-                    </div>
-                    <div class="inner" style="display: inline-block;width: 50%;vertical-align: top;position: relative;height: 241px;">
-                        <p style="font-size: 34px;font-weight: 300;color: black;text-overflow: ellipsis;overflow: hidden;position: absolute;" myriad="" set="" pro","lucida="" grande","helvetica="" neue",helvetica,arial,verdana,sans-serif,'microsoft="" yahei',simsun;"="">飘香卤鱼豆腐(微辣)</p>
-                        <p style="font-size: 30px;position: absolute;bottom: 16%;font-weight: 500;color: #999;">500g/盒</p>
-                        <p style="position: absolute;bottom: -6%;">
-                            <span class="price" style="color: red;margin-right: 13px;font-size: 30px;">
-                                ￥27
-                            </span>
-                            <span style="font-size: 28px;font-weight: 500;color: #999;">
-                                <del>￥30</del>
-                            </span>
-                        </p>
-                        <div class="item-edit" style="position: absolute;right: -10%;bottom: 0;display: inline-block;">
-                            <div class="item-cart item-cart-click" value="-1" style="right: 100%;" goods-id="2"> 
-                                <div class="btn -purchase"> 
-                                    <i class="icon-minus" style="font-size: 36px;"></i>
-                                </div>
-                            </div>
-                            <div class="item-cart" style="right: 60%;" goods-id="2"> 
-                                <i class="count">
-                                    <span goods-id="2" style="font-size: 28px;">1</span>
-                                </i>
-                            </div>
-                            <div class="item-cart item-cart-click" value="1" style="right: -10%;" goods-id="2">
-                                <div class="btn -purchase">
-                                    <i class="icon-plus" style="font-size: 36px;"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="goods" style="width: 114%;padding: 7% 0px;border-bottom: 2px solid #f7f5f5;"> 
-                    <div style="width: 38%;display: inline-block;vertical-align: top;margin-right: 3%;"> 
-                        <img src="http://ishequ360.qiniudn.com/160520/8e6e92f22486b2106300b5c55b2aeda1.jpg" style="width: 100%;height: 239px;padding: 0% 13%;">
-                    </div>
-                    <div class="inner" style="display: inline-block;width: 50%;vertical-align: top;position: relative;height: 241px;">
-                        <p style="font-size: 34px;font-weight: 300;color: black;text-overflow: ellipsis;overflow: hidden;position: absolute;" myriad="" set="" pro","lucida="" grande","helvetica="" neue",helvetica,arial,verdana,sans-serif,'microsoft="" yahei',simsun;"="">飘香卤鱼豆腐(微辣)</p>
-                        <p style="font-size: 30px;position: absolute;bottom: 16%;font-weight: 500;color: #999;">500g/盒</p>
-                        <p style="position: absolute;bottom: -6%;">
-                            <span class="price" style="color: red;margin-right: 13px;font-size: 30px;">
-                                ￥27
-                            </span>
-                            <span style="font-size: 28px;font-weight: 500;color: #999;">
-                                <del>￥30</del>
-                            </span>
-                        </p>
-                        <div class="item-edit" style="position: absolute;right: -10%;bottom: 0;display: inline-block;">
-                            <div class="item-cart item-cart-click" value="-1" style="right: 100%;" goods-id="2"> 
-                                <div class="btn -purchase"> 
-                                    <i class="icon-minus" style="font-size: 36px;"></i>
-                                </div>
-                            </div>
-                            <div class="item-cart" style="right: 60%;" goods-id="2"> 
-                                <i class="count">
-                                    <span goods-id="2" style="font-size: 28px;">1</span>
-                                </i>
-                            </div>
-                            <div class="item-cart item-cart-click" value="1" style="right: -10%;" goods-id="2">
-                                <div class="btn -purchase">
-                                    <i class="icon-plus" style="font-size: 36px;"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="goods" style="width: 114%;padding: 7% 0px;border-bottom: 2px solid #f7f5f5;"> 
-                    <div style="width: 38%;display: inline-block;vertical-align: top;margin-right: 3%;"> 
-                        <img src="http://ishequ360.qiniudn.com/160520/8e6e92f22486b2106300b5c55b2aeda1.jpg" style="width: 100%;height: 239px;padding: 0% 13%;">
-                    </div>
-                    <div class="inner" style="display: inline-block;width: 50%;vertical-align: top;position: relative;height: 241px;">
-                        <p style="font-size: 34px;font-weight: 300;color: black;text-overflow: ellipsis;overflow: hidden;position: absolute;" myriad="" set="" pro","lucida="" grande","helvetica="" neue",helvetica,arial,verdana,sans-serif,'microsoft="" yahei',simsun;"="">飘香卤鱼豆腐(微辣)</p>
-                        <p style="font-size: 30px;position: absolute;bottom: 16%;font-weight: 500;color: #999;">500g/盒</p>
-                        <p style="position: absolute;bottom: -6%;">
-                            <span class="price" style="color: red;margin-right: 13px;font-size: 30px;">
-                                ￥27
-                            </span>
-                            <span style="font-size: 28px;font-weight: 500;color: #999;">
-                                <del>￥30</del>
-                            </span>
-                        </p>
-                        <div class="item-edit" style="position: absolute;right: -10%;bottom: 0;display: inline-block;">
-                            <div class="item-cart item-cart-click" value="-1" style="right: 100%;" goods-id="2"> 
-                                <div class="btn -purchase"> 
-                                    <i class="icon-minus" style="font-size: 36px;"></i>
-                                </div>
-                            </div>
-                            <div class="item-cart" style="right: 60%;" goods-id="2"> 
-                                <i class="count">
-                                    <span goods-id="2" style="font-size: 28px;">1</span>
-                                </i>
-                            </div>
-                            <div class="item-cart item-cart-click" value="1" style="right: -10%;" goods-id="2">
-                                <div class="btn -purchase">
-                                    <i class="icon-plus" style="font-size: 36px;"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="goods" style="width: 114%;padding: 7% 0px;border-bottom: 2px solid #f7f5f5;"> 
-                    <div style="width: 38%;display: inline-block;vertical-align: top;margin-right: 3%;"> 
-                        <img src="http://ishequ360.qiniudn.com/160520/8e6e92f22486b2106300b5c55b2aeda1.jpg" style="width: 100%;height: 239px;padding: 0% 13%;">
-                    </div>
-                    <div class="inner" style="display: inline-block;width: 50%;vertical-align: top;position: relative;height: 241px;">
-                        <p style="font-size: 34px;font-weight: 300;color: black;text-overflow: ellipsis;overflow: hidden;position: absolute;" myriad="" set="" pro","lucida="" grande","helvetica="" neue",helvetica,arial,verdana,sans-serif,'microsoft="" yahei',simsun;"="">飘香卤鱼豆腐(微辣)</p>
-                        <p style="font-size: 30px;position: absolute;bottom: 16%;font-weight: 500;color: #999;">500g/盒</p>
-                        <p style="position: absolute;bottom: -6%;">
-                            <span class="price" style="color: red;margin-right: 13px;font-size: 30px;">
-                                ￥27
-                            </span>
-                            <span style="font-size: 28px;font-weight: 500;color: #999;">
-                                <del>￥30</del>
-                            </span>
-                        </p>
-                        <div class="item-edit" style="position: absolute;right: -10%;bottom: 0;display: inline-block;">
-                            <div class="item-cart item-cart-click" value="-1" style="right: 100%;" goods-id="2"> 
-                                <div class="btn -purchase"> 
-                                    <i class="icon-minus" style="font-size: 36px;"></i>
-                                </div>
-                            </div>
-                            <div class="item-cart" style="right: 60%;" goods-id="2"> 
-                                <i class="count">
-                                    <span goods-id="2" style="font-size: 28px;">1</span>
-                                </i>
-                            </div>
-                            <div class="item-cart item-cart-click" value="1" style="right: -10%;" goods-id="2">
-                                <div class="btn -purchase">
-                                    <i class="icon-plus" style="font-size: 36px;"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="goods" style="width: 114%;padding: 7% 0px;border-bottom: 2px solid #f7f5f5;"> 
-                    <div style="width: 38%;display: inline-block;vertical-align: top;margin-right: 3%;"> 
-                        <img src="http://ishequ360.qiniudn.com/160520/8e6e92f22486b2106300b5c55b2aeda1.jpg" style="width: 100%;height: 239px;padding: 0% 13%;">
-                    </div>
-                    <div class="inner" style="display: inline-block;width: 50%;vertical-align: top;position: relative;height: 241px;">
-                        <p style="font-size: 34px;font-weight: 300;color: black;text-overflow: ellipsis;overflow: hidden;position: absolute;" myriad="" set="" pro","lucida="" grande","helvetica="" neue",helvetica,arial,verdana,sans-serif,'microsoft="" yahei',simsun;"="">飘香卤鱼豆腐(微辣)</p>
-                        <p style="font-size: 30px;position: absolute;bottom: 16%;font-weight: 500;color: #999;">500g/盒</p>
-                        <p style="position: absolute;bottom: -6%;">
-                            <span class="price" style="color: red;margin-right: 13px;font-size: 30px;">
-                                ￥27
-                            </span>
-                            <span style="font-size: 28px;font-weight: 500;color: #999;">
-                                <del>￥30</del>
-                            </span>
-                        </p>
-                        <div class="item-edit" style="position: absolute;right: -10%;bottom: 0;display: inline-block;">
-                            <div class="item-cart item-cart-click" value="-1" style="right: 100%;" goods-id="2"> 
-                                <div class="btn -purchase"> 
-                                    <i class="icon-minus" style="font-size: 36px;"></i>
-                                </div>
-                            </div>
-                            <div class="item-cart" style="right: 60%;" goods-id="2"> 
-                                <i class="count">
-                                    <span goods-id="2" style="font-size: 28px;">1</span>
-                                </i>
-                            </div>
-                            <div class="item-cart item-cart-click" value="1" style="right: -10%;" goods-id="2">
-                                <div class="btn -purchase">
-                                    <i class="icon-plus" style="font-size: 36px;"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="goods" style="width: 114%;padding: 7% 0px;border-bottom: 2px solid #f7f5f5;"> 
-                    <div style="width: 38%;display: inline-block;vertical-align: top;margin-right: 3%;"> 
-                        <img src="http://ishequ360.qiniudn.com/160520/8e6e92f22486b2106300b5c55b2aeda1.jpg" style="width: 100%;height: 239px;padding: 0% 13%;">
-                    </div>
-                    <div class="inner" style="display: inline-block;width: 50%;vertical-align: top;position: relative;height: 241px;">
-                        <p style="font-size: 34px;font-weight: 300;color: black;text-overflow: ellipsis;overflow: hidden;position: absolute;" myriad="" set="" pro","lucida="" grande","helvetica="" neue",helvetica,arial,verdana,sans-serif,'microsoft="" yahei',simsun;"="">飘香卤鱼豆腐(微辣)</p>
-                        <p style="font-size: 30px;position: absolute;bottom: 16%;font-weight: 500;color: #999;">500g/盒</p>
-                        <p style="position: absolute;bottom: -6%;">
-                            <span class="price" style="color: red;margin-right: 13px;font-size: 30px;">
-                                ￥27
-                            </span>
-                            <span style="font-size: 28px;font-weight: 500;color: #999;">
-                                <del>￥30</del>
-                            </span>
-                        </p>
-                        <div class="item-edit" style="position: absolute;right: -10%;bottom: 0;display: inline-block;">
-                            <div class="item-cart item-cart-click" value="-1" style="right: 100%;" goods-id="2"> 
-                                <div class="btn -purchase"> 
-                                    <i class="icon-minus" style="font-size: 36px;"></i>
-                                </div>
-                            </div>
-                            <div class="item-cart" style="right: 60%;" goods-id="2"> 
-                                <i class="count">
-                                    <span goods-id="2" style="font-size: 28px;">1</span>
-                                </i>
-                            </div>
-                            <div class="item-cart item-cart-click" value="1" style="right: -10%;" goods-id="2">
-                                <div class="btn -purchase">
-                                    <i class="icon-plus" style="font-size: 36px;"></i>
+                                <div class="item-cart item-cart-click" value="1" style="" goods-id="2">
+                                    <div class="btn -purchase">
+                                        <i class="icon-plus"></i>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -944,5 +490,5 @@
             </div>
         </div>
     </div>
-</body>
-</html> 
+ </body>
+ </html>
