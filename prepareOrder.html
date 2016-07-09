@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	
+	<title>确认信息</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+	<meta charset="utf-8">
+	
+	<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	
+	<link rel="stylesheet" href="http://cdn.bootcss.com/font-awesome/3.0.2/css/font-awesome.css">
+
+	<link rel="stylesheet" href="/static/css/goods-wrap.css">
+	<link rel="stylesheet" href="/static/css/home.css">
+	<link rel="stylesheet" href="/static/css/cart.css"> 
+	<link rel="stylesheet" href="/static/css/order.css"> 
+	
+	
+	<script src="http://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+	
+	<script src="http://cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	<script src="http://cdn.bootcss.com/dot/1.0.3/doT.min.js"></script> 
+</head>
+<body class="background">
+	
+	<div id="order-list" class="goods-list cart-goodslist"> </div>
+	<script id="order-list-tmpl" type="text/x-dot-template">
+		<!-- 收货人信息 未填写-->
+		<div class="container-outter foreground" style="{%? it["address"]["Id"] > 0%}display:none;{%?%}margin-top: 2px;">
+			<div class="inner" style="border-top: 3px #decf5b double;border-bottom: 3px #decf5b double;padding-top: 0px;">
+				<div class="address-info" style="padding: 0px 8px;border-top: 3px #decf5b dashed;border-bottom: 3px #decf5b dashed;">
+					<div class="container-inner" style="text-align: left;padding-bottom: 6px;">
+						<label style="width: 18%;margin-bottom: 0px;">
+							收货人
+						</label>
+						<input type="text" name="true_name" placeholder="{%= it["address"]["TrueName"] %}"/>
+					</div>
+					<div class="container-inner" style="text-align: left;padding-bottom: 6px;">
+						<label style="width: 18%;margin-bottom: 0px;">
+							手机号
+						</label>
+						<input type="tel" name="mob_phone" placeholder="请填写您的收货电话" >
+					</div>
+					<div class="container-inner" style="text-align: left;padding-bottom: 6px;">
+						<label style="width: 18%;margin-bottom: 0px;">
+							位置
+						</label>
+						<input name="live_area" placeholder="{%= it["address"]["LiveArea"] %}">
+					</div>
+					<div class="container-inner" style="text-align: left;padding-bottom: 6px;">
+						<label style="width: 18%;margin-bottom: 0px;">
+							地址
+						</label>
+						<input name="building_info" placeholder="{%= it["address"]["Address"] %}">
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 收货人信息 已填写-->
+		<div class="container-outter foreground" style="{%? it["address"]["Id"] <= 0%}display:none;{%?%}margin-top: 2px;">
+			<div class="inner" style="border-top: 3px #decf5b double;border-bottom: 3px #decf5b double;padding-top: 0px;">
+				<div class="address-info" style="padding: 10px 8px;border-top: 3px #decf5b dashed;border-bottom: 3px #decf5b dashed;">
+					<div class="container-inner" style="text-align: left;padding: 6px 0px;">
+						<label style="width: 18%;margin-bottom: 0px;">
+							{%= it["address"]["TrueName"] %}
+						</label>
+						<label style="width: 68%;margin-bottom: 0px;">
+							{%= it["address"]["MobPhone"] %}
+						</label>
+					</div>
+					<div class="container-inner" style="text-align: left;padding: 6px 0px;">
+						<label style="width: 18%;margin-bottom: 0px;">
+							{%= it["address"]["LiveArea"] %}
+						</label>
+						<label style="width: 68%;margin-bottom: 0px;">
+							{%= it["address"]["Address"] %}
+						</label>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- 配送信息 -->
+		<div class="container-outter foreground" style="margin-top: 8px;">
+			<div class="inner">
+				<div class="delivery-info">
+					<div class="container-inner" style="border-bottom: 2px solid #f7f5f5;padding: 0px 8px;">
+						<label style="float: left;">配送时间</label>
+						<label style="float: right;">></label>
+						<select style="float: right;-webkit-appearance: none;outline: 0;width: 22%;border: none;background-color: white;">
+							<option value="0">立即配送</option>
+							{% for(var idx in it["shipTimeList"]) { %}
+							<option value="{%= it["shipTimeList"][idx]%}">{%= it["shipTimeList"][idx]%}</option>
+							{%}%}
+						</select>
+					</div>
+					<div class="container-inner" style="text-align: left;padding:0px 8px 8px;">
+						<label style="width: 18%;margin-bottom: 0px;">
+							备注
+						</label>
+						<input type="text" placeholder="给小二说点什么" style="padding: 5px 0px 0px;border: none;border-bottom: 1px #868484 solid;border-radius: 0px;">
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="container-outter foreground" style="margin-top: 10px;">
+			<div class="inner">
+				<div class="oreder-info">
+					<div class="container-inner" style="border-bottom: 2px solid #f7f5f5;padding: 0px 8px;">
+						<label style="float: left;width: 85%;text-align: left;">配送费</label>
+						<label style="float: right;width: 15%;text-align: left;">￥0.0</label>
+					</div>
+					{% for(var idx in it["orderInfo"]["goodsList"]) { %}
+					<div class="container-inner" style="padding: 0px 8px;">
+						<label style="float: left;width: 75%;text-align: left;">{%= it["orderInfo"]["goodsList"][idx]["GoodsName"]%}</label>
+						<label style="float: right;width: 15%;text-align: left;">￥{%= it["orderInfo"]["goodsList"][idx]["GoodsPrice"]%}</label>
+						<label style="float:right;font-weight:300;width: 10%;text-align: left;">x{%= it["orderInfo"]["goodsList"][idx]["GoodsNum"]%}</label>
+					</div>
+					{% } %}
+				</div>
+			</div>
+		</div> 
+
+		<div id="bottom-navbar">
+			<div class="blank blanklow"></div>
+			<nav class="navbar navbar-fixed-bottom foreground" style="border:none;width: 100%;min-height: 35px;margin-bottom: -1%;">
+				<div class="container-outter" style="width:110px;padding-top:3%;">
+					<label style="font-size: 18px;margin-left: 8px;">合计:</label>
+					<label style="color: red;font-size: 16px;font-style: oblique;font-weight: 400;font-family: STKaiti;">
+						￥{%= it["orderInfo"]["order"]["OrderAmount"]%}
+					</label>
+				</div>
+				<div class="container-outter appground" style="width: 110px;float: right;padding: 3%;">
+					<a style="color: white;font-size: 15px;" href="/static/cart4.html">结算</a>
+				</div>
+			</nav>
+		</div>
+	</script>
+
+	<div class="modal fade" id="alertModel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		<div class="modal-dialog" role="document" style="top: 30%;position: absolute;width: 80;left: 10%;width: 80%;">
+			<div class="modal-content">
+				
+				<div class="modal-body" style="text-align: center;">
+					<span class="alertText" style="color:red;"></span>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+	
+	<script src="/static/js/goods-wrap.js"></script>
+	<script src="/static/js/order.js"></script>
+	<script>var globalOrderContext = {};var globalCart={};</script>
+	<script type="text/javascript">
+		registerOrder();
+	</script>
+</html>
+
+
+
+
+
+
+
+

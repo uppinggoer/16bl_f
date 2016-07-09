@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="/static/css/goods-wrap.css">
     <link rel="stylesheet" href="/static/css/home.css">
     <link rel="stylesheet" href="/static/css/cart.css"> 
-    <link rel="stylesheet" href="/static/css/order.css"> 
     
     
     <script src="http://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
@@ -22,35 +21,35 @@
 <body class="background">
     <div class="container-outter foreground" style="display:none;margin-top: 2px;">
         <div class="inner" style="border-top: 3px #decf5b double;border-bottom: 3px #decf5b double;padding-top: 0px;">
-            <div class="address-info" style="padding: 0px 8px;border-top: 3px #decf5b dashed;border-bottom: 3px #decf5b dashed;">
-                <div class="container-inner" style="text-align: left;padding-bottom: 6px;">
+            <div class="new-address-info" style="padding: 0px 8px;border-top: 3px #decf5b dashed;border-bottom: 3px #decf5b dashed;">
+                <div style="width: 100%;display: inline-block;text-align: left;padding-bottom: 6px;">
                     <label style="width: 18%;margin-bottom: 0px;">
                         收货人
                     </label>
-                    <input type="text" name="true_name" placeholder="杨宏志"/>
+                    <input type="text" placeholder="杨宏志" name="true_name" id="true_name" style="padding: 5px 0px 0px;border: none;border-bottom: 1px #868484 solid;border-radius: 0px;">
                 </div>
-                <div class="container-inner" style="text-align: left;padding-bottom: 6px;">
+                <div style="width: 100%;display: inline-block;text-align: left;padding-bottom: 6px;">
                     <label style="width: 18%;margin-bottom: 0px;">
                         手机号
                     </label>
-                    <input type="tel" name="mob_phone" placeholder="请填写您的收货电话" >
+                    <input type="tel" name="mob_phone" style="padding: 5px 0px 0px;border: none;border-bottom: 1px #868484 solid;border-radius: 0px;" placeholder="请填写您的收货电话" >
                 </div>
-                <div class="container-inner" style="text-align: left;padding-bottom: 6px;">
+                <div style="width: 100%;display: inline-block;text-align: left;padding-bottom: 6px;">
                     <label style="width: 18%;margin-bottom: 0px;">
                         位置
                     </label>
-                    <input name="live_area" placeholder="西工大"/>
+                    <input name="live_area" placeholder="西工大" style="padding: 5px 0px 0px;border: none;border-bottom: 1px #868484 solid;border-radius: 0px;">
                 </div>
-                <div class="container-inner" style="text-align: left;padding-bottom: 6px;">
+                <div style="width: 100%;display: inline-block;text-align: left;padding-bottom: 6px;">
                     <label style="width: 18%;margin-bottom: 0px;">
                         地址
                     </label>
-                    <input name="building_info" placeholder="星F"/>
+                    <input name="building_info" placeholder="星F" style="padding: 5px 0px 0px;border: none;border-bottom: 1px #868484 solid;border-radius: 0px;">
                 </div>
             </div>
         </div>
     </div>
-    <div class="container-outter foreground address" style="margin-top: 2px;">
+    <div class="container-outter foreground" style="margin-top: 2px;">
         <div class="inner" style="border-top: 3px #decf5b double;border-bottom: 3px #decf5b double;padding-top: 0px;">
             <div class="new-address-info" style="padding: 10px 8px;border-top: 3px #decf5b dashed;border-bottom: 3px #decf5b dashed;">
                 <div class="container-inner" style="text-align: left;padding: 6px 0px;">
@@ -131,4 +130,27 @@
         </nav>
     </div>
 </body>
+    <script src="/static/js/goods-wrap.js"></script>
+    <script src="/static/js/cart.js"></script>
+    <script>var globalContext = {}; var globalCart={};</script>
+    <script type="text/javascript">
+        doT.templateSettings = {
+            evaluate:   /\{\%([\s\S]+?)\%\}/g,
+            interpolate:/\{\%=([\s\S]+?)\%\}/g,
+            encode:     /\{\%!([\s\S]+?)\%\}/g,
+            use:        /\{\%#([\s\S]+?)\%\}/g,
+            define:     /\{\%##\s*([\w\.$]+)\s*(\:|=)([\s\S]+?)#\%\}/g,
+            conditional:/\{\%\?(\?)?\s*([\s\S]*?)\s*\%\}/g,
+            iterate:    /\{\%~\s*(?:\}\}|([\s\S]+?)\s*\:\s*([\w$]+)\s*(?:\:\s*([\w$]+))?\s*\%\})/g,
+            varname: 'it',
+            strip: true,
+            append: true,
+            selfcontained: false
+        };
+
+        $("#foot-menu").find(".active").removeClass("active");
+        $("#foot-menu").find("#cart").addClass("active");
+        $(".clear-cart").click(cleanCart);
+        registerCart();
+    </script>
 </html>
