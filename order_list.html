@@ -1,0 +1,184 @@
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	
+	<title>订单列表</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+	<meta charset="utf-8">
+	
+	<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	
+	<link rel="stylesheet" href="http://cdn.bootcss.com/font-awesome/3.0.2/css/font-awesome.css">
+
+	<link rel="stylesheet" href="/static/css/goods-wrap.css">
+	<link rel="stylesheet" href="/static/css/home.css">
+	<link rel="stylesheet" href="/static/css/cart.css"> 
+	
+	
+	<script src="http://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+	
+	<script src="http://cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	<script src="http://cdn.bootcss.com/dot/1.0.3/doT.min.js"></script> 
+</head>
+<body class="background">
+	
+	<div id="order-list"> </div>
+	<script id="order-list-tmpl" type="text/x-dot-template">
+		{% for(var orderIdx in it["list"]) { %}
+		<div class="container-outter foreground" style="margin-top: 2px;">
+			<div class="inner">
+				<div class="oreder-info" style="text-align: left;padding: 6px 0px;">
+					<div class="container-inner appgoundborder" style="border-bottom-width: 2px;padding: 0px 8px;">
+						<label style="float: left;color: black;font-weight: 300;">{%= it.list[orderIdx]["orderInfo"]["order"]["OrderTime"]%}</label>
+						<label class="appcolor" style="float: right;font-weight: 100;">
+							{%? it.list[orderIdx]["orderInfo"]["order"]["CancelFlag"] == 1 %}
+								订单取消
+							{%?? it.list[orderIdx]["orderInfo"]["order"]["CancelFlag"] == 2 %}
+								取消失败
+							{%?? it.list[orderIdx]["orderInfo"]["order"]["OrderState"] < 10 %}
+								等待付款
+							{%?? it.list[orderIdx]["orderInfo"]["order"]["OrderState"] < 20 %}
+								支付成功
+							{%?? it.list[orderIdx]["orderInfo"]["order"]["OrderState"] < 30 %}
+								已经确认
+							{%?? it.list[orderIdx]["orderInfo"]["order"]["OrderState"] < 40 %}
+								正在配送
+							{%?? it.list[orderIdx]["orderInfo"]["order"]["OrderState"] >= 40 %}
+								订单送达
+							{%?%}
+						</label>
+					</div>
+					<div class="container-inner" style="border-bottom: 2px solid #f7f5f5;padding: 8px 8px;">
+						<div style="display: inline-block;width: 100%;white-space: nowrap;overflow: scroll;">
+							{%~ it.list[orderIdx]["orderInfo"]["goodsList"] :value:idx %}
+							<div class="container-inner" style="padding: 0px 8px;width: 30%;">
+								<img style="width: 66px;" src="{%= value["GoodsImage"]%}">
+							</div>
+							{%~%}
+						</div>
+					</div>
+					<div class="container-inner" style="padding: 0px 8px;">
+						<label style="float: left;padding: 8px 0px 0px;font-weight: 300;font-size: 13px;">
+							共{%= it.list[orderIdx]["orderInfo"]["goodsList"].length %}件商品 ￥{%= it.list[orderIdx]["orderInfo"]["order"].OrderAmount %}
+						</label>
+						<label class="appground" style="float: right;padding: 3px 8px;margin: 5px 0px;font-weight: 300;border-radius: 7px;font-size: 12px;">
+							{%? it.list[orderIdx]["orderInfo"]["order"]["CancelFlag"] == 1 %}
+								<a style="color: black;border-bottom: 1px solid black;" href="/shop/list">再逛逛</a>
+							{%?? it.list[orderIdx]["orderInfo"]["order"]["CancelFlag"] == 2 %}
+								<a style="color: black;border-bottom: 1px solid black;" href="/static/feedback.html">去投诉</a>
+							{%?? it.list[orderIdx]["orderInfo"]["order"]["OrderState"] < 10 %}
+								<a style="color: black;border-bottom: 1px solid black;" href="/static/orderInfo.html">去支付</a>
+							{%?? it.list[orderIdx]["orderInfo"]["order"]["OrderState"] < 40 %}
+								<a style="color: black;border-bottom: 1px solid black;" href="/static/orderInfo.html">待配送</a>
+							{%?? it.list[orderIdx]["orderInfo"]["order"]["OrderState"] < 50 %}
+								<a style="color: black;border-bottom: 1px solid black;" href="/shop/list">去评价</a>
+							{%?? it.list[orderIdx]["orderInfo"]["order"]["OrderState"] >= 50 %}
+								<a style="color: black;border-bottom: 1px solid black;" href="/static/orderInfo.html">已评价</a>
+							{%?%}
+						</label>
+					</div>
+				</div>
+			</div>
+		</div>
+		{%}%}
+	</script>
+	<div id="hasMore"></div>
+
+	
+	
+	<div id="bottom-navbar">
+		<div class="blank"></div>
+		<nav class="navbar navbar-fixed-bottom" style="border:none;background-color:white;">
+			<ul id="foot-menu" class="nav nav-tabs">
+				
+				<li id="home" class="active">
+					
+					<a trigger="" href="/" class="trigger">
+						<i class="icon-home icon-2x" aria-hidden="true"></i>
+						<p>首页</p>
+						
+					</a>
+				</li>
+				
+				<li id="list" >
+					
+					<a trigger="" href="/shop/list" class="trigger">
+						<i class="icon-list icon-2x" aria-hidden="true"></i>
+						<p>超市</p>
+						
+					</a>
+				</li>
+				
+				<li id="cart" >
+					
+					<div class="cart-count-flag"> 
+						<div class="item-cart" style="display:none;padding:0px 7px; position: absolute; top: 0px; right: 0px;z-index: 6;"> 
+							<i class="count"><span>0</span></i> 
+						</div>
+					</div>
+					
+					<a trigger="" href="/static/cart.html" class="trigger">
+						<i class="icon-shopping-cart icon-2x" aria-hidden="true"></i>
+						<p>购物车</p>
+						
+					</a>
+				</li>
+				
+				<li id="user" >
+					
+					<a trigger="" href="/static/user.html" class="trigger">
+						<i class="icon-user icon-2x" aria-hidden="true"></i>
+						<p>我的</p>
+						
+					</a>
+				</li>
+				
+			</ul>
+		</nav>
+	</div>
+
+	<div id="cart-ball"></div>
+</body>
+	
+	
+	<script src="/static/js/goods-wrap.js"></script>
+	<script src="/static/js/order.js"></script>
+	<script>var globalContext = {}; var globalCart={};</script>
+	<script type="text/javascript">
+		$("#foot-menu").find(".active").removeClass("active");
+		$("#foot-menu").find("#user").addClass("active");
+		getOrderList("",false);
+	</script>
+	<script type="text/javascript">
+		
+		$(window).scroll(function(event){
+			if ("none" == $("#hasMore").css("display")) {
+				return;
+			}
+			
+			if($(window).height()*1.3+$(window).scrollTop() > $("#hasMore").offset().top) {
+				getOrderList("",false);
+			}
+		});
+	</script>
+
+	<script type="text/javascript">
+		$(".trigger").click(function(e) {
+			var self = $(this);
+			var trigger = self.attr("trigger");
+			if (undefined != trigger && "" != trigger) {
+				e.preventDefault();
+				eval(trigger)();
+			}
+		});
+		$(".item-cart-click").click(editCart);
+	</script>
+</html>
+
+
+
+
+

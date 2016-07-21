@@ -181,9 +181,48 @@ function verifyCart(cartDetail) {
 	// 强校验并修正
 	cartDetail['list'] = list;
 	cartDetail['map']  = map;
-	cartDetail['cost'] = cost;
+	cartDetail['cost'] = cost.toFixed(2);
 	cartDetail['sub']  = 0;
 	cartDetail['num']  = num;
 
 	return cartDetail;
 }
+
+function initDot() {
+		// 更新购物车
+	doT.templateSettings = {
+		evaluate:	/\{\%([\s\S]+?)\%\}/g,
+		interpolate:/\{\%=([\s\S]+?)\%\}/g,
+		encode:		/\{\%!([\s\S]+?)\%\}/g,
+		use:		/\{\%#([\s\S]+?)\%\}/g,
+		define:		/\{\%##\s*([\w\.$]+)\s*(\:|=)([\s\S]+?)#\%\}/g,
+		conditional:/\{\%\?(\?)?\s*([\s\S]*?)\s*\%\}/g,
+		iterate:	/\{\%~\s*(?:\%\}|([\s\S]+?)\s*\:\s*([\w$]+)\s*(?:\:\s*([\w$]+))?\s*\%\})/g,
+		varname: 'it',
+		strip: true,
+		append: true,
+		selfcontained: false
+	};
+}
+
+// 警告框
+function alertText(text) {
+	if (0 >= $("#alertModel").length) {
+		alertDiv = '\
+			<div class="modal fade" id="alertModel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">\
+				<div class="modal-dialog" role="document" style="top: 30%;position: absolute;width: 80;left: 10%;width: 80%;">\
+					<div class="modal-content"> \
+						<div class="modal-body" style="text-align: center;"> \
+							<span class="alertText" style="color:red;"></span> \
+						</div> \
+					</div> \
+				</div> \
+			</div> \
+		';
+		$("body").append(alertDiv);
+	}
+	$("#alertModel .alertText").html(text);
+	$("#alertModel").modal("show");
+	setTimeout(function(){$("#alertModel").modal("hide")}, 2000);
+}
+

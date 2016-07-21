@@ -23,9 +23,7 @@ function registerCart() {
 				alert(data.msg);
 			} else {
 				if (0 < data.data.alert.length) {
-					$("#alertModel .alertText").html(data.data.alert);
-					$("#alertModel").modal("show");
-					setTimeout(function(){$("#alertModel").modal("hide")}, 2000);
+					alertText(data.data.alert);
 				}
 				fillCart(data.data);
 				renderCart(data.data.tips);
@@ -67,6 +65,8 @@ function fillCart(data) {
 
 // --------- view -------------------
 function renderCart(tips) {
+	initDot();
+	
 	// 先刷总信息
 	renderCost();
 
@@ -75,19 +75,6 @@ function renderCart(tips) {
 
 	// 更新购物车
 	cartNow['tips']=tips;
-	doT.templateSettings = {
-		evaluate:	/\{\%([\s\S]+?)\%\}/g,
-		interpolate:/\{\%=([\s\S]+?)\%\}/g,
-		encode:		/\{\%!([\s\S]+?)\%\}/g,
-		use:		/\{\%#([\s\S]+?)\%\}/g,
-		define:		/\{\%##\s*([\w\.$]+)\s*(\:|=)([\s\S]+?)#\%\}/g,
-		conditional:/\{\%\?(\?)?\s*([\s\S]*?)\s*\%\}/g,
-		iterate:	/\{\%~\s*(?:\}\}|([\s\S]+?)\s*\:\s*([\w$]+)\s*(?:\:\s*([\w$]+))?\s*\%\})/g,
-		varname: 'it',
-		strip: true,
-		append: true,
-		selfcontained: false
-	};
 	var interText = doT.template($("#goods-list-tmpl").text());
 	$("#goods-list").html(interText(cartNow)); 
 

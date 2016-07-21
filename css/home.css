@@ -5,13 +5,16 @@
     background-color: #FFFFFF;
 }
 .appcolor {
-    color: #f1ba3e;
+    color: #ffd600;
 }
 .nocolor {
     color: white;
 }
+.telcolor {
+    color: #4f90b3;
+}
 .appground {
-    background-color: #f1ba3e;
+    background-color: #ffd600;
 }
 .appgoundborder {
     border-color: #f7f5f5;
@@ -19,7 +22,7 @@
     border-width: 0px;
 }
 .appborder {
-    border-color: #f1ba3e;
+    border-color: #ffd600;
     border-style: solid;
     border-width: 0px;
 }
@@ -174,4 +177,13 @@
     border-radius: 50%;
     display: none;
     background-color: red;
+}
+.feedback{
+    width: 100%;
+    padding: 1%;
+    height:118px;
+    border-color: #c3bdbd;
+    border-style: solid;
+    border-radius: 6px;
+    border-width: 1px;
 }

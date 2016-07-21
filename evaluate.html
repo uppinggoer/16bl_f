@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <title>订单评价</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta charset="utf-8">
+    
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    
+    <link rel="stylesheet" href="http://cdn.bootcss.com/font-awesome/3.0.2/css/font-awesome.css">
+
+    <link rel="stylesheet" href="/static/css/goods-wrap.css">
+    <link rel="stylesheet" href="/static/css/home.css">
+    <link rel="stylesheet" href="/static/css/cart.css"> 
+    
+    
+    <script src="http://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+    
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="http://cdn.bootcss.com/dot/1.0.3/doT.min.js"></script> 
+</head>
+<body class="background">
+    <div class="container-inner">
+        <div class="container-inner foreground">
+        <p style="font-size:13px;margin:13px 2px 20px;color:black;">
+            <span style="margin-right:3px;margin-left: 2%;"> 16 度,最暖心的温度</span>
+            <span>回归16度 暖暖的味道</span>
+        </p>
+<!--          icon-star
+ icon-star-empty -->
+        </div>
+        <div class="container-inner foreground" style="font-size:18px;padding:10px 0px;margin:10px 0px;">
+            <span id="star" value=0 style="margin-right:16px;margin-left: 2%;">整体评价</span>
+            <span class="icon-star-empty appcolor star" data=0></span>
+            <span class="icon-star-empty appcolor star" data=1></span>
+            <span class="icon-star-empty appcolor star" data=2></span>
+            <span class="icon-star-empty appcolor star" data=3></span>
+            <span class="icon-star-empty appcolor star" data=4></span>
+        </div>
+        <div class="container-inner foreground" style="text-align: center;padding: 10px 0px;">
+            <textarea class="background feedback" placeholder="这个小二儿怎么样？点评一下下~~" style="width: 96%;"></textarea>
+            <button style="border-width: 1px;width: 96%;border-radius: 4px;margin: 13px 0px 5px;padding: 6px;" class="appborder appground ">提交</button>
+        </div>
+    </div>
+</body>
+    <script type="text/javascript">
+        $(".star").click(function(event){
+            event.preventDefault();
+            // 还原
+            $(".star").removeClass("icon-star").addClass("icon-star-empty");
+
+            var self = event.target;
+            var stars = $(self).attr("data")
+            for (i=0;i<=stars;i++) {
+                $(".star[data=" + i + "]").removeClass("icon-star-empty").addClass("icon-star");
+            }
+
+            $("#star").attr("value", stars);
+        });
+    </script>
+</html>

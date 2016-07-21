@@ -22,8 +22,7 @@
 	<script src="http://cdn.bootcss.com/dot/1.0.3/doT.min.js"></script> 
 </head>
 <body class="background">
-	
-	<div id="order-list" class="goods-list cart-goodslist"> </div>
+	<div id="order-list"> </div>
 	<script id="order-list-tmpl" type="text/x-dot-template">
 		<!-- 收货人信息 未填写-->
 		<div class="container-outter foreground" style="{%? it["address"]["Id"] > 0%}display:none;{%?%}margin-top: 2px;">
@@ -132,29 +131,18 @@
 					</label>
 				</div>
 				<div class="container-outter appground" style="width: 110px;float: right;padding: 3%;">
-					<a style="color: white;font-size: 15px;" href="/static/cart4.html">结算</a>
+					<div class="payOrder" style="color: white;font-size: 15px;">结算</div>
 				</div>
 			</nav>
 		</div>
 	</script>
-
-	<div class="modal fade" id="alertModel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-		<div class="modal-dialog" role="document" style="top: 30%;position: absolute;width: 80;left: 10%;width: 80%;">
-			<div class="modal-content">
-				
-				<div class="modal-body" style="text-align: center;">
-					<span class="alertText" style="color:red;"></span>
-				</div>
-			</div>
-		</div>
-	</div>
 </body>
 	
 	<script src="/static/js/goods-wrap.js"></script>
 	<script src="/static/js/order.js"></script>
 	<script>var globalOrderContext = {};var globalCart={};</script>
 	<script type="text/javascript">
-		registerOrder();
+		registerPrepareOrder();
 	</script>
 </html>
 
