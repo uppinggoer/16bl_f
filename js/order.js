@@ -17,10 +17,12 @@ function registerPrepareOrder() {
 	$.ajax({
 		type: 'POST',
 		url: "/order/prepare",
+		url: "/test?file=text",
 		data: {"goods_list":JSON.stringify(cartDetail)},
 		success: function(data){
 			if (0 != data.code) {
 				alert(data.msg);
+				goShopList();
 			} else {
 				if (0 < data.data.alert.length) {
 					alertText(data.data.alert)
@@ -56,6 +58,7 @@ function payOrder() {
 		success: function(data){
 			if (0 != data.code) {
 				alert(data.msg);
+				goShopList();
 			} else {
 				if (0 < data.data.alert.length) {
 					alertText(data.data.alert)
@@ -66,12 +69,43 @@ function payOrder() {
 				// weixinPay();
 				alertText(data.data.orderInfo.order.OrderAmount)
 
+				location.href="/order/detail?order_sn=" + data.data.orderInfo.order.OrderSn;
 			}
 		},
 		dataType: "json"
 	});
 }
 
+// 向服务器提交订单 
+function cancelOrder(orderSn, cancelFlag) {
+	$.ajax({
+		type: 'POST',
+		url: "/order/cancel_rder",
+		data: {"order_sn":orderSn,"cancel_flag":cancelFlag},
+		success: function(data){
+			if (0 != data.code) {
+				alert(data.msg);
+			}
+			location.href="/order/detail?order_sn=" + orderSn;
+		},
+		dataType: "json"
+	});
+}
+// 向服务器提交订单 
+function evalOrder(orderSn, stars,feedback) {
+	$.ajax({
+		type: 'POST',
+		url: "/order/eval_order",
+		data: {"order_sn":orderSn,"stars":stars,"feedback":feedback},
+		success: function(data){
+			if (0 != data.code) {
+				alert(data.msg);
+			}
+			goShopList();
+		},
+		dataType: "json"
+	});
+}
 // 向服务器提交订单 
 function registerDoOrder() {
 	var cartInfo=getCartOri();
@@ -91,19 +125,20 @@ function registerDoOrder() {
 	$.ajax({
 		type: 'POST',
 		url: "/order/do_order",
+		url: "/test?file=text",
 		data: {"goods_list":JSON.stringify(cartDetail)},
 		success: function(data){
 			if (0 != data.code) {
 				alert(data.msg);
+				goShopList();
 			} else {
 				if (0 < data.data.alert.length) {
 					alertText(data.data.alert)
 				}
-				
+
 				orderFillContext(data.data);
 				orderVerifyCart(data.data);
-				renderOrderList(data.data);
-				
+				renderOrderInfo(data.data);
 			}
 		},
 		dataType: "json"
@@ -135,8 +170,8 @@ function orderFillContext(data) {
 	if (0 < goodsList.length) {
 		for (var key in goodsList) {
 			// 加入 globalOrderContext
-			var goodsId = goodsList[key].GoodsId;
-			globalOrderContext[goodsId] = goodsList[key];
+			// var goodsId = goodsList[key].GoodsId;
+			// globalOrderContext[goodsId] = goodsList[key];
 		}
 	}
 }
@@ -207,9 +242,88 @@ function orderClearCart(data) {
 function renderPrepareOrder(orderData) {
 	// 更新购物车
 	initDot();
+	// 初始化 addressList
+	addressList = orderData.orderList
+
 	var interText = doT.template($("#order-list-tmpl").text());
 	$("#order-list").html(interText(orderData)); 
+	
+	var interTextAddress = doT.template($("#order-address-info-tmpl").text());
+	var interAddressList = doT.template($("#address-list-tmp").text());
+	var interModifyAddress = doT.template($("#address-modify-tmp").text());
+	renderAddressInfo(interTextAddress, interAddressList, interModifyAddress, orderData.address);
+
 	$(".payOrder").click(payOrder);
+}
+function renderAddressInfo(interTextAddress, interAddressList, interModifyAddress, addressData) {
+	$("#order-address-info").html(interTextAddress(addressData)); 
+
+	$(".change-address").click(function(event){
+		event.preventDefault();
+
+		$("#address-list").html(interAddressList(addressList));
+		$("#address-list-parent-dialog").show();
+
+		$(".list-dialog-hide").click(function(event){
+			$("#address-list-parent-dialog").hide();
+		});
+
+		$("#address-list .address-info").click(function(event){
+			event.preventDefault();
+
+			$("#address-list .check").removeClass("appground");
+
+			var self=this;
+			$(self).find(".check").addClass("appground");
+
+			var addressId = $(self).attr("app-id");
+			addressList.forEach(function(e){  
+				if (e.Id == addressId) {
+					e.IsDefault = 1;
+					// 重新刷新选中的地址
+					renderAddressInfo(interTextAddress, interAddressList, e); 
+				} else {
+					e.IsDefault = 0;
+				}
+			});
+		});
+
+		$("#address-list .modify").click(function(event){
+			event.preventDefault();
+			event.stopPropagation();
+
+			var self=this;
+			var addressId = $(self).parent().attr("app-id");
+			var addressData = {};
+			addressList.forEach(function(e){  
+				if (e.Id == addressId) {
+					addressData = e;
+				}
+			});
+
+			addressData['Type'] = "修改收货地址";
+			addressData['Del'] = true;
+
+			$("#address-modify-dialog").html(interModifyAddress(addressData)); 
+			$init(event);
+		});
+	});
+
+	$init = function(event){
+		$("#address-modify-parent-dialog").show();
+		$("#address-modify-parent-dialog .dialog-hide").click(function(){
+			$("#address-modify-parent-dialog").hide();
+		});
+		$("#address-modify-parent-dialog .mask-main").click(function(event){
+			event.preventDefault();
+			event.stopPropagation();
+		});
+
+		// 提交修改
+		$(".save-address").click(function(event){
+			console.log("XX");
+		});
+	}
 }
 function renderOrderInfo(orderData) {
 	initDot();

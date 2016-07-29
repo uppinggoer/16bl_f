@@ -65,10 +65,8 @@
 							共{%= it.list[orderIdx]["orderInfo"]["goodsList"].length %}件商品 ￥{%= it.list[orderIdx]["orderInfo"]["order"].OrderAmount %}
 						</label>
 						<label class="appground" style="float: right;padding: 3px 8px;margin: 5px 0px;font-weight: 300;border-radius: 7px;font-size: 12px;">
-							{%? it.list[orderIdx]["orderInfo"]["order"]["CancelFlag"] == 1 %}
+							{%? it.list[orderIdx]["orderInfo"]["order"]["CancelFlag"] < 0 %}
 								<a style="color: black;border-bottom: 1px solid black;" href="/shop/list">再逛逛</a>
-							{%?? it.list[orderIdx]["orderInfo"]["order"]["CancelFlag"] == 2 %}
-								<a style="color: black;border-bottom: 1px solid black;" href="/static/feedback.html">去投诉</a>
 							{%?? it.list[orderIdx]["orderInfo"]["order"]["OrderState"] < 10 %}
 								<a style="color: black;border-bottom: 1px solid black;" href="/static/orderInfo.html">去支付</a>
 							{%?? it.list[orderIdx]["orderInfo"]["order"]["OrderState"] < 40 %}

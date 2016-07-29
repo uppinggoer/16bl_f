@@ -4,3 +4,9 @@
 	border-bottom: 1px #868484 solid;
 	border-radius: 0px;
 }
+.mask-main .cancel-item {
+    height: 39px;
+    border-bottom: 1px solid #eee;
+    line-height: 39px;
+    background: white;
+}
