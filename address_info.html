@@ -1,0 +1,209 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	
+	<title>送货地址</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+	<meta charset="utf-8">
+	
+	<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	
+	<link rel="stylesheet" href="http://cdn.bootcss.com/font-awesome/3.0.2/css/font-awesome.css">
+
+	<link rel="stylesheet" href="/static/css/goods-wrap.css">
+	<link rel="stylesheet" href="/static/css/home.css">
+	<link rel="stylesheet" href="/static/css/order.css"> 
+	
+	
+	<script src="http://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+	
+	<script src="http://cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	<script src="http://cdn.bootcss.com/dot/1.0.3/doT.min.js"></script> 
+</head>
+
+<body class="background">
+	
+
+	<div id="address-list">
+		
+			<div class="container-outter foreground" id="1" style="margin-top: 2px;">
+				<div class="inner" style="padding-top: 0px;">
+					<div class="address-info" style="text-align: left;margin-left: 8px;">
+						<div style="width: 6%;text-align: center;display: inline-block;margin: 6% 2% 0% 0%;vertical-align: top;">
+							<div class="check">
+								<i class="icon-ok"></i>
+							</div>
+						</div>
+						<div class="modify" style="width: 6%;display: inline-block;margin:6% 0% 8% 2%;float: right;">
+							<i class="icon-edit"></i>
+						</div>
+						<div style="width: 81%;display: inline-block;float: right;">
+							<div class="container-inner" style="text-align: left;padding: 6px 0px;">
+								<label style="width: 18%;margin-bottom: 0px;">
+									R
+								</label>
+								<label style="width: 68%;margin-bottom: 0px;">
+									1234
+								</label>
+							</div>
+							<div class="container-inner" style="text-align: left;padding: 6px 0px;">
+								<label style="width: 18%;margin-bottom: 0px;">
+									X
+								</label>
+								<label style="width: 68%;margin-bottom: 0px;">
+									X
+								</label>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		
+			<div class="container-outter foreground" id="2" style="margin-top: 2px;">
+				<div class="inner" style="padding-top: 0px;">
+					<div class="address-info" style="text-align: left;margin-left: 8px;">
+						<div style="width: 6%;text-align: center;display: inline-block;margin: 6% 2% 0% 0%;vertical-align: top;">
+							<div class="check">
+								<i class="icon-ok"></i>
+							</div>
+						</div>
+						<div class="modify" style="width: 6%;display: inline-block;margin:6% 0% 8% 2%;float: right;">
+							<i class="icon-edit"></i>
+						</div>
+						<div style="width: 81%;display: inline-block;float: right;">
+							<div class="container-inner" style="text-align: left;padding: 6px 0px;">
+								<label style="width: 18%;margin-bottom: 0px;">
+									杨宏志
+								</label>
+								<label style="width: 68%;margin-bottom: 0px;">
+									18511280986
+								</label>
+							</div>
+							<div class="container-inner" style="text-align: left;padding: 6px 0px;">
+								<label style="width: 18%;margin-bottom: 0px;">
+									西工大
+								</label>
+								<label style="width: 68%;margin-bottom: 0px;">
+									星F 632
+								</label>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		
+			<div class="container-outter foreground" id="3" style="margin-top: 2px;">
+				<div class="inner" style="padding-top: 0px;">
+					<div class="address-info" style="text-align: left;margin-left: 8px;">
+						<div style="width: 6%;text-align: center;display: inline-block;margin: 6% 2% 0% 0%;vertical-align: top;">
+							<div class="check">
+								<i class="icon-ok"></i>
+							</div>
+						</div>
+						<div class="modify" style="width: 6%;display: inline-block;margin:6% 0% 8% 2%;float: right;">
+							<i class="icon-edit"></i>
+						</div>
+						<div style="width: 81%;display: inline-block;float: right;">
+							<div class="container-inner" style="text-align: left;padding: 6px 0px;">
+								<label style="width: 18%;margin-bottom: 0px;">
+									宋佳磊
+								</label>
+								<label style="width: 68%;margin-bottom: 0px;">
+									18511280986
+								</label>
+							</div>
+							<div class="container-inner" style="text-align: left;padding: 6px 0px;">
+								<label style="width: 18%;margin-bottom: 0px;">
+									东大街
+								</label>
+								<label style="width: 68%;margin-bottom: 0px;">
+									三街2号
+								</label>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="container-outter foreground" style="margin-top: 18px;">
+			<div class="appcolor check" style="display: inline-block;line-height: 36px;font-size: 23px;vertical-align: middle;margin-right: 6px;">
+				<i class="icon-plus-sign"></i>
+			</div>
+			<div style="display: inline-block;line-height: 36px;vertical-align: middle;">
+				<span>添加一个收货地址</span>
+			</div>
+		</div>
+		<div class="container-outter foreground" style="margin-top: 18px;">
+			<div class="appcolor check" style="display: inline-block;">
+				<i class="icon-plus-sign"></i>
+			</div>
+			<div style="display: inline-block;">
+				<span>添加一个收货地址</span>
+			</div>
+		</div>
+ 	</div>
+
+	<div id="address-modify-dialog" style="display:none;">
+		<div class="mask-up">
+			<div class="mask-main" style="text-align: left;">
+				<div class="container-inner">
+				</div>
+			</div>
+		</div>
+	</div>
+	<script id="address-modify-tmp" type="text/x-dot-template">
+		<!-- 收货人信息 未填写-->
+		<div class="container-outter foreground">
+			<div class="inner" style="border-top: 3px #decf5b double;border-bottom: 3px #decf5b double;padding-top: 0px;">
+				<div class="address-info" style="padding: 0px 8px;border-top: 3px #decf5b dashed;border-bottom: 3px #decf5b dashed;">
+					<div class="container-inner" style="text-align: left;padding-bottom: 6px;">
+						<label style="width: 18%;margin-bottom: 0px;">
+							收货人
+						</label>
+						<input type="text" name="true_name" placeholder="{%= it["TrueName"] %}"/>
+					</div>
+					<div class="container-inner" style="text-align: left;padding-bottom: 6px;">
+						<label style="width: 18%;margin-bottom: 0px;">
+							手机号
+						</label>
+						<input type="tel" name="mobile" placeholder="请填写您的收货电话" value="{%=it["Mobile"]%}"/>
+					</div>
+					<div class="container-inner" style="text-align: left;padding-bottom: 6px;">
+						<label style="width: 18%;margin-bottom: 0px;">
+							位置
+						</label>
+						<input name="live_area" placeholder="{%= it["LiveArea"] %}">
+					</div>
+					<div class="container-inner" style="text-align: left;padding-bottom: 6px;">
+						<label style="width: 18%;margin-bottom: 0px;">
+							地址
+						</label>
+						<input name="address" placeholder="{%= it["Address"] %}">
+					</div>
+				</div>
+			</div>
+		</div>
+	</script>
+	
+
+</body>
+	
+	<script src="/static/js/goods-wrap.js"></script>
+	<script src="/static/js/order.js?v=3"></script>
+	<script>var globalOrderContext = {};var globalCart={};</script>
+	<script type="text/javascript">
+		$(".address-info").click(function(event){
+			$(".address-info .check").removeClass("appground");
+
+			var self=this;
+			$(self).find(".check").addClass("appground");
+		});
+		$(".modify").click(function(event){
+			
+		});
+	</script>
+
+</html>
+
+
+

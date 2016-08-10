@@ -49,6 +49,7 @@
     border: 1px solid #a29d9d;
     border-radius: 50%;
     color: red;
+    background-color: white;
 }
 .cart-count-flag .item-cart{
     position: absolute;

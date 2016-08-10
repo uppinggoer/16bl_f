@@ -32,7 +32,7 @@
                     <label style="width: 18%;margin-bottom: 0px;">
                         手机号
                     </label>
-                    <input type="tel" name="mob_phone" style="padding: 5px 0px 0px;border: none;border-bottom: 1px #868484 solid;border-radius: 0px;" placeholder="请填写您的收货电话" >
+                    <input type="tel" name="mobile" style="padding: 5px 0px 0px;border: none;border-bottom: 1px #868484 solid;border-radius: 0px;" placeholder="请填写您的收货电话" >
                 </div>
                 <div style="width: 100%;display: inline-block;text-align: left;padding-bottom: 6px;">
                     <label style="width: 18%;margin-bottom: 0px;">
@@ -44,7 +44,7 @@
                     <label style="width: 18%;margin-bottom: 0px;">
                         地址
                     </label>
-                    <input name="building_info" placeholder="星F" style="padding: 5px 0px 0px;border: none;border-bottom: 1px #868484 solid;border-radius: 0px;">
+                    <input name="address" placeholder="星F" style="padding: 5px 0px 0px;border: none;border-bottom: 1px #868484 solid;border-radius: 0px;">
                 </div>
             </div>
         </div>
@@ -152,5 +152,21 @@
         $("#foot-menu").find("#cart").addClass("active");
         $(".clear-cart").click(cleanCart);
         registerCart();
+    </script>
+        
+
+    <script type='text/javascript'>
+        (function(m, ei, q, i, a, j, s) {
+            m[a] = m[a] || function() {
+                (m[a].a = m[a].a || []).push(arguments)
+            };
+            j = ei.createElement(q),
+                s = ei.getElementsByTagName(q)[0];
+            j.async = true;
+            j.charset = 'UTF-8';
+            j.src = i + '?v=' + new Date().getUTCDate();
+            s.parentNode.insertBefore(j, s);
+        })(window, document, 'script', '//static.meiqia.com/dist/meiqia.js', '_MEIQIA');
+        _MEIQIA('entId', 25361);
     </script>
 </html>

@@ -46,6 +46,10 @@ function editCart(e) {
 	}
 };
 
+// 跳转到商品分类页
+function goShopList(){
+	location.replace("/shop/list");
+}
 // --------- view --------
 // 显示商品数量
 function renderGoodsCnt(goodsId) {
@@ -83,6 +87,9 @@ function renderCost() {
 		globalCart['cost'] = 0;
 	}
 	$(".cart-info #cart-cost").html("￥"+globalCart['cost']);
+}
+// 地址列表
+function getAddress() {
 }
 
 // 初始化购物车
@@ -181,7 +188,7 @@ function verifyCart(cartDetail) {
 	// 强校验并修正
 	cartDetail['list'] = list;
 	cartDetail['map']  = map;
-	cartDetail['cost'] = cost.toFixed(2);
+	cartDetail['cost'] = cost;
 	cartDetail['sub']  = 0;
 	cartDetail['num']  = num;
 
@@ -206,7 +213,7 @@ function initDot() {
 }
 
 // 警告框
-function alertText(text) {
+function alertText(text, timeout) {
 	if (0 >= $("#alertModel").length) {
 		alertDiv = '\
 			<div class="modal fade" id="alertModel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">\
@@ -223,6 +230,15 @@ function alertText(text) {
 	}
 	$("#alertModel .alertText").html(text);
 	$("#alertModel").modal("show");
-	setTimeout(function(){$("#alertModel").modal("hide")}, 2000);
+	if (timeout > 0) {
+		setTimeout(function(){$("#alertModel").modal("hide")}, timeout);
+	}
 }
 
+
+// ------------- view -----------
+function renderAddress(orderData) {
+	initDot();
+	var interText = doT.template($("#address-modify-tmp").text());
+	$("#address-modify-dialog").html(interText(orderData)); 
+}

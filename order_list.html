@@ -32,7 +32,7 @@
 			<div class="inner">
 				<div class="oreder-info" style="text-align: left;padding: 6px 0px;">
 					<div class="container-inner appgoundborder" style="border-bottom-width: 2px;padding: 0px 8px;">
-						<label style="float: left;color: black;font-weight: 300;">{%= it.list[orderIdx]["orderInfo"]["order"]["OrderTime"]%}</label>
+						<label style="float: left;color: black;font-weight: 300;">{%= it.list[orderIdx]["orderInfo"]["order"]["AddTime"]%}</label>
 						<label class="appcolor" style="float: right;font-weight: 100;">
 							{%? it.list[orderIdx]["orderInfo"]["order"]["CancelFlag"] == 1 %}
 								订单取消
@@ -65,18 +65,16 @@
 							共{%= it.list[orderIdx]["orderInfo"]["goodsList"].length %}件商品 ￥{%= it.list[orderIdx]["orderInfo"]["order"].OrderAmount %}
 						</label>
 						<label class="appground" style="float: right;padding: 3px 8px;margin: 5px 0px;font-weight: 300;border-radius: 7px;font-size: 12px;">
-							{%? it.list[orderIdx]["orderInfo"]["order"]["CancelFlag"] == 1 %}
+							{%? it.list[orderIdx]["orderInfo"]["order"]["CancelFlag"] < 0 %}
 								<a style="color: black;border-bottom: 1px solid black;" href="/shop/list">再逛逛</a>
-							{%?? it.list[orderIdx]["orderInfo"]["order"]["CancelFlag"] == 2 %}
-								<a style="color: black;border-bottom: 1px solid black;" href="/static/feedback.html">去投诉</a>
 							{%?? it.list[orderIdx]["orderInfo"]["order"]["OrderState"] < 10 %}
-								<a style="color: black;border-bottom: 1px solid black;" href="/static/orderInfo.html">去支付</a>
+								<a style="color: black;border-bottom: 1px solid black;" href="/order/detail?order_sn={%= it.list[orderIdx]["orderInfo"]["order"]["OrderSn"]%}">去支付</a>
 							{%?? it.list[orderIdx]["orderInfo"]["order"]["OrderState"] < 40 %}
-								<a style="color: black;border-bottom: 1px solid black;" href="/static/orderInfo.html">待配送</a>
+								<a style="color: black;border-bottom: 1px solid black;" href="/order/detail?order_sn={%= it.list[orderIdx]["orderInfo"]["order"]["OrderSn"]%}">待配送</a>
 							{%?? it.list[orderIdx]["orderInfo"]["order"]["OrderState"] < 50 %}
 								<a style="color: black;border-bottom: 1px solid black;" href="/shop/list">去评价</a>
 							{%?? it.list[orderIdx]["orderInfo"]["order"]["OrderState"] >= 50 %}
-								<a style="color: black;border-bottom: 1px solid black;" href="/static/orderInfo.html">已评价</a>
+								<a style="color: black;border-bottom: 1px solid black;" href="/order/detail?order_sn={%= it.list[orderIdx]["orderInfo"]["order"]["OrderSn"]%}">已评价</a>
 							{%?%}
 						</label>
 					</div>

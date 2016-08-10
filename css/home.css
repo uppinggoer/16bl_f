@@ -13,6 +13,15 @@
 .telcolor {
     color: #4f90b3;
 }
+.address-info .check {
+    display: inline-block;
+    margin-left: 2%;
+    border-radius: 50%; 
+    margin-bottom: 10px;
+    padding: 0px 2px;
+    color: white;
+    border: 1px double #e0d9d9;
+}
 .appground {
     background-color: #ffd600;
 }
@@ -177,6 +186,38 @@
     border-radius: 50%;
     display: none;
     background-color: red;
+}
+.mask {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #000;
+    opacity: .3;
+    -webkit-transition: opacity .3s;
+    filter: alpha(opacity=30);
+    z-index: 10000;
+}
+.mask-up {
+    margin-top: -110px;
+    position: absolute;
+    width: 100%;
+    overflow: visible;
+    z-index: 11000;
+    bottom: 0;
+    top: 0;
+    height: auto;
+}
+.mask-main {
+    position: absolute;
+    width: auto;
+    max-width: none;
+    bottom: 8px;
+    left: 8px;
+    right: 8px;
+    font-size: 15px;
+    text-align: center;
 }
 .feedback{
     width: 100%;
