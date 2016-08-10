@@ -124,6 +124,7 @@ function registerDoOrder() {
 	$.ajax({
 		type: 'POST',
 		url: "/order/do_order",
+		url: "/test?file=text",
 		data: {"goods_list":JSON.stringify(cartDetail)},
 		success: function(data){
 			if (0 != data.code) {
